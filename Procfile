@@ -1,1 +1,1 @@
-web: gunicorn e_volve_retail.wsgi:application
+web: gunicorn django_deployment.wsgi:application
