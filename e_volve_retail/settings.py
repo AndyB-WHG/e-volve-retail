@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth',			            # allauth app itself
     'allauth.account',		        # login, logout, register, password resets app
     'allauth.socialaccount',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,10 @@ ROOT_URLCONF = 'e_volve_retail.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
