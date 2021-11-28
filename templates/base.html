@@ -16,9 +16,12 @@
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/eb9cd652a4.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
+    
     {% endblock %}
 
     {% block corejs %}
@@ -38,8 +41,8 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">e-volve</a>
-        <div>
+        <a class="navbar-brand ml-auto" href="#">e-volve</a>
+        <div class="ml-auto">
           <i class="fas fa-search d-lg-none"></i>
           <i class="fas fa-shopping-bag d-lg-none"></i>
         </div>
@@ -73,17 +76,19 @@
         </div>
           
       
-      </nav>
-
-
-
-      
+      </nav>    
 
     </header>
 
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
+
+    <div class="test-class">
+      <h2 class="test-class-2">
+          Test Section
+      </h2>
+    </div>
     
     {% block page_header %}
     {% endblock %}
