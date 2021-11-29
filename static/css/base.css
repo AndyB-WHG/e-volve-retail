@@ -34,12 +34,12 @@ body {
     display:inline-block;
     width: 50%;
     position:relative;
-    right: 9rem;
+    right: 2rem;
 }
 
 .central_nav_link {
     text-decoration: none;
-    color:rgb(81, 83, 83);
+    color:rgb(55, 56, 56);
     transition: 0.4s;
     cursor: pointer;
     font-style: normal;
@@ -49,13 +49,33 @@ body {
 }
 
 .central_nav_link:hover {
-    color:#010608;
+    /* color:#010608; */
+    color: rgb(132, 135, 138);
   
+}
+
+.nav-link-mobile {
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+    transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 18px;
+    padding-left: 13px;
 }
 
 .site-logo {
     color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
     font-size: 2rem; 
+}
+
+.mobile-logo {
+    color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
+    font-size: 1.5rem; 
+    display:inline-block;
+    
+    position:relative;
+    left: 1rem;
 }
 
 .test-class {
