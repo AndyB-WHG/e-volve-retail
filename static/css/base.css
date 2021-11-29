@@ -22,6 +22,42 @@ body {
 
 }
 
+.container-fluid {
+    padding: 0;
+}
+
+.bg-light {
+    background-color:white!important;
+}
+
+.nav-central-links {
+    display:inline-block;
+    width: 50%;
+    position:relative;
+    right: 9rem;
+}
+
+.central_nav_link {
+    text-decoration: none;
+    color:rgb(81, 83, 83);
+    transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.central_nav_link:hover {
+    color:#010608;
+  
+}
+
+.site-logo {
+    color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
+    font-size: 2rem; 
+}
+
 .test-class {
     padding-top: 300px;
     color: chocolate;
