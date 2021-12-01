@@ -109,7 +109,7 @@ body {
 
 #carousel-caption-1 {
     position: absolute;
-    bottom: 470px;
+    bottom: 450px;
     text-align: center;
 }
 
@@ -123,5 +123,10 @@ body {
     position: absolute;
     bottom: 470px;
     text-align: center;
-    /* color: black; */
+}
+
+#carousel-caption-1 h6 {
+    /* font-size: px; */
+    width: 600px;
+    text-align: center;
 }
