@@ -107,6 +107,8 @@ body {
     height: 100%;
 }
 
+/* Home screen text placement on small / mobile phone screen size */
+
 #carousel-caption-1 {
     position: absolute;
     bottom: 450px;
@@ -126,7 +128,60 @@ body {
 }
 
 #carousel-caption-1 h6 {
-    /* font-size: px; */
     width: 600px;
     text-align: center;
 }
+
+/* Home screen text placement on tablet screen size */
+
+@media screen and (min-device-width : 700px) {
+#carousel-caption-1 {
+    position: absolute;
+    bottom: 800px;
+    text-align: center;
+}
+
+#carousel-caption-2 {
+    position: absolute;
+    bottom: 830px;
+    text-align: center;
+}
+
+#carousel-caption-3 {
+    position: absolute;
+    bottom: 800px;
+    text-align: center;
+}
+
+.carousel-caption h1, h2, h3 {
+    font-size: 50px;
+}
+}
+
+/* Home screen text placement on large / desktop screen size */
+
+@media screen and (min-device-width : 992px) {
+    #carousel-caption-1 {
+        position: absolute;
+        bottom: 650px;
+        text-align: center;
+        color: #33373a;
+    }
+    
+    #carousel-caption-2 {
+        position: absolute;
+        bottom: 350px;
+        text-align: center;
+    }
+    
+    #carousel-caption-3 {
+        position: absolute;
+        bottom: 350px;
+        text-align: center;
+    }
+    
+    .carousel-caption h1, h2, h3 {
+        font-size: 50px;
+        color: #33373a;
+    }
+    }
