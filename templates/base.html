@@ -63,7 +63,7 @@
                     {% if request.user.is_superuser %}
                         <a href="{% url 'account_logout' %}" class="dropdown-item text-left pl-0">Product Management</a>
                     {% endif %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                    <a href="" class="dropdown-item">My Profile</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -101,7 +101,19 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
+              <a class="nav-link d-lg-none" href="#">Fashion<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link d-lg-none" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link d-lg-none" href="#">Beauty<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link d-lg-none" href="#">Cleaning<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link d-lg-none" href="#">All Products<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-lg-none" href="#">My Account<span class="sr-only">(current)</span></a>
@@ -113,27 +125,50 @@
               <a class="nav-link d-lg-none disabled" href="#" tabindex="-1" aria-disabled="true">Shopping Bag</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 d-lg-none" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0 d-lg-none" type="submit">Search</button>
-          </form>
         </div>
 
         <!-- Category Links (Large Screens) -->
 
         <div class="d-none d-lg-inline-block nav-central-links">
-          <i class="d-lg-inline-block central_nav_link">Fashion</i>
-          <i class="d-lg-inline-block central_nav_link">Home</i>
-          <i class="d-lg-inline-block central_nav_link">Beauty</i>
-          <i class="d-lg-inline-block central_nav_link">All</i>
+          <ul class="">
+            <li class="dropdown nav-item">
+              <i id="home-products-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">Fashion</i>
+              <div class="dropdown-menu border-0" aria-labelledby="fashion-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By Name</a>
+              </div>
+            </li>
+            <li class="dropdown nav-item">
+              <i id="home-products-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">Home</i>
+              <div class="dropdown-menu border-0" aria-labelledby="home-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By Name</a>
+              </div>
+            </li>
+            <li class="dropdown nav-item">
+              <i id="beauty-products-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">Beauty</i>
+              <div class="dropdown-menu border-0" aria-labelledby="beauty-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By Name</a>
+              </div>
+            </li>
+            <li class="dropdown nav-item">
+              <i id="all-products-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">All</i>
+              <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By Category</a>
+                <a href="" class="dropdown-item">By Name</a>
+              </div>
+            </li>
+          </ul>
         </div>
           
         <!-- Search / User / Shopping Bag Links (Large Screens) -->
 
         <div>
-          <li class="list-inline-item">
-            <a href="#" id="desktop-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-search d-none d-lg-inline-flex central_nav_link"></i>
+          <li class="list-inline-item d-none d-lg-inline-flex">
+            <a href="#" id="desktop-search" class="central-nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-search d-none d-lg-inline-flex"></i>
             </a>
             <div id="desktop-search-bar" class="dropdown-menu border-0 p-3 rounded-0 my-0 right" aria-labelledby="desktop-search">
                 <form class="form" method="GET" action="">
@@ -154,7 +189,7 @@
           <li id="desktop-user-link" class="list-inline-item dropdown">
             <a href="#" id="user-options-desktop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div>
-                <i class="fas fa-user d-none d-lg-inline-flex central_nav_link"></i>
+                <i class="fas fa-user d-none d-lg-inline-flex central-nav-link"></i>
               </div>
             </a>
             <div class="dropdown-menu border-0 text-left" aria-labelledby="user-options-desktop">
@@ -171,7 +206,7 @@
             </div>
           </li>
 
-          <i class="fas fa-shopping-bag d-none d-lg-inline-flex central_nav_link"></i>
+          <i class="fas fa-shopping-bag d-none d-lg-inline-flex central-nav-link"></i>
         </div>
           
       

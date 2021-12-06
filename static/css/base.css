@@ -37,10 +37,11 @@ body {
     display:inline-block;
     width: 50%;
     position:relative;
-    right: 2rem;
+    left: 1rem;
 }
 
-.central_nav_link {
+.central-nav-link {
+    display:inline-block;
     text-decoration: none;
     color:rgb(55, 56, 56);
     transition: 0.4s;
@@ -51,10 +52,18 @@ body {
     padding-right: 20px;
 }
 
-.central_nav_link:hover {
+.central-nav-link:hover {
     /* color:#010608; */
     color: rgb(132, 135, 138);
-  
+    text-decoration: none;
+}
+
+.nav-central-links ul {
+    list-style-type: none;
+}
+
+.nav-central-links ul li {
+    float: left;
 }
 
 .nav-link-mobile {
