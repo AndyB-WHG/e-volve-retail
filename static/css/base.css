@@ -67,6 +67,10 @@ body {
     padding-left: 13px;
 }
 
+.shopping-bag-mobile {
+    padding-bottom: 3px;
+}
+
 .site-logo {
     color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
     font-size: 2rem; 
