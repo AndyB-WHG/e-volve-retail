@@ -21,8 +21,8 @@ body, html {
 }
 
 body {
-    color: blueviolet;
-    background: chartreuse;
+    /* color: blueviolet;
+    background: chartreuse; */
 }
 
 .container-fluid {
@@ -71,6 +71,20 @@ body {
     padding-bottom: 3px;
 }
 
+#user-account-dropdown {
+    /* padding-left: 4rem; */
+    text-align: left;
+}
+
+#mobile-user-account-link .dropdown-item {
+    position: relative;
+    /* right: 58px; */
+    border-left: 10px;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
 .site-logo {
     color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
     font-size: 2rem; 
@@ -82,6 +96,16 @@ body {
     display:inline-block;
     position:relative;
     left: 0.8rem;
+}
+
+body header nav div #desktop-search-bar {
+    left: 65%;
+    width: 35%;
+}
+
+#desktop-search .central_nav_link {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .test-class {
