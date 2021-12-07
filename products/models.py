@@ -3,6 +3,10 @@ from django.db import models
 
 class Category(models.Model):
     """ Model to define Product Categories """
+    class Meta:
+        verbose_name_plural = 'Categories'
+        # Changes the 'Admin' section name from Categorys to Categories
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     # Note: null and blank = True make the friendly name optional
