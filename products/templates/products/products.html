@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+<!-- Home Page Carousel - 3 x scrolling pictures -->
+
+{% block content %}
+    <div>
+        <div class="container-fluid">
+
+            <!-- Page Title Row -->
+            <div class="row">
+                <div class="col text-center mt-3">
+                    <hr class="mt-5 mb-5">
+                    <h4>Products</h4>
+                    <hr class="w-50 mx-auto mb-1">
+                </div>
+            </div>
+
+            <!-- Products display row -->
+            <div class="row">
+                <div class="product-container col-10 offset-1">
+                    <div class="row mt-1 mb-2"></div>
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card h-100 border-0">
+                                    {% if product.image %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url}}" alt="{{ product.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}ali-pazani-Wr9YY-tZVwc-unsplash.jpg" alt="{{ product.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <div class="card-body pb-0">
+                                        <p class="mb-0">{{ product.name }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

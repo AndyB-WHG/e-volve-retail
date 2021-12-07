@@ -144,6 +144,21 @@ body header nav div #desktop-search-bar {
     height: 100%;
 }
 
+div #all-products {
+    padding-top: 300px;
+    color: red;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
 /* Home screen text placement on small / mobile phone screen size */
 
 #carousel-caption-1 {
@@ -227,6 +242,9 @@ body header nav div #desktop-search-bar {
     border-color:#FFFFFF;
 } */
  
+
+
+
 /* Home screen text placement on tablet screen size */
 
 @media screen and (min-device-width : 700px) {
