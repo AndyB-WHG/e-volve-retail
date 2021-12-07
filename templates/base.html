@@ -46,8 +46,8 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand ml-auto site-logo d-inline-block d-lg-none mobile-logo" href="#">e-volve</a>  <!-- Mobile version -->
-        <a class="navbar-brand ml-auto site-logo d-none d-lg-inline-block" href="#">e-volve</a>  <!-- Desktop version -->
+        <a class="navbar-brand ml-auto site-logo d-inline-block d-lg-none mobile-logo" href="{% url 'home' %}">e-volve</a>  <!-- Mobile version -->
+        <a class="navbar-brand ml-auto site-logo d-none d-lg-inline-block" href="{% url 'home' %}">e-volve</a>  <!-- Desktop version -->
 
         <!-- Mobile / Tablet 'user account' link  -->
 
@@ -96,7 +96,7 @@
 
         </div>
         
-        <!-- Mobile dropdown toggler links -->
+        <!-- Mobile burger dropdown links -->
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -186,6 +186,8 @@
             </div>
           </li>
 
+          <!-- User Account Dropdown -->
+
           <li id="desktop-user-link" class="list-inline-item dropdown">
             <a href="#" id="user-options-desktop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div>
@@ -205,6 +207,8 @@
                 {% endif %}
             </div>
           </li>
+
+          <!-- Shopping Bag button -->
 
           <i class="fas fa-shopping-bag d-none d-lg-inline-flex central-nav-link"></i>
         </div>
