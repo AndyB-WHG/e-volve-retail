@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Product Category Nav Bar -->
+
+{% block page_header %}
+    <div class="container-fluid header-container black-background">
+        <div class="row">
+            <div class="fashion col-2 col-md-1 d-lg-none offset-1 offset-md-4">Fashion</div>
+            <div class="col-2 col-md-1 d-lg-none">Home</div>
+            <div class="col-4 col-md-2 d-lg-none">Health & Beauty</div>
+            <div class="col-2 col-md-1 d-lg-none">All</div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+    <div>
+        <div class="container-fluid mt-5 pt-3">
+
+            <!-- Image Placement -->
+            <div class="row">
+                <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-0 offset-lg-2">
+                    {% if product.image %}
+                        <a href="">
+                            <img class="card-img-top img-fluid pt-2 pl-3" src="{{ product.image.url}}" alt="{{ product.name }}">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}ali-pazani-Wr9YY-tZVwc-unsplash.jpg" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                        <div class="d-md-none card-body pb-0">
+                            <p class="mb-0">{{ product.name }}</p>
+                        </div>
+                        <div class="d-md-none col">
+                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                        </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body pb-0">
+                        <p class="mb-0">{{ product.name }}</p>
+                        <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                        <hr class="my-5">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
