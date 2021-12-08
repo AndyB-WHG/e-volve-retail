@@ -113,7 +113,7 @@
               <a class="nav-link d-lg-none" href="#">Cleaning<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link d-lg-none" href="#">All Products<span class="sr-only">(current)</span></a>
+              <a class="nav-link d-lg-none" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-lg-none" href="#">My Account<span class="sr-only">(current)</span></a>
@@ -153,12 +153,14 @@
               </div>
             </li>
             <li class="dropdown nav-item">
-              <i id="all-products-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">All</i>
-              <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+              <a href="{% url 'products' %}">
+                <i id="all-products-link" href="#" data-toggle="" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">All</i>
+              </a>
+              <!-- <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
                 <a href="" class="dropdown-item">By Price</a>
                 <a href="" class="dropdown-item">By Category</a>
                 <a href="" class="dropdown-item">By Name</a>
-              </div>
+              </div> -->
             </li>
           </ul>
         </div>
