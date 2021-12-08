@@ -22,7 +22,7 @@
 
             <!-- Image Placement -->
             <div class="row">
-                <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-0 offset-lg-2">
+                <div class="col-10 col-md-6 col-lg-4 col-xl-3 offset-1 offset-md-0 offset-lg-2">
                     {% if product.image %}
                         <a href="">
                             <img class="card-img-top img-fluid pt-2 pl-3" src="{{ product.image.url}}" alt="{{ product.name }}">
@@ -39,7 +39,7 @@
                             <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                         </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-1 d-none col-md-5 col-lg-4 d-md-block">
                     <div class="card-body pb-0">
                         <p class="mb-0">{{ product.name }}</p>
                         <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
