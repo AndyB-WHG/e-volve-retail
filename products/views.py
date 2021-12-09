@@ -15,9 +15,23 @@ def all_products(request):
     query = None  # Resets the 'query' value in case of a previous search.
     category = None
     full_category_name = None
-
+    sort = None
+    sort_direction = None
 
     if request.GET:
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if 'sort_direction' in request.GET:
+                sort_direction = request.GET['sort_direction']
+                if sort_direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
         if 'category' in request.GET:
             category = request.GET['category']
             products = products.filter(category__name__icontains=category)
@@ -40,10 +54,13 @@ def all_products(request):
             # Note: 'the 'i' in icontains means 'case insensitive'.
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{sort_direction}'
+
     context = {
         'products': products,
         'search_term': query,
         'current_category': full_category_name,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
