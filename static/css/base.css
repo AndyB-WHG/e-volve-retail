@@ -77,6 +77,8 @@ body {
 }
 
 .dropdown-menu {
+  position: absolute;
+  left: auto;
   display: none;
   z-index: 1;
 }
