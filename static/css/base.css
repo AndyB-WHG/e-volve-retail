@@ -76,6 +76,15 @@ body {
     padding-left: 13px;
 }
 
+.dropdown-menu {
+  display: none;
+  z-index: 1;
+}
+
+.dropdown-category:hover .dropdown-menu {
+    display: block;
+}
+
 .shopping-bag-mobile {
     padding-bottom: 3px;
 }
@@ -273,6 +282,10 @@ div #all-products {
     position: relative;
     right: 1rem;
 }
+
+/* div ul li #home-products-link {
+    color: red;
+} */
 
 /* Product Detail page, text placement on mobile screen size */
 

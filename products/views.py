@@ -12,9 +12,14 @@ def all_products(request):
     """ A view to return all the products, including sorting and searching """
 
     products = Product.objects.all()
-    query = None  # Resets the 'query' value in case it contain a previous value.
+    query = None  # Resets the 'query' value in case of a previous search.
+    category = None
 
     if request.GET:
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(category__name__icontains=category)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -25,7 +30,6 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(
                         description__icontains=query)
             # Note: 'the 'i' in icontains means 'case insensitive'.
-
             products = products.filter(queries)
 
     context = {
