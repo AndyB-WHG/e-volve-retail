@@ -136,7 +136,7 @@
                 <i id="home-products-link" data-toggle="" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">Fashion</i>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="fashion-products-link">
-                <a href="" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?category=fashion&sort=price&direction=desc" class="dropdown-item">By Price</a>
                 <a href="" class="dropdown-item">By Name</a>
               </div>
             </li>
@@ -227,7 +227,9 @@
     </header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            Message Container goes here
+        </div>
     {% endif %}
 
     <!-- <div class="test-class">

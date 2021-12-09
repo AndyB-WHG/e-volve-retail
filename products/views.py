@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.db.models import Q
 # Note: 'Q' Enables searches where the query
 # can be in either one list 'or' another
-from .models import Product
+from .models import Product, Category
 
 
 def all_products(request):
@@ -14,11 +14,19 @@ def all_products(request):
     products = Product.objects.all()
     query = None  # Resets the 'query' value in case of a previous search.
     category = None
+    full_category_name = None
+
 
     if request.GET:
         if 'category' in request.GET:
             category = request.GET['category']
             products = products.filter(category__name__icontains=category)
+            full_category_name = Category.objects.filter(name__in=category)
+
+            if not products:
+                messages.error(request,
+                               "Sorry - no products were found")
+                return redirect(reverse('products'))
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -35,6 +43,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_category': full_category_name,
     }
 
     return render(request, 'products/products.html', context)

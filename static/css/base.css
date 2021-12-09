@@ -76,8 +76,9 @@ body {
     padding-left: 13px;
 }
 
-.dropdown-menu {
+.dropdown-category .dropdown-menu {
   position: absolute;
+  border: 0;
   left: auto;
   display: none;
   z-index: 1;
@@ -142,6 +143,14 @@ body header nav div #desktop-search-bar {
     color: rgb(104, 97, 92);
     font-size: 50px;
     background: crimson;
+} */
+
+/* .message-container {
+    position: inherit;
+    text-align: center;
+    top: 100px;
+    left: 0px;
+    z-index: 100;
 } */
 
 .carousel-item {
