@@ -20,11 +20,11 @@
     <div>
         <div class="container-fluid mt-5 pt-3">
 
-            <!-- Image Placement -->
+            <!-- Image Placement - all screen sizes -->
             <div class="row">
                 <div class="col-10 col-md-6 col-lg-4 col-xl-3 offset-1 offset-md-0 offset-lg-2">
                     {% if product.image %}
-                        <a href="">
+                        <a href="{{ product.image.url}}" target="_blank">
                             <img class="card-img-top img-fluid pt-2 pl-3" src="{{ product.image.url}}" alt="{{ product.name }}">
                         </a>
                     {% else %}
@@ -35,19 +35,36 @@
                         <div class="d-md-none card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
                         </div>
-                        <div class="d-md-none col">
-                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+
+                        <!-- Mobile screens - Product Name / Price / Description / Reviews Placement -->
+                        <div class="col d-md-none">
+                            <p class="lead mb-0 text-left ml-1 font-weight-bold">£{{ product.price }}</p>
+                            <hr class="my-5">
+                            <p>{{ product.description }}</p>
+                            <hr class="my-5">
+                            <p class="h5">Reviews:</p>
                         </div>
                 </div>
+
+                <!-- Tablet and larger screens - Product Name / Price / Description Placement -->
                 <div class="col-1 d-none col-md-5 col-lg-4 d-md-block">
                     <div class="card-body pb-0">
                         <p class="mb-0">{{ product.name }}</p>
                         <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
-                        <hr class="my-5">
+                        <hr class="my-3">
+                        <p>{{ product.description }}</p>
+                        
                     </div>
                 </div>
+             
+            <!-- Tablet sized screens and larger - 'Reviews' section placement -->
             </div>
-
+            <div class="row">
+                <div class="col d-none d-sm-block col-md-11 col-lg-8 col-xl-7 offset-1 offset-md-0 offset-lg-2">
+                    <hr class="mt-5 mb-4 ml-3 mr-3">
+                    <p class="ml-3 h5">Reviews:</p>
+                </div>
+            </div>
 
         </div>
     </div>

@@ -79,7 +79,7 @@
               <i class="fas fa-search nav-link-mobile d-lg-none"></i>
             </a>
             <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-                <form class="form" method="GET" action="">
+                <form class="form" method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                         <div class="input-group-append">
@@ -173,7 +173,7 @@
               <i class="fas fa-search d-none d-lg-inline-flex"></i>
             </a>
             <div id="desktop-search-bar" class="dropdown-menu border-0 p-3 rounded-0 my-0 right" aria-labelledby="desktop-search">
-                <form class="form" method="GET" action="">
+                <form class="form" method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                         <div class="input-group-append">
