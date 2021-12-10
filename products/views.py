@@ -3,6 +3,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
+
 # Note: 'Q' Enables searches where the query
 # can be in either one list 'or' another
 from .models import Product, Category
