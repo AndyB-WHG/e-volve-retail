@@ -311,6 +311,20 @@ div #all-products {
     color:rgb(55, 56, 56);
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /* div ul li #home-products-link {
     color: red;
 } */
