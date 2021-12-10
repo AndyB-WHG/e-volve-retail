@@ -294,6 +294,23 @@ div #all-products {
     right: 1rem;
 }
 
+/* Products Page */
+
+.products-page-links {
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+    /* transition: 0.4s; */
+    cursor: pointer;
+    /* font-style: normal;
+    font-size: 18px;
+    padding-left: 13px; */
+}
+
+.products-page-links:hover {
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+}
+
 /* div ul li #home-products-link {
     color: red;
 } */
