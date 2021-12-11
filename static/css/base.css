@@ -88,9 +88,57 @@ body {
     display: block;
 }
 
-.shopping-bag-mobile {
+/* nav div li .shopping-bag {
+    position:absolute;
+    top: 50px;
     padding-bottom: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+} */
+
+/* nav div ul */
+
+.mobile-user-icons {
+    position: relative;
+    bottom: 8px;
+    left: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
+
+.shopping-bag-small-screens {
+    position:relative;
+    top: 30px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+    transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
+nav div .shopping-bag-large-screen {
+    position:relative;
+    top: 24px;
+    padding-bottom: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.user-section-large {
+    margin: 0;
+}
+
+.zero-value {
+    color: #ffffff;
+}
+
+/* nav div li .fa-shopping-bag {
+    padding-left: 10px;
+} */
 
 #user-account-dropdown {
     /* padding-left: 4rem; */
