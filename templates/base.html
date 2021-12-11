@@ -99,14 +99,16 @@
             </li>
 
             <li class="list-inline-item d-lg-none shopping-bag-small-screens">
-              <i class="fas fa-shopping-bag d-lg-inline-flex text-center"></i>
-              <div class="text-center">
-                {% if grand_total %}
-                  <p>£{{ grand_total|floatformat:2 }}></p>
-                {% else %}
-                  <p class="zero-value">£0.00</p>
-                {% endif %}
-              </div>
+              <a href="{% url 'shopping_bag' %}">
+                <i class="fas fa-shopping-bag d-lg-inline-flex text-center"></i>
+                <div class="text-center">
+                  {% if grand_total %}
+                    <p>£{{ grand_total|floatformat:2 }}></p>
+                  {% else %}
+                    <p class="zero-value">£0.00</p>
+                  {% endif %}
+                </div>
+              </a>
             </li>
 
           </div>
@@ -234,14 +236,16 @@
 
             <!-- Shopping Bag button - Large Screens -->
             <li class="list-inline-item d-none d-lg-inline-block shopping-bag-large-screen">
-              <i class="fas fa-shopping-bag d-lg-inline-flex text-center central-nav-link"></i>
-              <div class="text-center">
-                {% if grand_total %}
-                  <p>£{{ grand_total|floatformat:2 }}></p>
-                {% else %}
-                  <p class="zero-value">£0.00</p>
-                {% endif %}
-              </div>
+              <a href="{% url 'shopping_bag' %}">
+                <i class="fas fa-shopping-bag d-lg-inline-flex text-center central-nav-link"></i>
+                <div class="text-center">
+                  {% if grand_total %}
+                    <p>£{{ grand_total|floatformat:2 }}></p>
+                  {% else %}
+                    <p class="zero-value">£0.00</p>
+                  {% endif %}
+                </div>
+              </a>
             </li>
           </ul>
         </div>

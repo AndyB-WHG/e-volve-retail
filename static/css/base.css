@@ -128,12 +128,21 @@ body {
     padding-right: 0px;
 }
 
+.fa-shopping-bag {
+color:rgb(55, 56, 56);
+}
+
 nav div .shopping-bag-large-screen {
+    text-decoration: none;
     position:relative;
     top: 24px;
     padding-bottom: 3px;
     padding-left: 0px;
     padding-right: 0px;
+}
+
+nav div .shopping-bag-large-screen a:hover {
+    text-decoration: none;
 }
 
 .user-section-large {
