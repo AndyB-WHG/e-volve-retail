@@ -20,6 +20,10 @@ body, html {
     height: 100%;
 }
 
+/* header {
+    height: 95px;
+} */
+
 body {
    font-family: Lato;
    /* font-weight: 200; */
@@ -98,6 +102,10 @@ body {
 
 /* nav div ul */
 
+.user-section-large {
+    list-style-type: none;
+}
+
 .mobile-user-icons {
     position: relative;
     bottom: 8px;
@@ -161,15 +169,19 @@ nav div .shopping-bag-large-screen {
 
 .mobile-logo {
     color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
-    font-size: 1.5rem; 
+    font-size: 2rem; 
     display:inline-block;
     position:relative;
-    left: 0.8rem;
+    left: 2.4rem;
 }
 
 body header nav div #desktop-search-bar {
     left: 65%;
     width: 35%;
+}
+
+.mobile-search-position {
+   min-width: 20rem;
 }
 
 #desktop-search .central_nav_link {
@@ -201,8 +213,10 @@ body header nav div #desktop-search-bar {
     z-index: 100;
 } */
 
+
+
 .carousel-item {
-    height: calc(100vh);
+    height: calc(100vh - 24px);
 }
 
 .perfume-image {
@@ -231,25 +245,30 @@ div #all-products {
 
 #carousel-caption-1 {
     position: absolute;
-    bottom: 400px;
+    bottom: 370px;
     text-align: center;
 }
 
 #carousel-caption-2 {
     position: absolute;
-    bottom: 430px;
+    bottom: 400px;
     text-align: center;
 }
 
 #carousel-caption-3{
     position: absolute;
-    bottom: 450px;
+    bottom: 400px;
     text-align: center;
 }
 
 #carousel-caption-1 h6 {
     width: 600px;
     text-align: center;
+}
+
+#carousel-caption-2 h4 {
+    position: relative;
+    bottom: 11px;
 }
 
 .home-button-section {
@@ -259,7 +278,7 @@ div #all-products {
 
 #carousel-caption-1 .btn-home-mobile {
     position: relative;
-    top: 350px;
+    top: 320px;
     color:white;
     border: 2px solid rgb(206, 202, 202);
     border-radius:0.3em;
@@ -271,7 +290,7 @@ div #all-products {
 
 #carousel-caption-2 .btn-home-mobile {
     position: relative;
-    top: 380px;
+    top: 350px;
     color: white;
     border: 2px solid rgb(206, 202, 202);
     border-radius:0.3em;
@@ -283,7 +302,7 @@ div #all-products {
 
 #carousel-caption-3 .btn-home-mobile {
     position: relative;
-    top: 400px;
+    top: 350px;
     color: white;
     border: 2px solid rgb(206, 202, 202);
     border-radius:0.3em;
@@ -388,22 +407,32 @@ div #all-products {
 
 /* Home screen text placement on tablet screen size */
 
+
+
 @media screen and (min-device-width : 700px) {
+.mobile-logo {
+    color:#c06e2c  !important;  /* !important overrides Bootstrap standard color */ 
+    font-size: 2rem; 
+    display:inline-block;
+    position:relative;
+    left: 3.2rem;
+}
+
 #carousel-caption-1 {
     position: absolute;
-    bottom: 770px;
+    bottom: 720px;
     text-align: center;
 }
 
 #carousel-caption-2 {
     position: absolute;
-    bottom: 770px;
+    bottom: 740px;
     text-align: center;
 }
 
 #carousel-caption-3 {
     position: absolute;
-    bottom: 770px;
+    bottom: 730px;
     text-align: center;
 }
 
@@ -413,7 +442,7 @@ div #all-products {
 
 #carousel-caption-2 h4 {
     position: relative;
-    bottom: 7px;
+    bottom: 14px;
 }
 
 #carousel-caption-3 h5 {

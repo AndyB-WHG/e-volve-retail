@@ -82,9 +82,9 @@
               <a href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search nav-link-mobile d-lg-none"></i>
               </a>
-              <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+              <div class="dropdown-menu border-0 dropdown-menu-right p-3 rounded-0 my-0" aria-labelledby="mobile-search">
                   <form class="form" method="GET" action="{% url 'products' %}">
-                      <div class="input-group w-100">
+                      <div class="input-group w-100 mobile-search-position">
                           <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                           <div class="input-group-append">
                               <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
@@ -232,7 +232,7 @@
               </div>
             </li>
 
-            <!-- Shopping Bag button -->
+            <!-- Shopping Bag button - Large Screens -->
             <li class="list-inline-item d-none d-lg-inline-block shopping-bag-large-screen">
               <i class="fas fa-shopping-bag d-lg-inline-flex text-center central-nav-link"></i>
               <div class="text-center">
