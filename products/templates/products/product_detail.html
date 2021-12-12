@@ -4,28 +4,31 @@
 <!-- Product Category Nav Bar -->
 
 {% block page_header %}
-    <div class="container-fluid header-container black-background d-lg-none">
+    <hr class="product-details-hr">
+    
+    <!-- <div class="container-fluid header-container black-background d-none d-lg-none">
         <div class="row">
             <div class="fashion col-2 col-md-1 d-lg-none offset-1 offset-md-4">Fashion</div>
             <div class="col-2 col-md-1 d-lg-none">Home</div>
             <div class="col-4 col-md-2 d-lg-none">Health & Beauty</div>
             <div class="col-2 col-md-1 d-lg-none">All</div>
         </div>
-    </div>
+    </div> -->
 
-    <!-- <div class="container-fluid header-container black-background d-none d-lg-block">
+    <div class="container-fluid header-container black-background d-lg-none">
         <div class="row">
-            <div class="col d-none d-lg-block my-2">
-                <ul class="menu-black-large-screen">
-                    <li><a>Fashion</a></li>
-                    <li><a>Home</a></li>
-                    <li><a>Health & Beauty</a></li>
-                    <li><a>All</a></li>                
+            <div class="col">
+                <ul class="black-links">
+                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
+                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
+                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
+                    <a href="{% url 'products' %}"><li>All</li></a>
                 </ul>
             </div>
         </div>
-    </div> -->
+    </div>
 {% endblock %}
+
 
 
 

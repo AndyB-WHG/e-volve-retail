@@ -2,9 +2,18 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
+<hr class="product-details-hr">
+
+    <div class="container-fluid header-container black-background d-lg-none">
         <div class="row">
-            <div class="col"></div>
+            <div class="col">
+                <ul class="black-links">
+                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
+                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
+                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
+                    <a href="{% url 'products' %}"><li>All</li></a>
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -13,22 +22,50 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
+<!-- Mobile Phone Shopping Bag layout -->
 
+<div class="mt-5 ml-4 d-md-none">
+
+    <div class="row">
+        <div class="col">
+            <h5 class="font-weight-bold">Shopping Bag ( {{ items_in_bag }} )</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <h6 class="mt-3">Order Value</h6>
+        </div>
+        <div class="col-3 offset-3">
+            <h6 class="mt-3">£130.98 {{ total_order_value }}</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <h6 class="mt-3">Delivery</h6>
+        </div>
+        <div class="col-3 offset-3">
+            <h6 class="mt-3">£0.00 {{ delivery_value }}</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <h6 class="mt-3">Total</h6>
+        </div>
+        <div class="col-3 offset-3">
+            <h6 class="mt-3">£130.98 {{ total_order_value_plus_delivery_value }}</h6>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-12 ml-2 w-100">
+            <button class="btn btn-success w-75 ml-4 mt-4">Checkout</button>
+        </div>
+    </div>
+        
 </div>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
-<h1>Shopping Bag Page</h1>
+
+<!-- Tablet and Large Screen Shopping Bag layout -->
+
+
+
 {% endblock %}
