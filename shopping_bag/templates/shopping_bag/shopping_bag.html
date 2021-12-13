@@ -24,13 +24,16 @@
 
 <!-- Mobile Phone Shopping Bag layout -->
 
-<div class="mt-5 ml-4 d-md-none">
 
-    <div class="row">
-        <div class="col">
-            <h5 class="font-weight-bold">Shopping Bag ( {{ items_in_bag }} )</h5>
-        </div>
+<div class="row mt-5 ml-4 d-md-none">
+    <div class="col">
+        <h5 class="font-weight-bold">Shopping Bag ( {{ shopping_bag_count }} )</h5>
     </div>
+</div>
+
+{% if shopping_bag_count %}
+
+<div class="mt-5 ml-4 d-md-none">
     <div class="row">
         <div class="col-5">
             <h6 class="mt-3">Order Value</h6>
@@ -55,14 +58,39 @@
             <h6 class="mt-3">£130.98 {{ total_order_value_plus_delivery_value }}</h6>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-12 ml-2 w-100">
-            <button class="btn btn-success w-75 ml-4 mt-4">Checkout</button>
-        </div>
-    </div>
         
 </div>
+
+<div class="row">
+    <div class="col ml-2 mr-2 pt-4 text-center">
+        <button class="btn btn-success checkout-button font-large">CHECKOUT</button>
+    </div>
+</div>
+
+<div>Table of items here</div>
+
+{% else %}
+<div class="empty-bag">
+    <p class="">Your Shopping Bag is empty</p>
+</div>
+
+<a href="{% url 'products' %}" class=>
+    <div class="row">
+        <div class="col ml-2 mr-2 pt-4 text-center">
+            <button class="btn btn-success checkout-button font-large">KEEP SHOPPING</button>
+        </div>
+    </div>
+</a>
+
+<div class="shopping-bag-hr">
+    <hr>
+</div>
+
+<div class="empty-bag">
+    <p class="">Items will appear here as you add them to your shopping bag.</p>
+</div>
+
+{% endif %}
 
 <!-- Tablet and Large Screen Shopping Bag layout -->
 

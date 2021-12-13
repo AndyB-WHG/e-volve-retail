@@ -404,8 +404,6 @@ div #all-products {
 
 /* Products Page */
 
-
-
 .products-page-links {
     text-decoration: none;
     color:rgb(55, 56, 56);
@@ -435,9 +433,33 @@ div #all-products {
     cursor: pointer;
 }
 
-/* div ul li #home-products-link {
-    color: red;
-} */
+/* Shopping Bag page */
+
+.empty-bag {
+    width: 90%;
+    /* height: 3rem; */
+    background: #f7f7f7;
+    margin-top: 1rem;
+    font-size: 17px;
+    text-align: center;
+    position: relative;
+    left: 5%;
+    padding-top: 6.5%;
+    padding-bottom: 3.5%;
+    /* margin-top: 2%; */
+    /* border-left: 10%; */
+}
+
+.checkout-button {
+    width:94%;
+}
+
+.shopping-bag-hr {
+    width: 94%;
+    padding-left: 5%;
+    padding-top: 1rem;
+    padding-bottom: 0.1rem;
+}
 
 /* Product Detail page, text placement on mobile screen size */
 
