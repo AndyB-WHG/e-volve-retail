@@ -66,24 +66,17 @@
                             <form class="form" action="" method="POST">
                                 {% csrf_token %}
                               
-                                <div id="size-selector" class="dropdown">
-                                    <select class="btn btn-outline-dark dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Choose Size
-                                    </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <input class="dropdown-item" input-type="number" value="6">
-                                                <input class="dropdown-item" input-type="number" value="8">
-                                                <input class="dropdown-item" input-type="number" value="10">
-                                                <input class="dropdown-item" input-type="number" value="12">
-                                                <input class="dropdown-item" input-type="number" value="14">
-                                                <input class="dropdown-item" input-type="number" value="16">
-                                                <input class="dropdown-item" input-type="number" value="18">
-                                                <input class="dropdown-item" input-type="number" value="20">
-                                                <input class="dropdown-item" input-type="number" value="22">
-                                                <input class="dropdown-item" input-type="number" value="24">
-                                                <input class="dropdown-item" input-type="number" value="26">
-                                        </div>
-                                </div>
+                                
+                                    <select class="size-selector-btn dropdown-toggle w-100 text-left" name="size" id="size" placeholder="Choose Size" required>
+                                                <option value="" disabled selected hidden>Choose Size</option>
+                                                <option class="size-option" name="size" value="6">Size 6</option>
+                                                <option class="size-option" name="size" value="8">Size 8</option>
+                                                <option class="size-option" name="size" value="10">Size 10</option>
+                                                <option class="size-option" name="size" value="12">Size 12</option>
+                                                
+                                    </select>
+                                      
+                                
                               
 
                                 <div class="row">

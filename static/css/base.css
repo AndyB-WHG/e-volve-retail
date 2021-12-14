@@ -406,16 +406,34 @@ div #all-products {
     margin-left: 8.75em;    
 }
 
+.size-selector-btn {
+    width:100%;
+    height: 2rem;
+    border-bottom: 3rem;
+    background: #fafafa;
+    color: #33373a;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
 .add-to-bag-btn {
     width:100%;
     height: 2rem;
     background: rgb(126, 170, 126);
     color: #fafafa;
     border: 1px solid black;
-    
     border-radius: 2px;
-    
 }
+
+.size-option {
+    background: #fafafa;
+    color: rgb(55, 56, 56);
+}
+
+/* .size-option::selection {
+    background: #fafafa;
+    color: rgb(55, 56, 56);
+} */
 
 .write-review-btn {
     width:100%;
