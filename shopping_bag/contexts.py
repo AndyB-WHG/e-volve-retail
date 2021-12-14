@@ -12,6 +12,7 @@ def shopping_bag_contents(request):
     shopping_bag_items = []
     total_order_value = 0
     shopping_bag_count = 0
+    delivery_cost = 0
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total_order_value * Decimal(
