@@ -28,5 +28,5 @@ def add_to_shopping_bag(request, item_id):
 
     request.session['shopping_bag_session'] = shopping_bag_session 
     # Over-writes the original shopping bag session with the updated version.
-    print(request.session['shopping_bag_session'])
+    
     return redirect(redirect_url)

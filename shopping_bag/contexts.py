@@ -4,6 +4,8 @@ in the 'settings.py' context processor section"""
 
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
 
 
 def shopping_bag_contents(request):
@@ -11,8 +13,22 @@ def shopping_bag_contents(request):
 
     shopping_bag_items = []
     total_order_value = 0
-    shopping_bag_count = 0
+    shopping_bag_count = 10
     delivery_cost = 0
+    shopping_bag_session = request.session.get('shopping_bag_session', {})
+   
+    product_count = 0
+
+    for item_id, quantity in shopping_bag_session.items():
+        product = get_object_or_404(Product, pk=item_id)
+        total_order_value += quantity * product.price
+        print(total_order_value)
+        product_count += quantity
+        shopping_bag_items.append ({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total_order_value * Decimal(
