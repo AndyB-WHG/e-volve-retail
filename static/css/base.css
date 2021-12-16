@@ -134,7 +134,7 @@ body {
     right: 20px;
     padding-bottom: 3px;
     text-decoration: none;
-    color:rgb(55, 56, 56);
+    color:rgb(22, 141, 42);
     transition: 0.4s;
     cursor: pointer;
     font-style: normal;
@@ -149,6 +149,14 @@ body {
 
 .fa-shopping-bag {
 color:rgb(55, 56, 56);
+}
+
+.shopping-bag a div p:hover {
+    text-decoration: none;
+}
+
+.shopping-bag-small-screens a {
+    text-decoration: none;
 }
 
 nav div .shopping-bag-large-screen {

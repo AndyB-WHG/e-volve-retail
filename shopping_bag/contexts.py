@@ -13,7 +13,7 @@ def shopping_bag_contents(request):
 
     shopping_bag_items = []
     total_order_value = 0
-    shopping_bag_count = 10
+    shopping_bag_count = 0
     delivery_cost = 0
     shopping_bag_session = request.session.get('shopping_bag_session', {})
    
@@ -23,7 +23,7 @@ def shopping_bag_contents(request):
         product = get_object_or_404(Product, pk=item_id)
         total_order_value += quantity * product.price
         print(total_order_value)
-        product_count += quantity
+        shopping_bag_count += quantity
         shopping_bag_items.append ({
             'item_id': item_id,
             'quantity': quantity,

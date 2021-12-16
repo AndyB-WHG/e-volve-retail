@@ -67,12 +67,36 @@
     </div>
 </div>
 
-{% if shopping_bag_items %}
-<div class="table-responsive rounded">
-    Table of items here
-    {{ shopping_bag_items }}
+{% for each  %}
+<div class="row">
+    <div class="col">  <!-- First column is the product image --> 
+        {% if product.image.url %}
+        <a href="{{ product.image.url }}" target="_blank">
+            <img class="card-img-top img-fluid pt-2 pl-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+        </a>
+        {% endif %}
+        <!-- <div class="table-responsive rounded">
+            <table class="table table-sm table-borderless">
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Product Info</th>
+                    </tr>
+
+                </thead>
+
+            </table>
+            Table of items here
+            {{ shopping_bag_items }}
+        </div> -->
+    </div>
+
+    <div class="col">  <!-- 2-4th columns is the Product Description -->
+    </div>
+
+    <div class="col">  <!-- 5th column is the Price -->
+    </div>
+
 </div>
-{% endif %}
 
 {% else %}
 <div class="empty-bag">
