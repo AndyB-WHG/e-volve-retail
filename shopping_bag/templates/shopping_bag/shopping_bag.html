@@ -24,6 +24,11 @@
 
 <!-- Mobile Phone Shopping Bag layout -->
 
+{% if shopping_bag_count %}
+  
+    {{ request.session.shopping_bag_session }}
+{% endif %}
+
 
 <div class="row mt-5 ml-2 d-md-none">
     <div class="col">
@@ -90,6 +95,9 @@
         </div>
         <div class="row">
             Qty: {{ item.quantity }}
+        </div>
+        <div class="row">
+            Size: {{ item.size }}
         </div>
     </div>
 

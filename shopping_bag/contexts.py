@@ -17,16 +17,28 @@ def shopping_bag_contents(request):
     delivery_cost = 0
     shopping_bag_session = request.session.get('shopping_bag_session', {})
 
-    for item_id, quantity in shopping_bag_session.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total_order_value += quantity * product.price
-        print(total_order_value)
-        shopping_bag_count += quantity
-        shopping_bag_items.append ({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
+    for item_id, item_data in shopping_bag_session.items():
+        if isinstance(item_data, int):  # if the item_data is just a quantity
+            product = get_object_or_404(Product, pk=item_id)
+            total_order_value += item_data * product.price
+            print(total_order_value)
+            shopping_bag_count += item_data
+            shopping_bag_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'product': product,
+            })
+        else:  # If the item_data is both 'quantity' AND 'size'
+            product = get_object_or_404(Product, pk=item_id)
+            for size, quantity in item_data['items_by_size'].items():
+                total_order_value += quantity * product.price
+                shopping_bag_count += quantity
+                shopping_bag_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'product': product,
+                    'size': size,
+                })
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total_order_value * Decimal(
