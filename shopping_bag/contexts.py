@@ -16,8 +16,6 @@ def shopping_bag_contents(request):
     shopping_bag_count = 0
     delivery_cost = 0
     shopping_bag_session = request.session.get('shopping_bag_session', {})
-   
-    product_count = 0
 
     for item_id, quantity in shopping_bag_session.items():
         product = get_object_or_404(Product, pk=item_id)
