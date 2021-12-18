@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 
 def shopping_bag(request):
@@ -41,3 +41,33 @@ def add_to_shopping_bag(request, item_id):
     # Over-writes the original shopping bag session with the updated version.
 
     return redirect(redirect_url)
+
+
+def edit_shopping_bag(request, item_id):
+    """ Allows user to change the item quantity from within the shopping bag """
+
+    size = None
+    if 'size' in request.POST:
+        size = request.POST.get('size')
+    quantity = int(request.POST.get('quantity'))
+
+    shopping_bag_session = request.session.get('shopping_bag_session', {})
+    # Note: above gets the session called shopping_bag, but if such
+    # a session doesn't exist, it creates an empty dictionary instead.
+
+    if size:
+        if quantity > 0:
+            shopping_bag_session[item_id]['items_by_size'][size] = quantity
+        else:
+            del shopping_bag_session[item_id]['items_by_size'][size]
+
+    else:
+        if quantity > 0:
+            shopping_bag_session['item_id'] = quantity
+        else:
+            shopping_bag_session.pop['item_id']
+
+    request.session['shopping_bag_session'] = shopping_bag_session
+    # Over-writes the original shopping bag session with the updated version.
+
+    return redirect(reverse('shopping_bag'))

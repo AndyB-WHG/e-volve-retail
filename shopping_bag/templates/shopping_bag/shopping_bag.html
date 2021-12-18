@@ -236,7 +236,7 @@
                 {% endif %}
             </div>
             <div class="mt-4 row">
-                <form classs="form update-form" action="POST">
+                <form classs="form update-form" method="POST" action="{% url 'edit_shopping_bag' %}">
                 {% csrf_token %}
                 <span class="">Qty:</span>  
                     <input class="update-form " type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="" required>
