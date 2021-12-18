@@ -116,7 +116,7 @@ body {
 
 .shopping-bag-small-screens {
     position:relative;
-    top: 30px;
+    top: 25px;
     padding-bottom: 3px;
     text-decoration: none;
     color:rgb(55, 56, 56);
@@ -130,7 +130,7 @@ body {
 
 .bag-total {
     position:relative;
-    top: 10px;
+    top: 5px;
     right: 20px;
     padding-bottom: 3px;
     text-decoration: none;
@@ -252,12 +252,12 @@ body header nav div #desktop-search-bar {
 
 
 .carousel-item {
-    height: calc(100vh - 24px);
+    height: calc(100vh);
 }
 
 .perfume-image {
     position: relative;
-    top: 62px;
+    top: 90.5px;
     object-fit: cover;
     height: 100%;
 }
@@ -378,7 +378,7 @@ div #all-products {
 
 .black-background {
     position: relative;
-    top: 30px;
+    top: 50px;
     height: 45px;
     background: black;
     color: white;
