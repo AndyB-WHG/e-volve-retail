@@ -20,10 +20,10 @@ def add_to_shopping_bag(request, item_id):
     # Note: above gets the session called shopping_bag, but if such
     # a session doesn't exist, it creates an empty dictionary instead.
 
-    print("Shopping bag session : ", shopping_bag_session)
-    print("item_id : ", item_id)
-    print("Size : ", size)
-    print("Quantity : ", quantity)
+    print("Shopping bag session (from add_to_shopping_bag) : ", shopping_bag_session)
+    print("item_id (from add_to_shopping_bag) : ", item_id)
+    print("Size (from add_to_shopping_bag) : ", size)
+    print("Quantity (from add_to_shopping_bag) : ", quantity)
 
     if size:
         if item_id in list(shopping_bag_session.keys()):
@@ -75,10 +75,10 @@ def adjust_shopping_bag(request, item_id):
     else:
         print("There was no size. Now replacing previous quantity with new quantity.")
         if quantity > 0:
-            shopping_bag_session['item_id'] = quantity
+            shopping_bag_session[item_id] = quantity
             print("Updated shopping_bag_session : ", shopping_bag_session)
         else:
-            shopping_bag_session.pop['item_id']
+            shopping_bag_session.pop[item_id]
 
     request.session['shopping_bag_session'] = shopping_bag_session
     # Over-writes the original session cookie with the updated version.
