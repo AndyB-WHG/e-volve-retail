@@ -24,3 +24,22 @@ $('#sort-selector').change(function() {
         window.location.replace(currentUrl);
     }
 })
+
+$('.update-link').click(function(e) {
+    var form = $(this).prev('update-form');
+    form.submit();
+)}
+
+$('.remove-item').click(function(e) {
+    var csrfToken = "{{ csrf_token}}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var size = $(this).data('size');
+    var url = '/shopping_bag/remove/$(itemId)';
+    var data = {'csrfmiddlewaretoken': csrfToken, 'size': size}
+    form.submit();
+
+    $.post(url, data)
+     .done(function() {
+         location.reload();
+     });
+)}

@@ -373,7 +373,8 @@ div #all-products {
 
 .product-details-hr {
     position: relative;
-    top: 50px;
+    display: block;
+    top: 70px;
 }
 
 .black-background {
@@ -528,11 +529,28 @@ div #all-products {
     width:94%;
 }
 
+.checkout-btn-medium {
+    position: relative;
+    top: 8px;
+    right: 15px;
+    
+}
+
+.shopping-bag-items {
+    background: gainsboro;
+}
+
 .shopping-bag-hr {
     width: 94%;
     padding-left: 5%;
     padding-top: 1rem;
     padding-bottom: 0.1rem;
+}
+
+.quantity-selector {
+    border-width: 2px;
+    border: gray;
+    border-style: double;
 }
 
 /* Product Detail page, text placement on mobile screen size */
