@@ -26,12 +26,18 @@ $('#sort-selector').change(function() {
 })
 
 $('.update-link').click(function(e) {
-    var form = $(this).prev('update-form');
+    
+   
+    var form = $(this).closest('.update-form');
+    console.log("Previous form = ", form)
     form.submit();
-)}
+    console.log("Update Item Ended")
+    console.log(shopping_bag_session)
+})
 
 $('.remove-item').click(function(e) {
-    var csrfToken = "{{ csrf_token}}";
+    console.log("Remove Item")
+    var csrfToken = "{{ csrf_token }}";
     var itemId = $(this).attr('id').split('remove_')[1];
     var size = $(this).data('size');
     var url = '/shopping_bag/remove/$(itemId)';
@@ -42,4 +48,5 @@ $('.remove-item').click(function(e) {
      .done(function() {
          location.reload();
      });
-)}
+     console.log("Remove Item Ended")
+})

@@ -20,6 +20,8 @@ def shopping_bag_contents(request):
     for item_id, item_data in shopping_bag_session.items():
         if isinstance(item_data, int):  # if the item_data is just a quantity
             product = get_object_or_404(Product, pk=item_id)
+            print("Product = ", product)
+            print("item_id = ", item_id)
             total_order_value += item_data * product.price
             print(total_order_value)
             shopping_bag_count += item_data
@@ -41,7 +43,7 @@ def shopping_bag_contents(request):
                 })
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total_order_value * Decimal(
+        delivery_cost = total_order_value * Decimal(
                    settings.STANDARD_DELIVERY_PERCENTAGE/100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - (
                               total_order_value)

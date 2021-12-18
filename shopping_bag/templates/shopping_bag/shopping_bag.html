@@ -95,18 +95,21 @@
                 {% endif %}
             </div>
             <div class="mt-2 row pb-2 d-sm-none">
-                <form classs="form update-form w-100" action="POST">
+                <form class="form update-form w-100" method="POST" action="{% url 'adjust_shopping_bag' item.item_id %}">
                     {% csrf_token %}
                     <span class="">Qty:</span>  
-                    <input class="update-form " type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="" required>
+                    <input class="" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="" required>
                     <div class="pt-2">
-                        <a class="d-block d-sm-none pb-2 pr-3 text-success small">
+                        <a class="update-link d-block d-sm-none pb-2 pr-3 text-success small">
                             Update Qty
                         </a>
-                        <a class="remove-item text-danger small d-block d-sm-none">
+                        <a class="remove-item text-danger small d-block d-sm-none" id="remove_{{ item.item_id }}" data-size="{{item.size}}">
                             Remove Item
                         </a>
                     </div>
+                    {% if item.product.has_sizes %}
+                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                    {% endif %}
                 </form>
             </div>
         </div>
@@ -236,10 +239,10 @@
                 {% endif %}
             </div>
             <div class="mt-4 row">
-                <form classs="form update-form" method="POST" action="{% url 'edit_shopping_bag' %}">
+                <form class="form update-form" method="POST" action="{% url 'adjust_shopping_bag' item.item_id %}">
                 {% csrf_token %}
                 <span class="">Qty:</span>  
-                    <input class="update-form " type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="" required>
+                    <input class="" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" placeholder="" required>
                     <div class="pt-5">
                         <a class="update-link d-inline-block text-success small pr-4">
                             Update Qty

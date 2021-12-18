@@ -20,6 +20,11 @@ def add_to_shopping_bag(request, item_id):
     # Note: above gets the session called shopping_bag, but if such
     # a session doesn't exist, it creates an empty dictionary instead.
 
+    print("Shopping bag session : ", shopping_bag_session)
+    print("item_id : ", item_id)
+    print("Size : ", size)
+    print("Quantity : ", quantity)
+
     if size:
         if item_id in list(shopping_bag_session.keys()):
             if size in shopping_bag_session[item_id]['items_by_size'].keys():
@@ -43,18 +48,24 @@ def add_to_shopping_bag(request, item_id):
     return redirect(redirect_url)
 
 
-def edit_shopping_bag(request, item_id):
-    """ Allows user to change the item quantity from within the shopping bag """
+def adjust_shopping_bag(request, item_id):
+    """ Allows user to change item quantity from within the shopping bag """
 
+    print("starting the 'Adjust Shopping Bag' function")
+    # print("Request : ", request)
     size = None
-    if 'size' in request.POST:
-        size = request.POST.get('size')
+    if 'product_size' in request.POST:
+        size = request.POST.get('product_size')
     quantity = int(request.POST.get('quantity'))
 
     shopping_bag_session = request.session.get('shopping_bag_session', {})
     # Note: above gets the session called shopping_bag, but if such
     # a session doesn't exist, it creates an empty dictionary instead.
 
+    print("Adjust Quantity shopping bag session: ", shopping_bag_session)
+    print("New Quantity : ", quantity)
+    print("Item ID being updated : ", item_id)
+    
     if size:
         if quantity > 0:
             shopping_bag_session[item_id]['items_by_size'][size] = quantity
@@ -62,12 +73,14 @@ def edit_shopping_bag(request, item_id):
             del shopping_bag_session[item_id]['items_by_size'][size]
 
     else:
+        print("There was no size. Now replacing previous quantity with new quantity.")
         if quantity > 0:
             shopping_bag_session['item_id'] = quantity
+            print("Updated shopping_bag_session : ", shopping_bag_session)
         else:
             shopping_bag_session.pop['item_id']
 
     request.session['shopping_bag_session'] = shopping_bag_session
-    # Over-writes the original shopping bag session with the updated version.
+    # Over-writes the original session cookie with the updated version.
 
     return redirect(reverse('shopping_bag'))
