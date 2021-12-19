@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def shopping_bag(request):
@@ -28,7 +28,8 @@ def add_to_shopping_bag(request, item_id):
     if size:
         if item_id in list(shopping_bag_session.keys()):
             if size in shopping_bag_session[item_id]['items_by_size'].keys():
-                shopping_bag_session[item_id]['items_by_size'][size] += quantity
+                shopping_bag_session[item_id]
+                ['items_by_size'][size] += quantity
             else:
                 shopping_bag_session[item_id]['items_by_size'][size] = quantity
         else:
@@ -65,7 +66,7 @@ def adjust_shopping_bag(request, item_id):
     print("Adjust Quantity shopping bag session: ", shopping_bag_session)
     print("New Quantity : ", quantity)
     print("Item ID being updated : ", item_id)
-    
+
     if size:
         if quantity > 0:
             shopping_bag_session[item_id]['items_by_size'][size] = quantity
@@ -73,7 +74,7 @@ def adjust_shopping_bag(request, item_id):
             del shopping_bag_session[item_id]['items_by_size'][size]
 
     else:
-        print("There was no size. Now replacing previous quantity with new quantity.")
+        print("There was no size. Replacing previous qty with new quantity.")
         if quantity > 0:
             shopping_bag_session[item_id] = quantity
             print("Updated shopping_bag_session : ", shopping_bag_session)
@@ -84,3 +85,39 @@ def adjust_shopping_bag(request, item_id):
     # Over-writes the original session cookie with the updated version.
 
     return redirect(reverse('shopping_bag'))
+
+
+def delete_from_shopping_bag(request, item_id):
+    """ Remove an item from the shopping bag """
+
+    print("starting the 'Delete From Shopping Bag' function")
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST.get('product_size')
+
+    shopping_bag_session = request.session.get('shopping_bag_session', {})
+    # Note: above gets the session called shopping_bag, but if such
+    # a session doesn't exist, it creates an empty dictionary instead.
+
+    print("'Delete item' shopping bag session: ", shopping_bag_session)
+    print("Item ID being updated : ", item_id)
+
+    try:
+        if size:
+            # Delete the item with the specific size
+            del shopping_bag_session[item_id]['items_by_size'][size]
+            # If the item only had 1 size stored which is now deleted,
+            # delete the item entirely.
+            if not shopping_bag_session[item_id]['items_by_size']:
+                shopping_bag_session.pop(item_id)
+
+        else:
+            shopping_bag_session.pop(item_id)
+
+        request.session['shopping_bag_session'] = shopping_bag_session
+        # Over-writes the original session cookie with the updated version.
+
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=200)

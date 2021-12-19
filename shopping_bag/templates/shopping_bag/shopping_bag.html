@@ -103,14 +103,15 @@
                         <a class="update-link d-block d-sm-none pb-2 pr-3 text-success small">
                             Update Qty
                         </a>
-                        <a class="remove-item text-danger small d-block d-sm-none" id="remove_{{ item.item_id }}" data-size="{{item.size}}">
-                            Remove Item
-                        </a>
+                        
                     </div>
                     {% if item.product.has_sizes %}
                         <input type="hidden" name="product_size" value="{{ item.size }}">
                     {% endif %}
                 </form>
+                <a class="remove-item text-danger small d-block d-sm-none" id="remove_{{ item.item_id }}" data-product_size="{{item.size}}">
+                    Remove Item
+                </a>
             </div>
         </div>
 
