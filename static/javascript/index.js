@@ -35,22 +35,4 @@ $('.update-link').click(function(e) {
     console.log(shopping_bag_session)
 })
 
-$('.remove-item').click(function(e) {
-    console.log("JS - Remove Item function started")
-    var csrfToken = "{{ csrf_token }}";
-    console.log("JS - CSRF Token = ", csrfToken)
-    var itemId = $(this).attr('id').split('remove_')[1];
-    console.log("JS - itemId value = ", itemId)
-    var size = $(this).data('product_size');
-    console.log("JS - 'size' value = ", size)
-    var url = '/shopping_bag/delete_from_shopping_bag/$(itemId)';
-    console.log("JS - 'url' value = ", url)
-    var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size}
-    console.log("JS - 'data' value = ", data)
 
-    $.post(url, data)
-     .done(function() {
-         location.reload();
-     });
-     console.log("Remove Item Ended")
-})

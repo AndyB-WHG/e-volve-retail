@@ -72,6 +72,8 @@ def adjust_shopping_bag(request, item_id):
             shopping_bag_session[item_id]['items_by_size'][size] = quantity
         else:
             del shopping_bag_session[item_id]['items_by_size'][size]
+            if not shopping_bag_session[item_id]['items_by_size']:
+                shopping_bag_session.pop(item_id)
 
     else:
         print("There was no size. Replacing previous qty with new quantity.")
