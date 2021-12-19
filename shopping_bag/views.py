@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+from products.models import Product
 
 
 def shopping_bag(request):
@@ -10,6 +12,7 @@ def shopping_bag(request):
 def add_to_shopping_bag(request, item_id):
     """ Add a quantity of a given item to the Shopping Bag """
 
+    product = Product.objects.get(pk=item_id)
     size = None
     if 'size' in request.POST:
         size = request.POST.get('size')
@@ -39,9 +42,11 @@ def add_to_shopping_bag(request, item_id):
             shopping_bag_session[item_id] += quantity
         else:
             shopping_bag_session[item_id] = quantity
+            
         # Checks if the session already includes the item.
         # If it does, it add the quantity to the existing quanity.
         # If it doesn't it add the item_id and it's related quantity.
+    messages.success(request, f'Added {product.name} to your bag')
 
     request.session['shopping_bag_session'] = shopping_bag_session
     # Over-writes the original shopping bag session with the updated version.

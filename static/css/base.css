@@ -37,6 +37,8 @@ body {
     background-color:white!important;
 }
 
+/* ---------------------------------------------------  Navbar  ------------------------------------------------ */
+
 .nav-central-links {
     display:inline-block;
     width: 50%;
@@ -234,21 +236,26 @@ body header nav div #desktop-search-bar {
     background: crimson;
 }
 
-/* .test-class-2 {
-    padding-top: 50px;
-    color: rgb(104, 97, 92);
-    font-size: 50px;
-    background: crimson;
-} */
+/* -----------------------------------------------  Toasts ---------------------------------------------- */
 
-/* .message-container {
-    position: inherit;
-    text-align: center;
+.message-container {
+    position: fixed;
     top: 100px;
-    left: 0px;
-    z-index: 100;
-} */
+    right: 150px;
+    z-index: 99999;
+}
 
+.custom-toast {
+    overflow: visible;
+    z-index: 99999;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+
+/* ------------------------------------------------ Home Page -------------------------------------------- */
 
 
 .carousel-item {
@@ -346,30 +353,10 @@ div #all-products {
     background: rgb(84, 87, 78);
     font-size: 400;
     width: 120px;
-    /* transition: all 0.15s; */
-
-    /* padding:0.46em 1.6em;
-    border:0.1em solid #000000;
-    margin:0 0.2em 0.2em 0;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-weight:300;
-    color:#000000;
-    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-    background-color:#FFFFFF;
-    text-align:center;
-    transition: all 0.15s; */
+  
 }
-
-
-/* #carousel-caption-3 .btn-home-mobile:hover {
-    text-shadow: 0 0 2em rgba(255,255,255,1);
-    color:#FFFFFF;
-    border-color:#FFFFFF;
-} */
  
-/* Product Detail Page */
+/* ---------------------------------------------    Product Detail Page --------------------------------------------*/
 
 .product-details-hr {
     position: relative;
@@ -562,9 +549,9 @@ div #all-products {
 }
 }
 
+/* ------------------------------------------------------------   Responsiveness Settings   ------------------------------------------------- */
+
 /* Home screen text placement on tablet screen size */
-
-
 
 @media screen and (min-device-width : 700px) {
 .mobile-logo {

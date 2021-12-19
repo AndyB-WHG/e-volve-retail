@@ -26,13 +26,9 @@ $('#sort-selector').change(function() {
 })
 
 $('.update-link').click(function(e) {
-    
-   
     var form = $(this).closest('.update-form');
     console.log("Previous form = ", form)
     form.submit();
     console.log("Update Item Ended")
     console.log(shopping_bag_session)
 })
-
-
