@@ -23,7 +23,8 @@ def shopping_bag_contents(request):
             print("Product (from context processor) = ", product)
             print("item_id (from context processor) = ", item_id)
             total_order_value += item_data * product.price
-            print("Total order value (from context processor) = ",total_order_value)
+            print("Total order value (from context processor) = ",
+                  total_order_value)
             shopping_bag_count += item_data
             shopping_bag_items.append({
                 'item_id': item_id,
