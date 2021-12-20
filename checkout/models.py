@@ -61,13 +61,34 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    SIZE_6 = "6"
+    SIZE_8 = "8"
+    SIZE_10 = "10"
+    SIZE_12 = "12"
+    SIZE_14 = "14"
+    SIZE_16 = "16"
+    SIZE_18 = "18"
+    SIZE_20 = "20"
+
+    SIZE_CHOICES = [
+        (SIZE_6, 'Size 6'),
+        (SIZE_8, 'Size 8'),
+        (SIZE_10, 'Size 10'),
+        (SIZE_12, 'Size 12'),
+        (SIZE_14, 'Size 14'),
+        (SIZE_16, 'Size 16'),
+        (SIZE_18, 'Size 18'),
+        (SIZE_20, 'Size 20'),
+    ]
+
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=2, null=True,
-                                    blank=True)  # XS, S, M, L, XL
+    product_size = models.CharField(max_length=2,
+                                    choices=SIZE_CHOICES, null=True,
+                                    blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
