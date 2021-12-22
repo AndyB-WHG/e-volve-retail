@@ -27,9 +27,9 @@ def add_to_shopping_bag(request, item_id):
     print("item_id (from add_to_shopping_bag) : ", item_id)
     print("Size (from add_to_shopping_bag) : ", size)
     print("Quantity (from add_to_shopping_bag) : ", quantity)
-    print("Quantity already in shopping bag = ", shopping_bag_session[item_id]['items_by_size'][size])
+    # print("Quantity already in shopping bag = ", shopping_bag_session[item_id]['items_by_size'][size])
     print("Var type of quantity in shopping bag:")
-    print(type(shopping_bag_session[item_id]['items_by_size']))
+    # print(type(shopping_bag_session[item_id]['items_by_size']))
 
     if size:
         if item_id in list(shopping_bag_session.keys()):

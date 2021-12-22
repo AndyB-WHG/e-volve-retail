@@ -29,7 +29,9 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
+        print("Checking if order form is valid.....")
         if order_form.is_valid():
+            print("Order form is validated!! :-)")
             order = order_form.save()
             for item_id, item_data in shopping_bag_session.items():
                 try:
@@ -63,6 +65,7 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
+            print("Order for not validated - it is invalid!! :-(")
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
