@@ -44,8 +44,9 @@ def shopping_bag_contents(request):
                 })
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
-        delivery_cost = total_order_value * Decimal(
-                   settings.STANDARD_DELIVERY_PERCENTAGE/100)
+        delivery_cost = round(total_order_value * settings.STANDARD_DELIVERY_PERCENTAGE/100,2)
+        print(total_order_value)
+        print(delivery_cost)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - (
                               total_order_value)
 
