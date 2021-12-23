@@ -54,7 +54,11 @@ def checkout(request):
         print("Checking if order form is valid.....")
         # if order_form.is_valid():
         print("Order form is validated!! :-)")
-        order = order_form.save()
+        order = order_form.save(commit=False)
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        order.stripe_pid = pid
+        order.save()
+        order.original_shopping_bag = json.dumps(shopping_bag_session)
         for item_id, item_data in shopping_bag_session.items():
             try:
                 product = Product.objects.get(id=item_id)
@@ -96,7 +100,7 @@ def checkout(request):
         shopping_bag_session = request.session.get('shopping_bag_session', {})
         if not shopping_bag_session:
             messages.error(request, "There's nothing in your \
-                bag at the moment")
+                shopping bag at the moment")
             return redirect(reverse('products'))
 
         current_shopping_bag = shopping_bag_contents(request)
