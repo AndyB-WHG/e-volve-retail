@@ -209,7 +209,7 @@ Here are the colors being used :
 
 ## Features
 
-### Home Page `'Carousel'` imagery
+### Home Page 'Carousel' imagery
 
  - Carousel of three eye-catching product images, each with a simple headline message to educate the user as to the websites main function and unique selling point (USP).
  - Each image has a 'Shop Now' button to prompt the user to begin browsing.  The buttons take the user to the Department relevant to the image on screen.
@@ -218,21 +218,43 @@ Here are the colors being used :
 
 ### Navbar
 
-- A Navbar is fix to the top of the page in order to provide the user with browsing options during their visit.
+- A Navbar is fix to the top of the page in order to provide the user with browsing options during the visit.
 - On smaller screens the Navbar features:
-    - A choice of 'Search', 'User' and 'Shopping Bag' icons at top right dependant upon screen size
-    -  a drop-down 'burger' toggle at top left, with . The 'burger' drop-down includes links to: 
-        * The main Product Departments pages
-        * User Login / Register / Account Page options
-        * Product Review page
+    - At top right : 
+        - Search Icon, 
+        - User/Account icon (visible on tablet screens but not on mobile phones)
+        - Shopping Bag icon
+    -  At top left : 
+        - a drop-down 'burger' toggle which includes links to : 
+            * The main Product Departments pages
+            * User Login / Register / Account Page options
+            * Product Review page
+    - Top Centre :
+        - A Logo / Home link to take the User back to the Carousel home page.
+
     
 - On larger screens the central Navbar area comprises 
-    - At top left, the 'Home / Logo' link to return to the Carousel
-    - Links to the three main store departments. plus an additional link to display 'All Products'.  
+    - At top right :
+        - Search Icon, 
+        - User/Account icon
+        - Shopping Bag icon
 
+    - At top left : 
+        - The 'Home / Logo' link to return the User to the Carousel
+
+    - At top centre :
+
+        - Links to the three main store departments. plus an additional link to display 'All Products'.  
+ 
+            Each of the four links include dropdowns when hovering. These allow the user to pre-sort the results, should the user choose to. The sort selection includes :
+            - By Price
+            - By Name
+            - By Category (option only displayed for the 'All' products link) 
+
+    
 ### 'Search' function
 
-- A 'Search Box' (large screens) or 'Search Icon' (small screens) is provided to enable users to search for a keyword located in either in the Product Name or Product Description.  If the keyword is found - the relevant products are displayed/listed on screen.
+- A 'Search Box' (large screens) or 'Search Icon' (small screens) is provided to enable users to search for a keyword located in either in the Product Name or Product Details.  If the keyword is found - the relevant products are displayed/listed on screen.
 
 ### Products Page
 
@@ -244,11 +266,11 @@ Here are the colors being used :
     - Product Price 
     - Product Category/Department link
 
-- Clicking a product directs the user to the 'Description' page for the item in question.
+- Clicking a product directs the user to the 'Product Detail' page for the item in question.
 - Clicking the product's Category/Deprtment link prompts the site to display all products for the Department concerned.
 
 
-### 'Sort' Function
+### Products Page 'Sort' Function
 
 - Items listed on the 'Products' page can be sorted using a number of pre-set options within the 'Sort by' box, located at top middle on small screens and top right on larger screens.
 
@@ -260,6 +282,51 @@ Here are the colors being used :
     - Name (Z-A)
     - Category (A-Z)
     - Category (Z-A)
+
+### Product Detail Page
+
+Clicking on a product image, name or price takes the user to the 'Product Detail' page. A larger image of the selected product is displayed along with a product description and the product's price.  
+
+Here the user can select to add the product to their shopping bag, or write a review if they so wish.  The following options are provided:
+
+- 'Choose size' box (user selects from a pre-defined dropdown list of sizes).  Note: appears only when the product in question has a range of sizes to choose from.
+- 'Enter Quantity' box (user types in the quantity of the item they wish to purchase).
+- 'Add To Bag'
+- 'Write a Review'
+
+
+### Shopping Bag
+
+Accessed by clicking the 'Shopping Bag' icon at top right of the screen, this page lists all items currently selected for purchase by the user.
+
+The top of the page details:
+- The page title including the total quanity of items currently selected.
+- Total value of the items selected.
+- Delivery charges, if any (order over £50.00 have free delivery)
+- Total value of the order including delivery costs
+- Value still required to be spent to gain free delivery.
+
+Beneath this section the page lists each of the selected items in turn, detailing:
+- A product image
+- The product name
+- Price of the item
+- Quantity chosen
+    - Can be amended by the user should the original quantity selected be incorrect.
+- 'Update Quantity' button  (highlighted in green)
+    - Altering the quantity and then clicking this button enables the user to amend the quantity required. 
+    - Once amended the shopping bag total is recalculated accordingly.
+- 'Remove Item' button (highlighted in red)
+    - Clicking the button removes the item permanently from the shopping bag.
+
+
+### Shopping Bag 'Pop Up Notification'
+
+Following an addition or change to the shopping bag, a pop-up notification appears at top right of the screen beneath the Shopping Bag item.
+
+The notification confirms the change
+
+
+
 
    
 
