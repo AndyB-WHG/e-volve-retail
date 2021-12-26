@@ -300,17 +300,18 @@ Here the user can select to add the product to their shopping bag, or write a re
 Accessed by clicking the 'Shopping Bag' icon at top right of the screen, this page lists all items currently selected for purchase by the user.
 
 The top of the page details:
-- The page title including the total quanity of items currently selected.
-- Total value of the items selected.
-- Delivery charges, if any (order over £50.00 have free delivery)
-- Total value of the order including delivery costs
-- Value still required to be spent to gain free delivery.
+- the page title including the total quanity of items currently selected.
+- total value of the items selected.
+- delivery charges, if any (currently, orders over £50.00 have free delivery)
+- total value of the order including delivery costs
+- value still required to be spent to gain free delivery.
+- a green 'Checkout' button enabling the user to pay for the items selected.
 
 Beneath this section the page lists each of the selected items in turn, detailing:
-- A product image
-- The product name
-- Price of the item
-- Quantity chosen
+- a product image
+- the product name
+- price of the item
+- quantity chosen
     - Can be amended by the user should the original quantity selected be incorrect.
 - 'Update Quantity' button  (highlighted in green)
     - Altering the quantity and then clicking this button enables the user to amend the quantity required. 
@@ -323,7 +324,90 @@ Beneath this section the page lists each of the selected items in turn, detailin
 
 Following an addition or change to the shopping bag, a pop-up notification appears at top right of the screen beneath the Shopping Bag item.
 
-The notification confirms the change
+The notification : 
+- displays a green header and a 'Success!' message.
+- confirms the change in writing for the user.  
+- displays the number of items currently in the shopping bag.
+- lists the quantity and size (if relevant) of each item.
+- allows the user scroll down to view the list of items.
+- confirms the total value of the shopping bag including delivery.
+- confirms the amount still required to be spent before free delivery is acquired (if appropriate).
+- displays a link inviting the user to 'Go to Secure Checkout'. Clicking this link takes the user to the Shopping Page'.  Here the green 'Checkout' button takes the user to the 'Checkout Page'.
+
+
+### Checkout Page
+
+The 'Checkout Page' allows the user to securely pay for the chosen items.
+
+The top of the page confirms the items to be purchased, including:
+- Confirmation of the number of items within the current order.
+- A list of the items in the order including for each item:
+    - an image
+    - the size of the item (if relevant)
+    - the quantity ordered
+- Order total
+- Delivery cost
+- Grand Total including delivery
+
+The bottom section of the page consists of a 'Payment Form' within which the user must add their :
+- name 
+- delivery address 
+- credit card details.  
+
+Plus :
+
+- a button to 'Adjust the Shopping Bag' if required.
+- a button to 'Complete Order' once the user is ready to make payment.
+- confirmation of the value of the order including delivery.
+
+
+###  Order Confirmation Page
+
+The Order Confirmation Page confirms that:
+- payment was successful via a 'pop-up confirmation' and, 
+- confirms that an email will be sent to the users email address. 
+
+Also listed are details of the order,  including:
+- Order Number.
+- Order date and time.
+- Items purchased, including quantity and value each.
+- Delivery address details
+- Order and delivery totals
+
+The bottom of the confirmation includes a link to enable the user to continue shopping should they choose to.
+
+## Technologies Used
+
+### Languages Used
+
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+
+### Frameworks, Libraries and Programs Used
+
+* [GitPod](https://gitpod.io/) was used for writing code, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com/) was used to store the project after pushing.
+
+* [Heroku](https://id.heroku.com/) was used to deploy the application.
+
+* [PEP8 online check](http://pep8online.com/) was used to validate the Python code.
+* [Bootstrap.com](https://getbootstrap.com/docs/4.6/getting-started/introduction/) helped provide structure, styling and responsiveness to various viewports. 
+* [jQuery](https://en.wikipedia.org/wiki/JQuery) helped simplify the JavaScript coding.
+* [Django](https://en.wikipedia.org/wiki/Django_(web_framework)) web framework was used to provide pre-built structure and functionality to the Python code.
+* [pip3 / Python Package Index](https://pypi.org/) provided open-source Python software packages.
+* [Google Fonts](https://fonts.google.com/) provided the 'Exo' and 'Lato' fonts utilised within the site.
+
+* [Font Awesome](https://fontawesome.com/) provided the various icons used within the site.
+
+
+
+
+
+
 
 
 
