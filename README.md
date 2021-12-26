@@ -56,7 +56,7 @@ black background
 
 ***
 
-## User Experience (UX)
+## 1. User Experience (UX)
 
 ### Project Goals
 
@@ -207,7 +207,7 @@ Here are the colors being used :
     - default_country = CountryField(blank_label='Country', null=True, blank=True)
 
 
-## Features
+## 2. Features
 
 ### Home Page 'Carousel' imagery
 
@@ -376,7 +376,7 @@ Also listed are details of the order,  including:
 
 The bottom of the confirmation includes a link to enable the user to continue shopping should they choose to.
 
-## Technologies Used
+## 3. Technologies Used
 
 ### Languages Used
 
@@ -403,6 +403,66 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 
 * [Font Awesome](https://fontawesome.com/) provided the various icons used within the site.
 
+## 4. Testing
+
+### Testing User Stories
+
+* As a user, I want to immediately understand the site's main function.
+
+    - Carousel images together with 'Headline' banners showcase site products whilst imparting the main 'sustainability' message.
+
+* As a shopper, I want to easily understand how to begin viewing products.
+    - Carousel images include a clear 'Shop Now' button to prompt the user to begin exploring the site.
+    - On medium and larger screens, the main Navigation Elements are displayed prominently at top middle of the page.
+    - In smaller screens, the familiar drop-down 'burger' button is displayed prominently at top left of the page, to enable easy navigation from the drop-down list.
+
+* As a shopper, I want to easily understand the navigation options available  and the types of products available.
+    - All 'text-based' links are descriptive of their function, both within the main Navbar and within the 'burger' icon drop-down.
+    - All 'icon' based links are familiar to most general web users making the site feel intuitive and simple to navigate. 
+
+* As a shopper, I want to be able to easily identify specific products I may be looking for (via a 'search' box for example).
+    - On both mobile and large screens a recognisable 'search icon' is displayed prominently in the Navbar at the top of the page.  Clicking the icon displays a standard text text box with an instruction to 'search our site'.
+
+* As a shopper, I want to be able to list products on screen to better suit my search requirements (eg. sort by price or by category).
+    - On Desktop screens the main 'Department/Category' links in the centre of the Navbar display dropdown links to enable the user to pre-sort the products for display. The user can choose between:
+        - Sorted by Price,
+        - Sorted by Name,
+        or (if selecting the 'All Products' link)
+        - Sorted by Category
+
+    - Additionlly, for both Desktop and Mobile users, a 'Sort Box' is displayed at the top of a Category list to allow users to sort via a number of options:
+
+        - Price (high to low)
+        - Price (low to high)
+        - Name (A-Z)
+        - Name (Z-A)
+        - Category (A-Z)
+        - Category (Z-A)
+
+* As a shopper I want to be able to click into individual products to see more details and a larger picure of a product I may be interested in.
+    - Selecting any product directs the user to a 'Product Detail' page, within which a larger image of the product is displayed along side a description of the product and the price.
+    - Clicking the image from within the 'Product Detail' page opens a new tab to display an even larger version of the image.
+
+* As a shopper I want to be able to store my selections in a shopping trolley and be able to alter my selections as necessary.
+    - Users can add products to a Shopping Bag from within the 'Product Detail' page, via the 'Add to Shopping Bag' button. The button changes colour on hover to highlight it's functionality to the user.
+
+    - The shopping bag can be accessed directly via the Navbar and the pop-up messages which appear following additions to the shopping bag.
+    
+    - From within the Shopping Bag, quantities can be easily amended and products removed entirely using 'Change Quantity' and 'Remove Item' buttons.
+
+* As a shopper I want clear notifications each time I add, remove or alter items in my shopping trolley.
+
+    - 
+
+* As a shopper I want to be able to make secure credit card payments for the items I've chosen including relavant delivery address details.
+
+* As a returning shopper I want to be able to create my own account in order to save my personal and delivery details. 
+
+* As a returning shopper, I want to be able to see details of previous orders I've placed.
+
+* As a returning shopper with an account, I want my shopping bag to remain saved for as long as I stay logged in to my account.
+
+* As an Admin Superuser I want to be able to view and make changes to products, orders or user account details as and when necessary by logging in via my Superuser account.
 
 
 
