@@ -1,108 +1,207 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome AndyB-WHG,
+# E-volve Retail
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Climate change is now the most pressing and urgent problem facing the world today.  It is imperative that we move to a sustainable way of life before the consequences become irreversible.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The E-volve Retail store aims to be part of the solution by providing fully sustainable and beautiful clothing, beauty and home products for an increasingly ecologically aware customer base.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+A live website can be found [here](https://e-volve-retail.herokuapp.com/).
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+ **September 1, 2021**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Table of Contents
 
-A blue button should appear to click: _Make Public_,
+`Highlights in yellow`
 
-Another blue button should appear to click: _Open Browser_.
+_Make's the text italic_
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+1. Text 
+2. *Also makes the text italic*
+3. Text
+4. Text
+5. Text
 
 ------
 
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+Example of a
+black background
 ```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
 ---
 
-Happy coding!
+
+1. [User Experience (UX)](#user-experience-UX)
+    1. [Project Goals](#project-goals)
+    2. [User Stories](#user-stories)
+    3. [Color Scheme](#color-scheme)
+    4. [Data Model](#data-model)
+2. [Features](#features)
+    1. [User Information Input](#user-information-input)
+   
+   
+3. [Technologies Used](#technologies-used)
+    1. [Language Used](#language-used)
+    2. [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
+4. [Testing](#testing)
+    1. [Testing User Stories](#testing-user-stories)
+    2. [Code Validation](#code-validation)
+    3. [Manual Testing](#manual-testing)
+5. [Deployment](#deployment)
+6. [Credits](#credits)
+7. [Acknowledgements](#acknowledgements)
+
+***
+
+## User Experience (UX)
+
+### Project Goals
+
+* Provide an online retail website which is instantly recognisible as an e-commerce store selling products to the general public. 
+
+* The site must be modern, pleasant to view, easy to navigate and provide all the ususal features customers expect to see on a retail website.
+
+
+* Customers should be able to make secure credit card payments and be able to create an account in order to save details of orders and delivery addresses for use and viewing at a later date. 
+
+* The site should be easily navigable and provide intuitive features to help the user find a specific product/s they may be interersted in.
+
+* The site should be secure and only approved Admin Superusers should be able to make changes to products, orders or user account details.
+
+### User Stories
+
+* As a user, I want to immediately understand the site's main function.
+
+* As a shopper, I want to easily understand how to begin viewing products.
+
+* As a shopper, I want to easily understand the navigation options available  and the types of products available.
+
+* As a shopper, I want to be able to easily identify specific products I may be looking for (via a 'search' box for example). 
+
+* As a shopper, I want to be able to list products on screen to better suit my search requirements (eg. sort by price or by category).
+
+* As a shopper I want to be able to click into individual products to see more details and a larger picure of a product I'm interested in.
+
+* As a shopper I want to be able to store my selections in a shopping trolley and be able to alter my selections as necessary.
+
+* As a shopper I want clear notifications each time I add, remove or alter items in my shopping trolley.
+
+* As a shopper I want to be able to make secure credit card payments for the items I've chosen including relavant delivery address details.
+
+* As a returning shopper I want to be able to create my own account in order to save my personal and delivery details. 
+
+* As a returning shopper, I want to be able to see details of previous orders I've placed.
+
+* As a returning shopper with an account, I want my shopping bag to remain saved for as long as I stay logged in to my account.
+
+* As an Admin Superuser I want to be able to view and make changes to products, orders or user account details as and when necessary by logging in via my Superuser account.
+
+### Color Scheme
+
+Here are the colors being used :
+
+
+* Text and Product Product Prices:
+
+    Charcoal Grey   -  `rgb(55, 56, 56)`
+
+* Default Page Background :
+
+    White  -  `#ffffff`
+
+* E-volve Logo :
+
+    Terracotta Orange - `#c06e2c`
+
+* Add to Basket and Checkout buttons :
+
+    Green  -  `rgb(126, 170, 126);`
+
+
+### Data Model
+
+* Category Model
+
+    - name = models.CharField(max_length=254) 
+    - friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+* Product Model
+    - category = models.ForeignKey('Category', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
+    - sku = models.CharField(max_length=254, null=True, blank=True)
+    - name = models.CharField(max_length=254)
+    - description = models.TextField()
+    - has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    - price = models.DecimalField(max_digits=6, decimal_places=2)
+    - image_url = models.URLField(max_length=1024, null=True, blank=True)
+    - image = models.ImageField(null=True, blank=True)
+
+* Order Model
+    - order_number = models.CharField(max_length=32, null=False, editable=False)
+    - user_profiles = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                      null=True, blank=True, related_name='orders')
+    - full_name = models.CharField(max_length=50, null=False, blank=False)
+    - email = models.EmailField(max_length=254, null=False, blank=False)
+    - phone_number = models.CharField(max_length=20, null=False, blank=False)
+    - country = CountryField(blank_label='Country *', null=False, blank=False)
+    - postcode = models.CharField(max_length=20, null=True, blank=True)
+    - town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    - street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    - street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    - county = models.CharField(max_length=80, null=True, blank=True)
+    - date = models.DateTimeField(auto_now_add=True)
+    - delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
+                                        null=False, default=0)
+    - order_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    - grand_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    - original_shopping_bag = models.TextField(null=False, blank=False, default='')
+    - stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+* Order Line-Item Model (used to create an order line for each item in a given order)
+
+    - order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    - product = models.ForeignKey(Product, null=False, blank=False,
+                                on_delete=models.CASCADE)
+    - product_size = models.CharField(max_length=2,
+                                    choices=SIZE_CHOICES, null=True,
+                                    blank=True)  `'SIZE_CHOICES'` variable derived from `'SIZE_CHOICES'` selection listed below.
+    - quantity = models.IntegerField(null=False, blank=False, default=0)
+    - lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                         null=False, blank=False,
+                                         editable=False)
+
+    - `SIZE_CHOICES`= [
+        (SIZE_6, 'Size 6'),
+        (SIZE_8, 'Size 8'),
+        (SIZE_10, 'Size 10'),
+        (SIZE_12, 'Size 12'),
+        (SIZE_14, 'Size 14'),
+        (SIZE_16, 'Size 16'),
+        (SIZE_18, 'Size 18'),
+        (SIZE_20, 'Size 20'),
+    ]   `'SIZE'` variable derived from the `'SIZE'` selection listed below.
+
+    - SIZE_6 = "6"
+    SIZE_8 = "8"
+    SIZE_10 = "10"
+    SIZE_12 = "12"
+    SIZE_14 = "14"
+    SIZE_16 = "16"
+    SIZE_18 = "18"
+    SIZE_20 = "20"
+
+* User Profile Model
+    - user = models.OneToOneField(User, on_delete=models.CASCADE)
+    - default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    - default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
+    - default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    - default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    - default_county = models.CharField(max_length=80, null=True, blank=True)
+    - default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    - default_country = CountryField(blank_label='Country', null=True, blank=True)

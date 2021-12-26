@@ -611,12 +611,22 @@ input[name='q']::placeholder {
 
 .checkout-button {
     width:94%;
+    background-color: rgb(126, 170, 126);
+    color: #ffffff;
+    border: #343a40;
+    border-width: 2px;
+    border-style: solid;
 }
 
 .checkout-btn-medium {
     position: relative;
     top: 8px;
     right: 15px;
+    background-color: rgb(126, 170, 126);
+    color: #ffffff;
+    border: #343a40;
+    border-width: 2px;
+    border-style: solid;
     
 }
 
