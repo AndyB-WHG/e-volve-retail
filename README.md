@@ -69,7 +69,7 @@ black background
 
 * The site should be easily navigable and provide intuitive features to help the user find a specific product/s they may be interersted in.
 
-* The site should be secure and only approved Admin Superusers should be able to make changes to products, orders or user account details.
+* The site should be secure with only approved Admin Superusers able to make changes to products and orders.  Superusers should also have the ability to change another user's account details where required/authorised.
 
 ### User Stories
 
@@ -104,11 +104,11 @@ black background
 Here are the colors being used :
 
 
-* Text and Product Product Prices:
+* Site-wide text, product prices and Navbar icons:
 
     Charcoal Grey   -  `rgb(55, 56, 56)`
 
-* Default Page Background :
+* Default Background :
 
     White  -  `#ffffff`
 
@@ -116,7 +116,7 @@ Here are the colors being used :
 
     Terracotta Orange - `#c06e2c`
 
-* Add to Basket and Checkout buttons :
+* 'Add to Basket' and 'Checkout' buttons :
 
     Green  -  `rgb(126, 170, 126);`
 
@@ -205,3 +205,62 @@ Here are the colors being used :
     - default_county = models.CharField(max_length=80, null=True, blank=True)
     - default_postcode = models.CharField(max_length=20, null=True, blank=True)
     - default_country = CountryField(blank_label='Country', null=True, blank=True)
+
+
+## Features
+
+### Home Page `'Carousel'` imagery
+
+ - Carousel of three eye-catching product images, each with a simple headline message to educate the user as to the websites main function and unique selling point (USP).
+ - Each image has a 'Shop Now' button to prompt the user to begin browsing.  The buttons take the user to the Department relevant to the image on screen.
+- The Carousel also has left and right arrows to enable the user to manually scroll left or right should they so choose.
+
+
+### Navbar
+
+- A Navbar is fix to the top of the page in order to provide the user with browsing options during their visit.
+- On smaller screens the Navbar features:
+    - A choice of 'Search', 'User' and 'Shopping Bag' icons at top right dependant upon screen size
+    -  a drop-down 'burger' toggle at top left, with . The 'burger' drop-down includes links to: 
+        * The main Product Departments pages
+        * User Login / Register / Account Page options
+        * Product Review page
+    
+- On larger screens the central Navbar area comprises 
+    - At top left, the 'Home / Logo' link to return to the Carousel
+    - Links to the three main store departments. plus an additional link to display 'All Products'.  
+
+### 'Search' function
+
+- A 'Search Box' (large screens) or 'Search Icon' (small screens) is provided to enable users to search for a keyword located in either in the Product Name or Product Description.  If the keyword is found - the relevant products are displayed/listed on screen.
+
+### Products Page
+
+- After clicking a Department / Category link (Fashion, Home, Beauty or All), or after successully searching for a product using the 'Search' function, the relevant products are listed on the 'Products' page.
+
+-  Items are listed in columns dependent upon screen size.  Each listed product includes the :
+    - Product Image 
+    - Product Name
+    - Product Price 
+    - Product Category/Department link
+
+- Clicking a product directs the user to the 'Description' page for the item in question.
+- Clicking the product's Category/Deprtment link prompts the site to display all products for the Department concerned.
+
+
+### 'Sort' Function
+
+- Items listed on the 'Products' page can be sorted using a number of pre-set options within the 'Sort by' box, located at top middle on small screens and top right on larger screens.
+
+    Options for sorting include:
+
+    - Price (high to low)
+    - Price (low to high)
+    - Name (A-Z)
+    - Name (Z-A)
+    - Category (A-Z)
+    - Category (Z-A)
+
+   
+
+
