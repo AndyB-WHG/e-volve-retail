@@ -487,6 +487,68 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 
 ### Manual Testing
 
+Category | Test No. | Test Name | Result | Pass/Fail 
+-------- | -------- | ----------| ------ | ---------
+Carousel Links | 1 | Shop Now Link - Carousel Page 1 - Beauty Products | Beauty Products Page Displayed as expected. | Pass |
+Carousel Links | 2 | Shop Now Link - Carousel Page 2 - Fashion Products | Fashion Products Page Displayed as expected. | Pass |
+Carousel Links | 3 | Shop Now Link - Carousel Page 3 - Home Products | Home Products Page Displayed as expected. | Pass |
+Carousel Links | 4 | Carousel indicator links - Page 1 | Links worked as expected moving the carousel to the required image. | Pass |
+Carousel Links | 5 | Carousel indicator links - Page 2 | Links worked as expected moving the carousel to the required image. | Pass |
+Carousel Links | 6 | Carousel indicator links - Page 3 | Links worked as expected moving the carousel to the required image. | Pass |
+Carousel Links | 7 | Carousel left arrow - Page 1 | Link worked as expected moving the carousel to the previous image. | Pass |
+Carousel Links | 8 | Carousel right  arrow - Page 1 | Link worked as expected moving the carousel to the next image. | Pass |
+Carousel Links | 9 | Carousel left arrow - Page 2 | Link worked as expected moving the carousel to the previous image. | Pass |
+Carousel Links | 10 | Carousel right  arrow - Page 2 | Link worked as expected moving the carousel to the next image. | Pass |
+Carousel Links | 11 | Carousel left arrow - Page 3 | Link worked as expected moving the carousel to the previous image. | Pass |
+Carousel Links | 12 | Carousel right  arrow - Page 3 | Link worked as expected moving the carousel to the next image. | Pass |
+Navbar Links | 13 | Logo at top left - click | Link works as expected from all pages on the site. | Pass |
+Navbar Links | 14 | Central 'Department' links (Fashion. Home Health. All) | Link works as expected from all pages on the site. | Pass |
+Navbar Links | 15 | Central 'Department links : hover | Drop-down options appear beneath the main links upon hover as expected.  | Pass |
+Navbar Links | 16 | Central 'Department drop-down' sorting links | Drop-down links take the user the requested Products page and sort as expected (by 'name' or by 'price'). | Pass |
+Navbar Links | 17 | Search Icon click | Search box appears and disappears as expected on all pages on the site. | Pass |
+Navbar Links | 18 | Search box function - enter text and click search button | Text search works correctly and displays matching products as expected. | Pass |
+Navbar Links | 19 | User / Account Icon  click -  user not logged in | Clicking icon produces drop-down of 'Register' and 'Login' options as expected. | Pass |
+Navbar Links | 20 | Register button click | Takes user to the 'Sign Up' page as expected. | Pass |
+Navbar Links | 21 | Login button click | Takes user to the 'Sign In' page as expected. | Pass |
+Navbar Links | 22 | Shopping Bag button click | Takes user to Shopping Bag page as ex[ected. | Pass |
+Products Page | 23 | Product count | Number of products listed displays at top left as expected. | Pass |
+Products Page | 24 | Product image and details links | Clicking takes the user to the 'Product Details' page as expected. | Pass |
+Products Page | 25 | Department link beneath each item | Click takes useer to Products page for the Dept in question. | Pass |
+Products Page | 26 | 'Sort by…' box | All sorting options work as expected. | Pass |
+Products Page | 27 | Back to Top button | Button works as expected. | Pass |
+Product Details Page | 28 | Page render | Page renders and includes all elements as expected. | Pass |
+Product Details Page | 29 | Size seletor box | Box displays drop-down selection of pre-set sizes as expected. | Pass |
+Product Details Page | 30 | Quantity selection box | Box accepts only numerical inputs between 0 and 99 as expected. | Pass |
+Product Details Page | 31 | 'Add to Bag' button | Adds product to shopping bag with correct quantity and size as expected. | Pass |
+Product Details Page | 32 | Department link  | Renders Products page as expected. Lists only products for the dept concerned as expected. | Pass |
+Product Details Page | 33 | 'Write a Review' button | TBC | Not yet written/tested |
+Product Details Page | 34 | Reviews Section | TBC | Not yet written/tested |
+Shopping Bag page | 35 | Desk top page | Text renders too small. | Fail |
+Shopping Bag page | 36 | iPad Page | Reviews Section not displaying. | Fail |
+Shopping Bag page | 37 | Mobile Page | Reviews Section not displaying. | Fail |
+Shopping Bag page | 38 | All screen sizes | Text required to advise user that quantity value can be changed. | Fail |
+Shopping Bag page | 39 | 'Spend required for Free Delivery' message | Renders on page as correct value but is not located correctly on Desktop and iPad and needs better styling on all screen sizes. | Fail |
+Shopping Bag page | 40 | Order Value | Calculates correctly. | Pass |
+Shopping Bag page | 41 | Delivery value | Calculates correctly. | Pass |
+Shopping Bag page | 42 | Total value | Calculates correctly. | Pass |
+Shopping Bag page | 43 | Checkout button | Works as expected to render the Checkout Page. | Pass |
+Shopping Bag page | 44 | Products Listing | Products, descriptions and prices render as expected. | Pass |
+Shopping Bag page | 45 | Quanity boxes | Render correctly and can be updated as expected.  | Pass |
+Shopping Bag page | 46 | 'Update Qty' button | Updates the quantity in the Shopping Bag for the item in question as expected. Also updates the Shopping Bag value as expected. | Pass |
+Shopping Bag page | 47 | 'Remove Item' button | Removes the item in question from the Shopping Bag as expected. | Pass |
+Checkout Page | 48 | Page render | Page renders correctly with items, sizes and quantities list at the top of the page, order and delivery totals displayed mid-page, delivery details form beneath the total and card payment details at the bottom of the page, together with 'Adjust Bag' and 'Complete Order' buttons. | Pass |
+Checkout Page | 49 | Saved user details  | Saved user details do not pull through when logged in. | Fail |
+Checkout Page | 50 | 'Complete Order' button | Works as expected to start the payment transaction process and render the 'Payment Success' page where appropriate. | Pass |
+Checkout Page | 51 | 'Adjust Bag' button | Works as expected to render the Shopping Bag page. | Pass |
+Checkout Success page | 52 | Page render | Page renders correctly following validated order and card details.  All orders details are listed correctly and delivery address details also listed in full in correct order.  Order number and date/time displayed correctly.  | Pass |
+Checkout Success page | 53 | 'Keep Shopping' button | Works as expected - takes user to the 'All Products' page. | Pass |
+Register (new user) page | 54 | Registration form fields inputs | Inputs work as expected.  Auto-verification checks password is not too common and not too short, checks if email account already used/registered, and checks if username is already used. | Pass |
+Register (new user) page | 55 | Verification email sent to users email address | Currently the system prints the email verification to the console.  Copying the address and bringing it up on screen allows the email to be verified. The verification is reflected in the Admin. | Pass/Fail as does not yet email direct to user. |
+Sign Out page | 56 | Sign out button on Sign Out page | Button functions as expect and logs the user out whilst simultaneously deleting the Shopping Bag cookie.  Success message also confirms user is signed out. | Pass |
+Sign Out page | 57 | Cancel Sign Out button  | Works as expected and the user remains logged in.  Success message also confirms user is logged in. | Pass |
+Product Management Page | 58 | Awaiting testing | Correction required as is currently linked to Sign Out page. | Fail |
+
+
 
 
 
