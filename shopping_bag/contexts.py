@@ -2,6 +2,8 @@
 makes the variable available project wide as is listed
 in the 'settings.py' context processor section"""
 
+#  Note: Decimal required for the 'round' function used below
+from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -43,8 +45,9 @@ def shopping_bag_contents(request):
                 })
 
     if total_order_value < settings.FREE_DELIVERY_THRESHOLD:
-        delivery_cost = round(total_order_value * (
-            settings.STANDARD_DELIVERY_PERCENTAGE/100, 2))
+        delivery_cost = total_order_value * Decimal(
+            settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        delivery_cost = round(delivery_cost, 2)
         print(total_order_value)
         print(delivery_cost)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - (

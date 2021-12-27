@@ -485,6 +485,10 @@ The bottom of the confirmation includes a link to enable the user to continue sh
     
 * As an Admin Superuser I want to be able to view and make changes to products, orders or user account details as and when necessary by logging in via my Superuser account.
 
+### Manual Testing
+
+
+
 
 
 
