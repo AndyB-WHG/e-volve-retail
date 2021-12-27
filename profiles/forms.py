@@ -1,9 +1,13 @@
+""" Form to create User Profile information """
+
 from django import forms
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """ Generate form to create new user profile """
     class Meta:
+        """ Takes the 'User Profile model and removes the 'user' portion """
         model = UserProfile
         exclude = ('user',)
 
@@ -30,5 +34,6 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] = (
+              'border-black rounded-0 profile-form-input')
             self.fields[field].label = False

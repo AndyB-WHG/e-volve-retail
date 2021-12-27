@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+""" Views to generate and amend the 'Shopping Bag' page  """
+
+from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -23,40 +26,43 @@ def add_to_shopping_bag(request, item_id):
     # Note: above gets the session called shopping_bag, but if such
     # a session doesn't exist, it creates an empty dictionary instead.
 
-    print("Shopping bag session (from add_to_shopping_bag) : ", shopping_bag_session)
+    print("Shopping bag session (from add_to_shopping_bag) : ",
+          shopping_bag_session)
     print("item_id (from add_to_shopping_bag) : ", item_id)
     print("Size (from add_to_shopping_bag) : ", size)
     print("Quantity (from add_to_shopping_bag) : ", quantity)
-    # print("Quantity already in shopping bag = ", shopping_bag_session[item_id]['items_by_size'][size])
     print("Var type of quantity in shopping bag:")
-    # print(type(shopping_bag_session[item_id]['items_by_size']))
 
     if size:
         if item_id in list(shopping_bag_session.keys()):
-            if size in shopping_bag_session[item_id]['items_by_size'].keys():                
-                shopping_bag_session[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {shopping_bag_session[item_id]["items_by_size"]}')
+            if size in shopping_bag_session[item_id]['items_by_size'].keys():
+                shopping_bag_session[item_id]['items_by_size'][
+                    size] += quantity
+                messages.success(request, f'Updated size {size.upper()} \
+                    {product.name} quantity to \
+                        {shopping_bag_session[item_id]["items_by_size"]}')
             else:
                 shopping_bag_session[item_id]['items_by_size'][size] = quantity
-                messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
+                messages.success(request, f'Added size {size.upper()} \
+                    {product.name} to your bag')
         else:
             shopping_bag_session[item_id] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
+            messages.success(request, f'Added size {size.upper()} \
+                {product.name} to your bag')
     else:
         if item_id in list(shopping_bag_session.keys()):
             shopping_bag_session[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {shopping_bag_session[item_id]}')
+            messages.success(request, f'Updated {product.name} quantity to \
+                {shopping_bag_session[item_id]}')
         else:
+            # Check if the session already includes the item.
+            # If it does, add the quantity to the existing quanity.
+            # If it doesn't, add the item_id and it's related quantity.
             shopping_bag_session[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
-            
-        # Checks if the session already includes the item.
-        # If it does, it add the quantity to the existing quanity.
-        # If it doesn't it add the item_id and it's related quantity.
-    
 
+    # Over-write the original shopping bag session with the updated version.
     request.session['shopping_bag_session'] = shopping_bag_session
-    # Over-writes the original shopping bag session with the updated version.
 
     return redirect(redirect_url)
 
@@ -71,9 +77,9 @@ def adjust_shopping_bag(request, item_id):
         size = request.POST.get('product_size')
     quantity = int(request.POST.get('quantity'))
 
+    # Get the session called shopping_bag, but if such
+    # a session doesn't exist, create an empty dictionary instead.
     shopping_bag_session = request.session.get('shopping_bag_session', {})
-    # Note: above gets the session called shopping_bag, but if such
-    # a session doesn't exist, it creates an empty dictionary instead.
 
     print("Adjust Quantity shopping bag session: ", shopping_bag_session)
     print("New Quantity : ", quantity)
@@ -82,22 +88,27 @@ def adjust_shopping_bag(request, item_id):
     if size:
         if quantity > 0:
             shopping_bag_session[item_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {shopping_bag_session[item_id]["items_by_size"]}')
+            messages.success(request, f'Updated size {size.upper()} \
+                {product.name} quantity to \
+                    {shopping_bag_session[item_id]["items_by_size"]}')
         else:
             del shopping_bag_session[item_id]['items_by_size'][size]
             if not shopping_bag_session[item_id]['items_by_size']:
                 shopping_bag_session.pop(item_id)
-            messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
+            messages.success(request, f'Removed size {size.upper()} \
+                {product.name} from your bag')
 
     else:
         print("There was no size. Replacing previous qty with new quantity.")
         if quantity > 0:
             shopping_bag_session[item_id] = quantity
-            messages.success(request, f'Updated {product.name} quantity to {shopping_bag_session[item_id]}')
+            messages.success(request, f'Updated {product.name} quantity to \
+                {shopping_bag_session[item_id]}')
             print("Updated shopping_bag_session : ", shopping_bag_session)
         else:
             shopping_bag_session.pop[item_id]
-            messages.success(request, f'Removed {product.name} from your shopping bag')
+            messages.success(request, f'Removed {product.name} \
+                from your shopping bag')
 
     request.session['shopping_bag_session'] = shopping_bag_session
     # Over-writes the original session cookie with the updated version.
@@ -121,7 +132,7 @@ def delete_from_shopping_bag(request, item_id):
 
         print("'Delete item' shopping bag session: ", shopping_bag_session)
         print("Item ID being updated : ", item_id)
-    
+
         if size:
             # Delete the item with the specific size
             del shopping_bag_session[item_id]['items_by_size'][size]
@@ -129,11 +140,13 @@ def delete_from_shopping_bag(request, item_id):
             # delete the item entirely.
             if not shopping_bag_session[item_id]['items_by_size']:
                 shopping_bag_session.pop(item_id)
-                messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
+                messages.success(request, f'Removed size {size.upper()} \
+                    {product.name} from your bag')
 
         else:
             shopping_bag_session.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your shopping bag')
+            messages.success(request, f'Removed {product.name} from your \
+                shopping bag')
 
         request.session['shopping_bag_session'] = shopping_bag_session
         # Over-writes the original session cookie with the updated version.

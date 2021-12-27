@@ -1,3 +1,6 @@
+""" Views for Checkout and Checkout Success pages """
+
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.shortcuts import HttpResponse
 from django.views.decorators.http import require_POST
@@ -11,11 +14,11 @@ from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-import json
 
 
 @require_POST
 def cache_checkout_data(request):
+    """ Saves the Checkout Data in a Cache cookie """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,6 +36,8 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """  Generates the 'Checkout' page (GET request) and submits Payment
+    Details to the Checkout Success Page (POST requests) """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     # client_secret = None   #  Line added by Marcel
@@ -73,7 +78,8 @@ def checkout(request):
                         order_line_item.save()
                         print("order_line_item = ", order_line_item)
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in (
+                          item_data['items_by_size'].items()):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -84,14 +90,18 @@ def checkout(request):
                             print("order_line_item = ", order_line_item)
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't found in our \
+                         database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('shopping_bag'))
-            print("Order Line Items added - attempting to render 'Checkout Success'")
-            request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            print("Order Line Items added - attempting to render 'Checkout \
+                Success'")
+            request.session['save_info'] = 'save-info' in (
+                request.POST)
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             print("Order for not validated - it is invalid!! :-(")
             messages.error(request, 'There was an error with your form. \
@@ -126,7 +136,9 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        # 'client_secret': client_secret,     #  Line 'amended' by Marcel to replace the line below.
+        # 'client_secret': client_secret,
+        # Commented out Line above 'amended' by mentor Marcel Mulders to
+        # replace the line below.
         'client_secret': intent.client_secret,
     }
 
@@ -141,7 +153,7 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
-       
+
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = profile

@@ -402,6 +402,7 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 * [Google Fonts](https://fonts.google.com/) provided the 'Exo' and 'Lato' fonts utilised within the site.
 
 * [Font Awesome](https://fontawesome.com/) provided the various icons used within the site.
+* [Stripe](https://en.wikipedia.org/wiki/Stripe_(company))
 
 ## 4. Testing
 
@@ -444,24 +445,44 @@ The bottom of the confirmation includes a link to enable the user to continue sh
     - Clicking the image from within the 'Product Detail' page opens a new tab to display an even larger version of the image.
 
 * As a shopper I want to be able to store my selections in a shopping trolley and be able to alter my selections as necessary.
-    - Users can add products to a Shopping Bag from within the 'Product Detail' page, via the 'Add to Shopping Bag' button. The button changes colour on hover to highlight it's functionality to the user.
+    - User can add products to a 'Shopping Bag' from within the 'Product Detail' page, via the 'Add to Shopping Bag' button. 
+    - Shopping Bag button changes colour on hover to highlight it's functionality to the user.
 
-    - The shopping bag can be accessed directly via the Navbar and the pop-up messages which appear following additions to the shopping bag.
+    - Shopping bag accessed directly via the Navbar.  Pop-up messages appear following additions to the shopping bag.
     
-    - From within the Shopping Bag, quantities can be easily amended and products removed entirely using 'Change Quantity' and 'Remove Item' buttons.
+    - From within the Shopping Bag, quantities can be amended and products removed entirely using 'Change Quantity' and 'Remove Item' buttons.
 
 * As a shopper I want clear notifications each time I add, remove or alter items in my shopping trolley.
 
-    - 
+    - Pop-up messages appear at top right of the screen beneath the shopping bag confirming: 
+        - additions to the shopping bag
+        - deletion of items from within the shopping bag
+        - change of quantity from within the shopping bag
+
 
 * As a shopper I want to be able to make secure credit card payments for the items I've chosen including relavant delivery address details.
 
+    - Orders are recorded to the users account. Payments are validated and processed via the 'Stripe' application.
+
 * As a returning shopper I want to be able to create my own account in order to save my personal and delivery details. 
+
+    - Via the 'User' icon on the Navbar users are able to: 
+        - Register new accounts
+        - Login to accounts to view pesonal details and delivery addresses
+        - Logout of accounts
 
 * As a returning shopper, I want to be able to see details of previous orders I've placed.
 
-* As a returning shopper with an account, I want my shopping bag to remain saved for as long as I stay logged in to my account.
+    - Users are able to log in to their account and see a ful list of previous orders. Clicking an order displays the original order confirmation including:
+        - date of order 
+        - times of order
+        - delivery addresse
+        - items ordered
+        - order number.
 
+
+* As a returning shopper with an account, I want my shopping bag to remain saved for as long as I stay logged in to my account.
+    
 * As an Admin Superuser I want to be able to view and make changes to products, orders or user account details as and when necessary by logging in via my Superuser account.
 
 

@@ -1,11 +1,13 @@
+""" Models for defining products and their categories """
+
 from django.db import models
 
 
 class Category(models.Model):
     """ Model to define Product Categories """
     class Meta:
+        """ Changes the 'Admin section name from Categorys to Categories """
         verbose_name_plural = 'Categories'
-        # Changes the 'Admin' section name from Categorys to Categories
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -15,6 +17,7 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """ Returns the 'Friendly Name' """
         return self.friendly_name
 
 

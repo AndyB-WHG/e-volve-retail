@@ -1,13 +1,17 @@
+""" Classes to control viewing of orders for Superusers in the Admin area """
+
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """ Adds line item total to Admin 'Order Line Items' section """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """ Creates Order Section within Admin Page """
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
@@ -16,9 +20,8 @@ class OrderAdmin(admin.ModelAdmin):
                        'stripe_pid',)
 
     fields = ('order_number', 'user_profiles', 'date', 'full_name',
-              'email', 'phone_number', 'country',
-              'postcode', 'town_or_city', 'street_address1',
-              'street_address2', 'county', 'delivery_cost',
+              'email', 'phone_number', 'street_address1', 'street_address2',
+              'town_or_city', 'county', 'postcode', 'country', 'delivery_cost',
               'order_total', 'grand_total', 'original_shopping_bag',
               'stripe_pid')
 
