@@ -9,30 +9,9 @@ The E-volve Retail store aims to be part of the solution by providing fully sust
 
 A live website can be found [here](https://e-volve-retail.herokuapp.com/).
 
-
- **September 1, 2021**
-
 ## Table of Contents
 
-`Highlights in yellow`
-
-_Make's the text italic_
-
-1. Text 
-2. *Also makes the text italic*
-3. Text
-4. Text
-5. Text
-
 ------
-
-```
-Example of a
-black background
-```
-
----
-
 
 1. [User Experience (UX)](#user-experience-UX)
     1. [Project Goals](#project-goals)
@@ -57,6 +36,7 @@ black background
 ***
 
 ## 1. User Experience (UX)
+---
 
 ### Project Goals
 
@@ -208,6 +188,7 @@ Here are the colors being used :
 
 
 ## 2. Features
+--------------
 
 ### Home Page 'Carousel' imagery
 
@@ -377,6 +358,7 @@ Also listed are details of the order,  including:
 The bottom of the confirmation includes a link to enable the user to continue shopping should they choose to.
 
 ## 3. Technologies Used
+---
 
 ### Languages Used
 
@@ -402,9 +384,10 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 * [Google Fonts](https://fonts.google.com/) provided the 'Exo' and 'Lato' fonts utilised within the site.
 
 * [Font Awesome](https://fontawesome.com/) provided the various icons used within the site.
-* [Stripe](https://en.wikipedia.org/wiki/Stripe_(company))
+* [Stripe](https://en.wikipedia.org/wiki/Stripe_(company)) - provides secure credit card payment and verification service.
 
 ## 4. Testing
+---
 
 ### Testing User Stories
 
@@ -487,8 +470,8 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 
 ### Manual Testing
 
-Category | Test No. | Test Name | Result | Pass/Fail 
--------- | -------- | ----------| ------ | ---------
+Category | Test No. | Test Name     | Result        | Pass/Fail 
+-------- | -------- | ------------- | ------------- | ---------
 Carousel Links | 1 | Shop Now Link - Carousel Page 1 - Beauty Products | Beauty Products Page Displayed as expected. | Pass |
 Carousel Links | 2 | Shop Now Link - Carousel Page 2 - Fashion Products | Fashion Products Page Displayed as expected. | Pass |
 Carousel Links | 3 | Shop Now Link - Carousel Page 3 - Home Products | Home Products Page Displayed as expected. | Pass |
@@ -547,6 +530,44 @@ Register (new user) page | 55 | Verification email sent to users email address |
 Sign Out page | 56 | Sign out button on Sign Out page | Button functions as expect and logs the user out whilst simultaneously deleting the Shopping Bag cookie.  Success message also confirms user is signed out. | Pass |
 Sign Out page | 57 | Cancel Sign Out button  | Works as expected and the user remains logged in.  Success message also confirms user is logged in. | Pass |
 Product Management Page | 58 | Awaiting testing | Correction required as is currently linked to Sign Out page. | Fail |
+
+## Deployment
+-------
+
+The application has been deployed using Heroku by following these steps:
+
+Heroku was used to deploy the application.
+
+1. Create the requirements.txt file and run: pip3 freeze > requirements.txt in the console.
+2. Commit changes and push them to GitHub.
+3. Go to the Heroku's website.
+4. From the Heroku dashboard, click on "Create new app".
+5. Enter the "App name" and "Choose a region" before clicking on "Create app".
+6. Go to "Config Vars" under the "Settings" tab.
+7. Click on "Reveals Config Vars" and add the KEY: CREDS and the VALUE stored in creds.json file if needed.
+8. Add the Config Var, KEY: PORT and VALUE: 8000.
+9. Go to "Buildpacks" section and click "Add buildpack".
+10. Select "python" and click "Save changes"
+11. Add "nodejs" buildpack as well using the same process.
+12. Go to "Deployment method", under the "Deploy" tab select "GitHub" and click on "Connect to GitHub".
+13. Go to "Connect to GitHub" section and "Search" the repository to be deployed.
+14. Click "Connect" next the repository name.
+15. Choose "Automatic deploys" or "Manual deploys" to deploy your application.
+
+## Credits
+-------
+
+### Content
+
+* Base code is based on the Code Institute's 'Boutique Ado' project.
+
+* Product images were provided by:  
+    - [Unsplash.com](https://unsplash.com/) (9 x images)
+    - [Pexels.com](https://www.pexels.com/) (3 x images)
+    - [Next UK](https://www.next.co.uk/) (1 x image - Pink Jumper)
+    - [Neatclean.com](https://neatclean.com/) (1 x image - Cleaning Product)
+
+* 
 
 
 
