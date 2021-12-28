@@ -122,8 +122,9 @@ def checkout(request):
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY
+            currency=settings.STRIPE_CURRENCY,
         )
+
         # client_secret = intent.client_secret     #  Line added by Marcel
 
         if request.user.is_authenticated:
