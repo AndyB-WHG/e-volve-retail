@@ -36,7 +36,6 @@ A live website can be found [here](https://e-volve-retail.herokuapp.com/).
 ***
 
 ## 1. User Experience (UX)
----
 
 ### Project Goals
 
@@ -188,7 +187,6 @@ Here are the colors being used :
 
 
 ## 2. Features
---------------
 
 ### Home Page 'Carousel' imagery
 
@@ -358,7 +356,6 @@ Also listed are details of the order,  including:
 The bottom of the confirmation includes a link to enable the user to continue shopping should they choose to.
 
 ## 3. Technologies Used
----
 
 ### Languages Used
 
@@ -387,7 +384,6 @@ The bottom of the confirmation includes a link to enable the user to continue sh
 * [Stripe](https://en.wikipedia.org/wiki/Stripe_(company)) - provides secure credit card payment and verification service.
 
 ## 4. Testing
----
 
 ### Testing User Stories
 
@@ -532,7 +528,6 @@ Sign Out page | 57 | Cancel Sign Out button  | Works as expected and the user re
 Product Management Page | 58 | Awaiting testing | Correction required as is currently linked to Sign Out page. | Fail |
 
 ## Deployment
--------
 
 The application has been deployed using Heroku by following these steps:
 
@@ -555,7 +550,6 @@ Heroku was used to deploy the application.
 15. Choose "Automatic deploys" or "Manual deploys" to deploy your application.
 
 ## Credits
--------
 
 ### Content
 
