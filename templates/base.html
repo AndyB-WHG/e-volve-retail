@@ -64,7 +64,7 @@
               <div id="user-account-dropdown" class="dropdown-menu border-0 text-left" aria-labelledby="user-options-mobile">
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
-                          <a href="{% url 'account_logout' %}" class="dropdown-item text-left pl-0">Product Management</a>
+                          <a href="{% url 'add_product' %}" class="dropdown-item text-left pl-0">Add Product</a>
                       {% endif %}
                       <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -131,15 +131,20 @@
             <li class="nav-item active">
               <a class="nav-link d-lg-none" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-lg-none" href="#">My Account<span class="sr-only">(current)</span></a>
+            <li class="nav-item active">
+              {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                      <a href="{% url 'add_product' %}" class="nav-link d-lg-none">Add Product<span class="sr-only">(current)</span></a>
+                  {% endif %}
+                  <a href="{% url 'profile' %}" class="nav-link d-lg-none">My Profile<span class="sr-only">(current)</span></a>
+                  <a href="{% url 'account_logout' %}" class="nav-link d-lg-none">Logout<span class="sr-only">(current)</span></a>
+                  <a class="nav-link d-lg-none disabled" href="#" tabindex="-1" aria-disabled="true">My Reviews</a>
+              {% else %}
+                  <a href="{% url 'account_signup' %}" class="nav-link d-lg-none">Register<span class="sr-only">(current)</span></a>
+                  <a href="{% url 'account_login' %}" class="nav-link d-lg-none">Login<span class="sr-only">(current)</span></a>
+              {% endif %}
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-lg-none disabled" href="#" tabindex="-1" aria-disabled="true">My Reviews</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-lg-none disabled" href="#" tabindex="-1" aria-disabled="true">Shopping Bag</a>
-            </li>
+            
           </ul>
         </div>
 
