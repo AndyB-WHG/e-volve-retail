@@ -22,7 +22,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    """ Model to define Poduct Fields """
+    """ Model to define Product Fields """
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     # Note: Set Null pevents product from being deleted if Category
