@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 # can be in either one list 'or' another
 from django.db.models import Q
 from django.db.models.functions import Lower
+from user_reviews.models import User_review
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -76,9 +77,11 @@ def product_detail(request, product_id):
     """ A view to show the details of an individual product """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = User_review.objects.all()
 
     context = {
-        'product': product
+        'product': product,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)

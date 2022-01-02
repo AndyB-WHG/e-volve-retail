@@ -113,6 +113,8 @@
                                 <hr class="my-3">
 
                                 <p class="h5">Reviews:</p>
+
+                                    {{ reviews }}
                             </div>
                     </div>
 
@@ -198,6 +200,17 @@
                 <div class="col d-none d-sm-block col-md-11 col-lg-8 col-xl-7 offset-1 offset-md-0 offset-lg-2">
                     <hr class="mt-5 mb-4 ml-3 mr-3 pt-3">
                     <p class="ml-3 h5">Reviews:</p>
+                    {% for review in reviews %}
+                        {% if review.product.sku == product.sku %}
+                            {{ review.review_text }}
+                        <div>
+                            {{ review.user }}
+                        </div>
+                        <div>
+                            {{ review.date }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
