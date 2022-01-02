@@ -200,17 +200,26 @@
                 <div class="col d-none d-sm-block col-md-11 col-lg-8 col-xl-7 offset-1 offset-md-0 offset-lg-2">
                     <hr class="mt-5 mb-4 ml-3 mr-3 pt-3">
                     <p class="ml-3 h5">Reviews:</p>
+                    <div class="review-divider"></div>
                     {% for review in reviews %}
                         {% if review.product.sku == product.sku %}
-                            {{ review.review_text }}
-                        <div>
-                            {{ review.user }}
+                        <div class="row pl-3">
+                            <div class="col-md-8">
+                                    {{ review.date }} 
+                            </div>  
                         </div>
-                        <div>
-                            {{ review.date }}
+                        <div class="row mb-3 pl-3">
+                            <div class="col-md-8">
+                                    {{ review.review_text }}
+                            </div>  
+                            <div class="col-2">       
+                                    {{ review.user }}
+                            </div>
                         </div>
+                        <hr>
                         {% endif %}
                     {% endfor %}
+                  
                 </div>
             </div>
 

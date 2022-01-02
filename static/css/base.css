@@ -592,6 +592,14 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.review-divider {
+    width: 100%;
+    height: 10px;
+    /* background-color: #343a40; */
+    background: #bebfc0;
+    margin-bottom: 1.2rem;
+}
+
 /* ------------------------------------------------  Shopping Bag page --------------------------------------------*/
 
 .empty-bag {
