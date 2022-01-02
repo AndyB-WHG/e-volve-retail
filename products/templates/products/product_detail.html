@@ -201,25 +201,37 @@
                     <hr class="mt-5 mb-4 ml-3 mr-3 pt-3">
                     <p class="ml-3 h5">Reviews:</p>
                     <div class="review-divider"></div>
-                    {% for review in reviews %}
-                        {% if review.product.sku == product.sku %}
-                        <div class="row pl-3">
-                            <div class="col-md-8">
-                                    {{ review.date }} 
-                            </div>  
-                        </div>
-                        <div class="row mb-3 pl-3">
-                            <div class="col-md-8">
-                                    {{ review.review_text }}
-                            </div>  
-                            <div class="col-2">       
-                                    {{ review.user }}
-                            </div>
-                        </div>
-                        <hr>
+                    {% if reviews %}
+                        {% set count = 0) %}
+                        {% for review in reviews %}
+                            
+                            {% if review.product.sku == product.sku %}
+                                {% count++ %}
+                                <div class="row pl-3">
+                                    <div class="col-md-8">
+                                            {{ review.date }} 
+                                    </div>  
+                                </div>
+                                <div class="row mb-3 pl-3">
+                                    <div class="col-md-8">
+                                            {{ review.review_text }}
+                                    </div>  
+                                    <div class="col-2">       
+                                            {{ review.user }}
+                                    </div>
+                                    </div>
+                                <hr>
+                                
+                            {% endif %}
+                        {% endfor %}
+                        {% if count == 0 %}
+                            <div class="mt-3 pt-3"></div>
+                            <h3 class="mt-3 pt-3">There are no reviews for this product.  Be the first to write a review."</h3>
                         {% endif %}
-                    {% endfor %}
-                  
+                    {% else %}
+                            <div class="mt-3 pt-3"></div>
+                            <h3 class="mt-3 pt-3">There are no reviews for this product.  Be the first to write a review."</h3>
+                    {% endif %}
                 </div>
             </div>
 
