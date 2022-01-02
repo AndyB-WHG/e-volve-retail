@@ -1,0 +1,13 @@
+<!-- <div class="mt-5 pt-5"></div>
+
+<div class="mt-5 pt-5"></div> -->
+
+<h1 class="mt-3 pt-3">This is where all the reviews will be listed.</h1>
+
+{% for review in reviews %}
+<div></div>
+{{ review.user }}
+<div></div>
+{{ review.review_text }}
+<div></div>
+{% endfor %}
