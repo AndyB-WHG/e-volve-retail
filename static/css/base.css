@@ -595,9 +595,26 @@ input[name='q']::placeholder {
 .review-divider {
     width: 100%;
     height: 10px;
-    /* background-color: #343a40; */
     background: #bebfc0;
-    margin-bottom: 1.2rem;
+    
+}
+
+.review {
+    background-color: #ffffff;
+}
+
+.no-reviews {
+    position: relative;
+    top: 25px;
+    left: 20px;
+    z-index: -2;
+}
+
+.review-box {
+    border-width: 2px;
+    border-style: solid;
+    height: 20rem;
+    width: 35rem;
 }
 
 /* ------------------------------------------------  Shopping Bag page --------------------------------------------*/

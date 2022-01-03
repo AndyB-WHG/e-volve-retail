@@ -100,14 +100,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col pt-3 text-center">
-                                            <button class="write-review-btn">WRITE A REVIEW</button>
-                                        </div>
-                                    </div>
+                                    
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </form>
-
+                                <div class="row">
+                                    <div class="col-12 pt-3 text-center">
+                                        <a href="{% url 'review_product' product.id %}">
+                                            <button class="write-review-btn">WRITE A REVIEW</button>
+                                        </a>
+                                    </div>
+                                </div>
                                 
 
                                 <hr class="my-3">
@@ -168,13 +170,19 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col py-3 text-center">
-                                        <button class="write-review-btn">WRITE A REVIEW</button>
-                                    </div>
-                                </div>
+                                
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
+
+                            <div class="row">
+                                
+                                <div class="col-12 py-3 text-center">
+                                    <a href="{% url 'review_product' product.id %}">
+                                        <button class="write-review-btn">WRITE A REVIEW</button>
+                                    </a>  
+                                </div>
+                                  
+                            </div>
                            
                             <div class="mt-5 pt-5 d-md-none d-lg-block">
                                 {% if request.user.is_superuser %}
@@ -201,18 +209,21 @@
                     <hr class="mt-5 mb-4 ml-3 mr-3 pt-3">
                     <p class="ml-3 h5">Reviews:</p>
                     <div class="review-divider"></div>
+
+                    <div class="no-reviews">Be the first to review this product...</div>
+                  
                     {% if reviews %}
-                        {% set count = 0) %}
+                        
                         {% for review in reviews %}
                             
                             {% if review.product.sku == product.sku %}
-                                {% count++ %}
-                                <div class="row pl-3">
+                               
+                                <div class="review row pl-3">
                                     <div class="col-md-8">
                                             {{ review.date }} 
                                     </div>  
                                 </div>
-                                <div class="row mb-3 pl-3">
+                                <div class="review row mb-3 pl-3">
                                     <div class="col-md-8">
                                             {{ review.review_text }}
                                     </div>  
@@ -223,14 +234,9 @@
                                 <hr>
                                 
                             {% endif %}
+                            
                         {% endfor %}
-                        {% if count == 0 %}
-                            <div class="mt-3 pt-3"></div>
-                            <h3 class="mt-3 pt-3">There are no reviews for this product.  Be the first to write a review."</h3>
-                        {% endif %}
-                    {% else %}
-                            <div class="mt-3 pt-3"></div>
-                            <h3 class="mt-3 pt-3">There are no reviews for this product.  Be the first to write a review."</h3>
+
                     {% endif %}
                 </div>
             </div>

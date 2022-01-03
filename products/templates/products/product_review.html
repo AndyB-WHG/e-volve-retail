@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Product Category Nav Bar -->
+
+{% block page_header %}
+    <hr class="product-details-hr">
+    
+    <!-- <div class="container-fluid header-container black-background d-none d-lg-none">
+        <div class="row">
+            <div class="fashion col-2 col-md-1 d-lg-none offset-1 offset-md-4">Fashion</div>
+            <div class="col-2 col-md-1 d-lg-none">Home</div>
+            <div class="col-4 col-md-2 d-lg-none">Health & Beauty</div>
+            <div class="col-2 col-md-1 d-lg-none">All</div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid header-container black-background d-lg-none">
+        <div class="row">
+            <div class="col">
+                <ul class="black-links">
+                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
+                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
+                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
+                    <a href="{% url 'products' %}"><li>All</li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+        <!-- Main page content -->
+
+        <div class="container-fluid mt-5 pt-3">
+
+            <div class="pt-3 mt-3 d-md-block"></div>  <!-- Top padding on medium and larger screens to push content down away from navbar -->
+
+            <!-- Image Placement - all screen sizes -->
+            <div class="d-block">
+                <div class="row">
+                    <div class="col-10 d-block col-md-6 col-lg-4 col-xl-3 offset-1 offset-md-0 offset-lg-2">
+                        {% if product.image %}
+                            <a href="{{ product.image.url}}" target="_blank">
+                                <img class="card-img-top img-fluid pt-2 pl-3" src="{{ product.image.url}}" alt="{{ product.name }}">
+                            </a>
+                        {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{% static 'images/noimage.png' %}" alt="{{ product.name }}">
+                            </a>
+                        {% endif %}
+                            <div class="d-md-none card-body pb-0">
+                                <p class="mb-0">{{ product.name }}</p>
+                            </div>
+
+                            <!-- Mobile screens - Product Name / Price / Description / Reviews Placement -->
+                            <div class="col d-md-none">
+                                <p class="lead mb-0 text-left ml-1 font-weight-bold">£{{ product.price }}</p>
+                                <a class="products-page-links" href="{% url 'products' %}?category={{product.category.name}}&sort=price&sort_direction=desc">
+                                    <p class="mt-3 pl-0"><i class="fas fa-tag pr-1"></i>{{ product.category.friendly_name }}</p>
+                                </a>
+                                <hr class="my-3">
+                                <p>{{ product.description }}</p>
+                                <hr class="my-3">
+                            
+
+                                <!-- Add to bag / review section  -  mobile devices -->
+
+                                
+                                <form method="POST" action="review_product">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="review-text"><strong>Please write your review in the box below...</strong></label>
+                                        <textarea class="form-control" id="review-text" name="review-text" rows="8"></textarea>
+                                    </div>
+                                    <input type="submit" value="Submit">
+                                    <input type="reset">
+                                    <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
+                                </form>
+
+                                
+
+                                <!-- <hr class="my-3"> -->
+
+                                <!-- <p class="h5">Reviews:</p> -->
+
+                                  
+                            </div>
+                    </div>
+
+                    <!-- Tablet and larger screens - Product Name / Price / Description Placement -->
+                    <div class="col-1 d-none col-md-5 col-lg-4 d-md-block">
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ product.name }}</p>
+                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                            <a class="products-page-links" href="{% url 'products' %}?category={{product.category.name}}&sort=price&sort_direction=desc">
+                                <p class="mt-3 pl-0"><i class="fas fa-tag pr-1"></i>{{ product.category.friendly_name }}</p>
+                            </a>
+                            <hr class="my-3">
+                            <p>{{ product.description }}</p>
+                            <hr class="my-3">
+                            
+                           
+                               
+                                <!-- <div>
+                                    <h4>Add A Review</h4>
+                                </div> -->
+                                <!-- <label for="review">Please write your review in the box below...</label>
+                               
+                                    <form action="/action_page.php">
+                                        <div class="review-box">
+                                        <input type="text" minlength="10" maxlength="1028" id="review" name="review">
+                                        </div>
+                                        <br><br>
+                                        <input type="submit" value="Submit">
+                                        <input type="reset">
+                                    </form> -->
+                                    <form method="POST" action="review_product">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="review-text"><strong>Please write your review in the box below...</strong></label>
+                                            <textarea class="form-control" id="review-text" name="review-text" rows="8"></textarea>
+                                        </div>
+                                        <input type="submit" value="Submit">
+                                        <input type="reset">
+                                        <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
+                                    </form>
+                        </div>
+                    </div>
+                
+                    
+                </div>
+            </div>
+
+            <!-- Tablet sized screens and larger - 'Reviews' section placement -->
+            <div class="row">
+                <div class="col d-none d-sm-block col-md-11 col-lg-8 col-xl-7 offset-1 offset-md-0 offset-lg-2">
+                    <hr class="mt-5 mb-4 ml-3 mr-3 pt-3">
+                    <p class="ml-3 h5">Reviews:</p>
+                    <div class="review-divider"></div>
+
+                    <div class="no-reviews">Be the first to review this product...</div>
+                  
+                    {% if reviews %}
+                        
+                        {% for review in reviews %}
+                            
+                            {% if review.product.sku == product.sku %}
+                               
+                                <div class="review row pl-3">
+                                    <div class="col-md-8">
+                                            {{ review.date }} 
+                                    </div>  
+                                </div>
+                                <div class="review row mb-3 pl-3">
+                                    <div class="col-md-8">
+                                            {{ review.review_text }}
+                                    </div>  
+                                    <div class="col-2">       
+                                            {{ review.user }}
+                                    </div>
+                                    </div>
+                                <hr>
+                                
+                            {% endif %}
+                            
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+{% endblock %}

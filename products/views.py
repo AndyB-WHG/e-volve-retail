@@ -1,5 +1,5 @@
 """ Views to display 'All Products' and individual Product Details """
-
+from django.db import models
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from user_reviews.models import User_review
+from profiles.models import UserProfile
+from checkout.models import Order
+
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -86,6 +89,41 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
+# def submit_review(request, product_id):
+
+def review_product(request, product_id):
+    """ A view to allow users to submit reviews """
+
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = User_review.objects.all()
+    user = UserProfile.objects.get(user=request.user)
+    print("10. Review User is : ", user, "(From 'products/views.py'")
+
+    if request.method == 'POST':
+        print("13. Review type is a 'POST' - User has submitted a review!")
+        # if request.user.is_authenticated:
+        #     # user_orders = Order.objects.get(user_profile=user)
+        #     # print("15. User Odrers are : ", user_orders)
+        #     # print("20. Review User is : ", user, "(From 'products/views.py'")
+        #     date = models.DateTimeField(auto_now_add=True)
+        #     user_review = request.POST.get('review-text')
+        #     User_review.objects.create(product=product, date=date, user=user, review_text=user_review)
+
+        #     # context = {
+        #     #     'product': product,
+        #     #     'reviews': reviews,
+        #     # }
+
+        #     return render(request, 'home/index.html')
+
+    else:
+        context = {
+                'product': product,
+                'reviews': reviews,
+            }
+
+        return render(request, 'products/product_review.html', context)
 
 @login_required()
 def add_product(request):
