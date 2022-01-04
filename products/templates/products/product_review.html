@@ -119,7 +119,7 @@
                                         <input type="submit" value="Submit">
                                         <input type="reset">
                                     </form> -->
-                                    <form method="POST" action="review_product">
+                                    <form method="POST" action="{% url 'review_product' product.id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <label for="review-text"><strong>Please write your review in the box below...</strong></label>
