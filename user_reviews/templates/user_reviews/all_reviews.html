@@ -1,13 +1,56 @@
-<!-- <div class="mt-5 pt-5"></div>
+{% extends "base.html" %}
+{% load static %}
 
-<div class="mt-5 pt-5"></div> -->
+{% block page_header %}
+<hr class="product-details-hr">
 
-<h1 class="mt-3 pt-3">This is where all the reviews will be listed.</h1>
+    <div class="container-fluid header-container black-background d-lg-none">
+        <div class="row">
+            <div class="col">
+                <ul class="black-links">
+                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
+                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
+                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
+                    <a href="{% url 'products' %}"><li>All</li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1 class="mt-5 pt-5">This is where all the reviews will be listed.</h1>
 
 {% for review in reviews %}
-<div></div>
-{{ review.user }}
-<div></div>
-{{ review.review_text }}
-<div></div>
+    <div class="row">
+
+        <div class="col-5 col-sm-3 offset-sm-1">
+            <a href="{{ review.product.image.url }}" target="_blank">
+                <img class="card-img-top img-fluid pt-2 pl-3" src="{{ review.product.image.url }}" alt="{{ product.name }}">
+            </a>
+           
+        </div>
+
+        <div class="col-5">
+            <div class="">{{ review.date }}</div>
+            <div class="">{{ review.user }}</div>
+            <div class="">{{ review.product }}</div>
+            <div class="">{{ review.product.id }}</div>
+            <div class="d-none d-sm-block">{{ review.review_text }}</div>
+            
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="d-sm-none col-10 offset-1">{{ review.review_text }}</div>
+    </div>
+    <div class="row">
+        
+        <hr class="col-10 offset-1 pt-3 pb-3 w-100">
+    </div>
 {% endfor %}
+
+{% endblock %}
