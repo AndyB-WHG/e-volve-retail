@@ -27,3 +27,13 @@ def users_reviews(request):
         'my_reviews': my_reviews
     }
     return render(request, 'user_reviews/users_reviews.html', context)
+
+
+@login_required
+def edit_review(request, review_id):
+    print("Review id is :", review_id)
+    review = User_review.objects.get(id=review_id)
+    context = {
+        'review': review
+    }
+    return render(request, 'user_reviews/edit_review.html', context)

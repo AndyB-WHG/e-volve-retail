@@ -50,7 +50,7 @@
             <div class="d-none d-sm-block">{{ review.review_text }}</div>
             <div class="d-none d-sm-block pt-3">{{ review.date }}</div>
             <div class="d-none d-sm-block pt-3">
-                <button type="button" class="d-sm-inline-block btn btn-primary pl-4 pr-4 mt-3">Edit</button>
+               <a href="{% url 'edit_review' review.id %}"><button type="button" class="d-sm-inline-block btn btn-primary pl-4 pr-4 mt-3">Edit</button></a>
                 <button type="button" class="d-sm-inline-block btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button>
             </div> 
         </div>
@@ -62,7 +62,7 @@
         <div class="d-sm-none col-10 offset-1 pl-4 pt-3">{{ review.date }}</div>
     </div>
     <div class="d-sm-none col-10 offset-1 pl-4 pt-3">
-        <button type="button" class="d-sm-none btn btn-primary pl-4 pr-4 mt-3">Edit</button>
+        <button type="button" href="{% url 'edit_review' review.id %}" class="d-sm-none btn btn-primary pl-4 pr-4 mt-3">Edit</button>
         <button type="button" class="d-sm-none btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button>
     </div>
     <div class="row">
