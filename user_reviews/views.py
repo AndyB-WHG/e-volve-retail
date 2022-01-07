@@ -32,8 +32,10 @@ def users_reviews(request):
 @login_required
 def edit_review(request, review_id):
     print("Review id is :", review_id)
+    user = UserProfile.objects.get(user=request.user)
     review = User_review.objects.get(id=review_id)
     context = {
-        'review': review
+        'review': review,
+        'user': user
     }
     return render(request, 'user_reviews/edit_review.html', context)
