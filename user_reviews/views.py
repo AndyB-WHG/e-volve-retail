@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect, reverse
 from . models import User_review
 from profiles.models import UserProfile
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+from django.db import models
+from products.models import Product
+
 
 
 @login_required
@@ -30,14 +35,69 @@ def users_reviews(request):
 
 
 @login_required
-def edit_review(request, review_id, image_url):
+def edit_review(request, review_id):
     print("Review id is :", review_id)
-    print("Review image url is", image_url)
     user = UserProfile.objects.get(user=request.user)
     review = User_review.objects.get(id=review_id)
+    if request.method == 'POST':
+        review_text = request.POST.get('review-text')
+        print("review_text = ", review_text)
+        if user == review.user or request.user.is_superuser:
+            if request.user.is_authenticated:
+                review.review_text = review_text
+                review.save(update_fields=['review_text'])
+                messages.success(request, 'The review was successfully updated.')
+        else:
+            messages.error(request, "Sorry - only superusers can amend other users reviews.")
     context = {
         'review': review,
         'user': user,
-        'image_url': image_url,
     }
     return render(request, 'user_reviews/edit_review.html', context)
+
+
+@login_required
+def delete_review_user(request, review_id):
+    print("Review id to delete is :", review_id)
+    user = UserProfile.objects.get(user=request.user)
+    review = User_review.objects.get(id=review_id)
+    if user == review.user or request.user.is_superuser:
+        if request.user.is_authenticated:
+            review.delete()
+            return redirect('users_reviews')
+    else:
+        messages.error(request, "Sorry - only superusers can amend other users reviews.")
+        return redirect('users_reviews')
+    
+
+@login_required
+def delete_review_admin(request, review_id):
+    print("Review id to delete is :", review_id)
+    user = UserProfile.objects.get(user=request.user)
+    review = User_review.objects.get(id=review_id)
+    if request.user.is_superuser:
+        if request.user.is_authenticated:
+            review.delete()
+            return redirect('get_all_reviews')
+    else:
+        messages.error(request, "Sorry - only superusers can amend other users reviews.")
+        return redirect('users_reviews')
+    
+    
+    # if request.method == 'POST':
+    #     review_text = request.POST.get('review-text')
+    #     print("review_text = ", review_text)
+    #     if user == review.user or request.user.is_superuser:
+    #         if request.user.is_authenticated:
+    #             review.review_text = review_text
+    #             review.save(update_fields=['review_text'])
+    #             messages.success(request, 'The review was successfully updated.')
+    #     else:
+    #         messages.error(request, "Sorry - only superusers can amend other users reviews.")
+
+    #     return redirect()
+    # context = {
+    #     'review': review,
+    #     'user': user,
+    # }
+    # return render(request, 'user_reviews/edit_review.html', context)
