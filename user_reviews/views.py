@@ -68,7 +68,7 @@ def delete_review_user(request, review_id):
     else:
         messages.error(request, "Sorry - only superusers can amend other users reviews.")
         return redirect('users_reviews')
-    
+
 
 @login_required
 def delete_review_admin(request, review_id):
@@ -82,8 +82,8 @@ def delete_review_admin(request, review_id):
     else:
         messages.error(request, "Sorry - only superusers can amend other users reviews.")
         return redirect('users_reviews')
-    
-    
+
+
     # if request.method == 'POST':
     #     review_text = request.POST.get('review-text')
     #     print("review_text = ", review_text)
