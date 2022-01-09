@@ -12,3 +12,14 @@ class CreateNewsletter(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Subscribers(models.Model):
+    firstName = models.CharField(max_length=25, null=True, blank=True)
+    lastName = models.CharField(max_length=25, null=True, blank=True)
+    email = models.ForeignKey(UserProfile, null=True, blank=True,
+                             on_delete=models.SET_NULL)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
