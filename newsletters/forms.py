@@ -11,8 +11,8 @@ class NewsletterForm(forms.ModelForm):
         model = Newsletters
         fields = ('title', 'body',)
 
-    def __init__(self, *args, **kwargs):
-        self.fields['title'].widget.attrs['autofocus'] = True
+    # def __init__(self):
+    #     self.fields['title'].widget.attrs['autofocus'] = True
 
 
 class SubscriberForm(forms.ModelForm):
@@ -22,5 +22,5 @@ class SubscriberForm(forms.ModelForm):
         model = Subscribers
         fields = ('firstName', 'email',)
 
-    def __init__(self, *args, **kwargs):
-        self.fields['firstName'].widget.attrs['autofocus'] = True
+    # def __init__(self, *args, **kwargs):
+    #     self.fields['firstName'].widget.attrs['autofocus'] = True

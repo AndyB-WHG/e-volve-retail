@@ -7,7 +7,7 @@ def new_newsletter(request):
     context = {
         'form': form,
     }
-    return render(request, 'newsletters/new_newsletter.html')
+    return render(request, 'newsletters/new_newsletter.html', context)
 
 
 def new_subscriber(request):
@@ -15,4 +15,4 @@ def new_subscriber(request):
     context = {
         'form': form,
     }
-    return render(request, 'newsletters/new_subscriber.html', context)
+    return render(request, 'newsletters/subscriber_list.html', context)
