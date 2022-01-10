@@ -7,6 +7,7 @@ class Newsletters(models.Model):
     class Meta:
         """ Changes the 'Admin section name from Newsletterss to Newsletters """
         verbose_name_plural = 'Newsletters'
+        
     title = models.CharField(max_length=75, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -24,8 +25,7 @@ class Subscribers(models.Model):
 
     firstName = models.CharField(max_length=25, null=True, blank=True)
     lastName = models.CharField(max_length=25, null=True, blank=True)
-    email = models.ForeignKey(UserProfile, null=True, blank=True,
-                             on_delete=models.SET_NULL)
+    email = models.EmailField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -739,6 +739,15 @@ input[name='q']::placeholder {
 	color: #17a2b8; /* text-info */
 }
 
+/* ------------------------------------------------------------   Newsletter Page   --------------------------------------------------------- */
+
+.newsletter-heading {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 3rem;
+}
+
 /* ------------------------------------------------------------   Responsiveness Settings   ------------------------------------------------- */
 
 /* Home screen text placement on tablet screen size */

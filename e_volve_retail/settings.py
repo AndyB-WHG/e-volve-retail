@@ -108,6 +108,11 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1   # used to generate correct urls when connecting to social media
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'andrew.bond2@gmail.com'
+
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True

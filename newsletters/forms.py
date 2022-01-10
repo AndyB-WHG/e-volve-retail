@@ -20,7 +20,7 @@ class SubscriberForm(forms.ModelForm):
     class Meta:
         """ Choose fields req'd - fields taken from 'Subscribers' model """
         model = Subscribers
-        fields = ('firstName', 'email',)
+        fields = ('firstName', 'lastName', 'email',)
 
     # def __init__(self, *args, **kwargs):
     #     self.fields['firstName'].widget.attrs['autofocus'] = True
