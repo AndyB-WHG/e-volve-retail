@@ -68,11 +68,13 @@ def new_subscriber(request):
        
         if form.is_valid():
             form.save()
+            email = request.POST['email']
+            print("Email = ", email)
             send_mail(
                 'E-volve Retail Newsletter Subscription',
                 'Thank you for subscribing to our Newsletter.',
                 'admin@e-volve-retail.com',
-                [subscriber.email],
+                [email],
                 fail_silently=False,
             )
             messages.success(request, "Subscription was successful!")
