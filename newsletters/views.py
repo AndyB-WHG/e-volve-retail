@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.shortcuts import get_object_or_404
 from profiles.models import UserProfile
+from . models import Subscribers
 from . forms import NewsletterForm, SubscriberForm
 
 
@@ -33,13 +34,15 @@ def new_newsletter(request):
                 print("Title = ", title)
                 print("Body = ", body)
                 form.save()
-                send_mail(
-                    title,
-                    body,
-                    'admin@e-volve-retail.com',
-                    ['andrew.bond2@gmail.com'],
-                    fail_silently=False,
-                )
+                subscribers = Subscribers.objects.all()
+                for subscriber in subscribers:
+                    send_mail(
+                        title,
+                        body,
+                        'admin@e-volve-retail.com',
+                        [subscriber.email],
+                        fail_silently=False,
+                    )
                 messages.success(request, "The newsletter was sent successfully!")
                 return redirect('/newsletters/')
         else:
@@ -66,12 +69,12 @@ def new_subscriber(request):
         if form.is_valid():
             form.save()
             send_mail(
-                    'E-volve Retail Newsletter Subscription',
-                    'Thank you for subscribing to our Newsletter.',
-                    'admin@e-volve-retail.com',
-                    ['andrew.bond2@gmail.com'],
-                    fail_silently=False,
-                )
+                'E-volve Retail Newsletter Subscription',
+                'Thank you for subscribing to our Newsletter.',
+                'admin@e-volve-retail.com',
+                [subscriber.email],
+                fail_silently=False,
+            )
             messages.success(request, "Subscription was successful!")
             return redirect('/products')
             
