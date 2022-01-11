@@ -65,6 +65,13 @@ def new_subscriber(request):
        
         if form.is_valid():
             form.save()
+            send_mail(
+                    'E-volve Retail Newsletter Subscription',
+                    'Thank you for subscribing to our Newsletter.',
+                    'admin@e-volve-retail.com',
+                    ['andrew.bond2@gmail.com'],
+                    fail_silently=False,
+                )
             messages.success(request, "Subscription was successful!")
             return redirect('/products')
             
