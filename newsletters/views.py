@@ -28,7 +28,18 @@ def new_newsletter(request):
                 profile = get_object_or_404(UserProfile, user=request.user)
                 newsletter_form = form.save(commit=False)
                 newsletter_form.author = profile
+                title = form.cleaned_data.get('title')
+                body = form.cleaned_data.get('body')
+                print("Title = ", title)
+                print("Body = ", body)
                 form.save()
+                send_mail(
+                    title,
+                    body,
+                    'admin@e-volve-retail.com',
+                    ['andrew.bond2@gmail.com'],
+                    fail_silently=False,
+                )
                 messages.success(request, "The newsletter was sent successfully!")
                 return redirect('/newsletters/')
         else:
@@ -62,4 +73,4 @@ def new_subscriber(request):
         context = {
             'form': form,
         }
-        return render(request, 'newsletters/subscribe_to_newsletter.html', context)
+        return render(request, 'newsletters/subscribe_to_newsletter.html', context)  
