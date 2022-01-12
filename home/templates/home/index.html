@@ -44,11 +44,17 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{% static 'images/neat-clean.PNG' %}" class="d-block w-100 d-lg-none perfume-image" alt="...">
-      <img src="{% static 'images/spruce-refillable-cleaning-OxdnFg-I3Lc-unsplash.jpg' %}" class="d-none d-lg-block w-100 perfume-image" alt="...">
+      <img src="{% static 'images/pexels-vincent-rivaud-2227832.jpg' %}" class="d-block w-100 d-lg-none perfume-image" alt="Modern Living Room">
+      <img src="{% static 'images/pexels-pixabay-276724.jpg' %}" class="d-none d-lg-block w-100 perfume-image" alt="...">
       <div id="carousel-caption-3" class="carousel-caption">
-        <h3>Next-Gen Cleaning</h3>
-        <h5>clean home, clean planet</h5>
+        <div>
+          <h3 class="d-block d-lg-none">Next-Gen Furniture</h3>
+        </div>
+        <div>
+          <h3 class="d-block d-lg-none">Sustainable home, clean planet</h3>
+        </div>
+        <h3 class="living-room-lg d-none d-lg-block">Next-Gen Furniture</h3>
+        <h5 class="living-room-lg d-none d-lg-block">Sustainable home, clean planet</h5>
         <div>
           <a href="{% url 'products' %}?category=home" class="btn btn-home-mobile d-sm-block d-lg-none">Shop Now</a>    <!-- mobile / ipad button -->
           <a href="{% url 'products' %}?category=home" class="btn btn-light btn-home-desktop d-none d-lg-block">Shop Now</a>   <!-- desktop button -->

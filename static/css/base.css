@@ -362,6 +362,28 @@ body header nav div #desktop-search-bar {
     height: 100%;
 }
 
+.living-room-sm-a {
+    font-size: 1.8rem;
+    color: #343a40;
+    position: fixed;
+    text-align: center;
+    top: 130px;
+}
+
+.living-room-sm-b {
+    font-size: 1.3rem;
+    color: #343a40;
+    position: fixed;
+    text-align: center;
+    top: 160px;
+}
+
+.living-room-lg {
+    color: #f7f7f7;
+    position: relative;
+    bottom: 16rem;
+}
+
 div #all-products {
     padding-top: 300px;
     color: red;
@@ -393,8 +415,10 @@ div #all-products {
 
 #carousel-caption-3{
     position: absolute;
-    bottom: 400px;
+    bottom: 530px;
     text-align: center;
+    color: rgb(55, 56, 56);
+    /* background: #e0e9ec; */
 }
 
 #carousel-caption-1 h6 {
@@ -775,7 +799,7 @@ input[name='q']::placeholder {
 
 #carousel-caption-3 {
     position: absolute;
-    bottom: 730px;
+    bottom: 900px;
     text-align: center;
 }
 
