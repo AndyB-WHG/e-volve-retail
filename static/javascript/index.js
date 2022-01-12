@@ -9,6 +9,7 @@ $('#sort-selector').change(function() {
     var currentUrl = new URL(window.location);
 
     var selectedVal = selector.val();
+    console.log("Sort selector used")
     if(selectedVal != "reset"){
         var sort = selectedVal.split("_")[0];
         var sort_direction = selectedVal.split("_")[1];
