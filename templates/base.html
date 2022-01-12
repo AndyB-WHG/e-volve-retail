@@ -65,11 +65,15 @@
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
                           <a href="{% url 'add_product' %}" class="dropdown-item text-left pl-0">Add Product</a>
-                          <a href="{% url 'get_all_reviews' %}" class="dropdown-item">Reviews Admin<span class="sr-only">(current)</span></a>
+                          <a href="{% url 'get_all_reviews' %}" class="dropdown-item">Reviews Admin</a>
+                          <a href="{% url 'new_newsletter' %}" class="dropdown-item">Send Newsletter</a>
+                          
                       {% endif %}
                       <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                      <a href="{% url 'users_reviews' %}" class="dropdown-item">My Reviews<span class="sr-only">(current)</span></a>
+                      <a href="{% url 'users_reviews' %}" class="dropdown-item">My Reviews</a>
+                      <a href="{% url 'new_subscriber' %}" class="dropdown-item">Subscribe to Newsletter</a>
+                      
                   {% else %}
                       <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                       <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
@@ -136,15 +140,17 @@
             <li class="nav-item active">
               {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
-                      <a href="{% url 'add_product' %}" class="nav-link d-lg-none">Add Product<span class="sr-only">(current)</span></a>
-                      <a href="{% url 'get_all_reviews' %}" class="nav-link d-lg-none">Reviews Admin<span class="sr-only">(current)</span></a>
+                      <a href="{% url 'add_product' %}" class="nav-link d-lg-none">Add Product</a>
+                      <a href="{% url 'get_all_reviews' %}" class="nav-link d-lg-none">Reviews Admin</a>
+                      <a href="{% url 'new_newsletter' %}" class="nav-link d-lg-none">Send Newsletter</a>
                   {% endif %}
-                  <a href="{% url 'profile' %}" class="nav-link d-lg-none">My Profile<span class="sr-only">(current)</span></a>
-                  <a href="{% url 'account_logout' %}" class="nav-link d-lg-none">Logout<span class="sr-only">(current)</span></a>
-                  <a href="{% url 'users_reviews' %}" class="nav-link d-lg-none">My Reviews<span class="sr-only">(current)</span></a>
+                  <a href="{% url 'profile' %}" class="nav-link d-lg-none">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="nav-link d-lg-none">Logout</a>
+                  <a href="{% url 'users_reviews' %}" class="nav-link d-lg-none">My Reviews</a>
+                  <a href="{% url 'new_subscriber' %}" class="nav-link d-lg-none">Subscribe to Newsletter</a>
               {% else %}
-                  <a href="{% url 'account_signup' %}" class="nav-link d-lg-none">Register<span class="sr-only">(current)</span></a>
-                  <a href="{% url 'account_login' %}" class="nav-link d-lg-none">Login<span class="sr-only">(current)</span></a>
+                  <a href="{% url 'account_signup' %}" class="nav-link d-lg-none">Register</a>
+                  <a href="{% url 'account_login' %}" class="nav-link d-lg-none">Login</a>
               {% endif %}
             </li>
             
@@ -231,11 +237,14 @@
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
                           <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
-                          <a href="{% url 'get_all_reviews' %}" class="dropdown-item">Reviews Admin<span class="sr-only">(current)</span></a>
+                          <a href="{% url 'get_all_reviews' %}" class="dropdown-item">Reviews Admin</a>
+                          <a href="{% url 'new_newsletter' %}" class="dropdown-item">Send Newsletter</a>
+
                       {% endif %}
                       <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                      <a href="{% url 'users_reviews' %}" class="dropdown-item">My Reviews<span class="sr-only">(current)</span></a>
+                      <a href="{% url 'users_reviews' %}" class="dropdown-item">My Reviews</a>
+                      <a href="{% url 'new_subscriber' %}" class="dropdown-item">Subscribe to Newsletter</a>
                   {% else %}
                       <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                       <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
