@@ -35,14 +35,17 @@ def new_newsletter(request):
                 print("Body = ", body)
                 form.save()
                 subscribers = Subscribers.objects.all()
+                subscriber_emails = []
                 for subscriber in subscribers:
-                    send_mail(
-                        title,
-                        body,
-                        'admin@e-volve-retail.com',
-                        [subscriber.email],
-                        fail_silently=False,
-                    )
+                    subscriber_emails.append(subscriber.email)
+                print("Subscriber email list is : ", subscriber_emails)
+                send_mail(
+                    title,
+                    body,
+                    'admin@e-volve-retail.com',
+                    subscriber_emails,
+                    fail_silently=False,
+                )
                 messages.success(request, "The newsletter was sent successfully!")
                 return redirect('/newsletters/')
         else:
@@ -67,19 +70,26 @@ def new_subscriber(request):
         print("Form = ", form)
        
         if form.is_valid():
-            form.save()
             email = request.POST['email']
-            print("Email = ", email)
-            send_mail(
-                'E-volve Retail Newsletter Subscription',
-                'Thank you for subscribing to our Newsletter.',
-                'admin@e-volve-retail.com',
-                [email],
-                fail_silently=False,
-            )
-            messages.success(request, "Subscription was successful!")
-            return redirect('/products')
-            
+            already_subscribed = Subscribers.objects.filter(email=email)
+            print("Email is : ", email)
+            print("Already Subscribed? : ", already_subscribed)
+            if not already_subscribed:
+                form.save()
+                
+                print("Email = ", email)
+                send_mail(
+                    'E-volve Retail Newsletter Subscription',
+                    'Thank you for subscribing to our Newsletter.',
+                    'admin@e-volve-retail.com',
+                    [email],
+                    fail_silently=False,
+                )
+                messages.success(request, "Subscription was successful!")
+                return redirect('/products')
+            else:
+                messages.error(request, "You already subscribed with that email address.")
+                return redirect('new_subscriber')
     else:
         form = SubscriberForm()
         context = {
