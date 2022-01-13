@@ -242,13 +242,9 @@
                     <p class="ml-3 h5">Reviews:</p>
                     <div class="review-divider"></div>
 
-                    {% if not reviews %}
-
-                        <div class="no-reviews pt-4 pb-4 mt-4 mb-4">Be the first to review this product...</div>
-
-                    {% endif %}
-
                     {% if reviews %}
+
+                        <!-- {{ reviews }} -->
                         
                         {% for review in reviews %}
                             
@@ -275,9 +271,13 @@
                     
                     {% else %}
 
-                        <div class="no-reviews pt-4 pb-4 mt-4 mb-4">Be the first to review this product...</div>
-
+                    
                     {% endif %}
+
+                    <div class="no-reviews pt-4 pb-4 mt-4 mb-4">Be the first to review this product...</div>
+
+
+                 
                 </div>
             </div>
 

@@ -9,11 +9,7 @@ The E-volve Retail store aims to be part of the solution by providing fully sust
 
 A live website can be found [here](https://e-volve-retail.herokuapp.com/).
 
-[Link to all wireframes created for this project]()
-
-**Home page **
-
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation-assets/home_page_image_1.PNG)
+[Link to all wireframes created for this project](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/wireframes)
 
 
 ## Table of Contents
@@ -107,7 +103,7 @@ Here are the colors being used :
     Green  -  `rgb(126, 170, 126);`
 
 
-### Data Model
+### Data Models
 
 * Category Model
 
@@ -192,6 +188,28 @@ Here are the colors being used :
     - default_postcode = models.CharField(max_length=20, null=True, blank=True)
     - default_country = CountryField(blank_label='Country', null=True, blank=True)
 
+* Product Review Model
+    - product = models.ForeignKey(Product, null=True, blank=True,
+                                on_delete=models.SET_NULL)
+    - user = models.ForeignKey(UserProfile, null=True, blank=True,
+                             on_delete=models.SET_NULL)
+    - date = models.DateTimeField(auto_now_add=True)
+    - review_text = models.CharField(max_length=1028, null=False,
+                                   blank=False)
+
+* Newsletter Model
+    - title = models.CharField(max_length=75, null=True, blank=True)
+    - body = models.TextField(null=True, blank=True)
+    - date = models.DateTimeField(auto_now_add=True)
+    - author = models.ForeignKey(UserProfile, null=True, blank=True,
+                             on_delete=models.SET_NULL)
+
+* Newsletter Subscriber Model
+    - firstName = models.CharField(max_length=25, null=True, blank=True)
+    - lastName = models.CharField(max_length=25, null=True, blank=True)
+    - email = models.EmailField(null=True, blank=True)
+    - date = models.DateTimeField(auto_now_add=True)
+
 
 ## 2. Features
 
@@ -204,7 +222,7 @@ Here are the colors being used :
 
 ### Navbar
 
-- A Navbar is fix to the top of the page in order to provide the user with browsing options during the visit.
+- A Navbar is fixed to the top of the page in order to provide the user with browsing options during the visit.
 - On smaller screens the Navbar features:
     - At top right : 
         - Search Icon, 
@@ -534,6 +552,10 @@ Sign Out page | 56 | Sign out button on Sign Out page | Button functions as expe
 Sign Out page | 57 | Cancel Sign Out button  | Works as expected and the user remains logged in.  Success message also confirms user is logged in. | Pass |
 Product Management Page | 58 | Awaiting testing | Correction required as is currently linked to Sign Out page. | Fail |
 
+## Images
+
+
+
 ## Deployment
 
 The application has been deployed using Heroku by following these steps:
@@ -555,6 +577,26 @@ Heroku was used to deploy the application.
 13. Go to "Connect to GitHub" section and "Search" the repository to be deployed.
 14. Click "Connect" next the repository name.
 15. Choose "Automatic deploys" or "Manual deploys" to deploy your application.
+
+## Images
+
+** Home Page **
+
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+
+** Products Page **
+
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+
+** Product Details Page **
+
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+
+** Shopping Basket Page **
+
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+
+
 
 ## Credits
 

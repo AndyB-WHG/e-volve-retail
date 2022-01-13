@@ -99,7 +99,11 @@ body {
     left: -100px;
 }
 
-
+body header nav {
+    border-bottom-color: rgb(185, 182, 182);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
 
 /* nav div li .shopping-bag {
     position:absolute;
@@ -110,6 +114,8 @@ body {
 } */
 
 /* nav div ul */
+
+
 
 .user-section-large {
     list-style-type: none;
@@ -635,12 +641,12 @@ input[name='q']::placeholder {
     background-color: #ffffff;
 }
 
-/* .no-reviews {
+.no-reviews {
     position: relative;
-    top: 25px;
+    bottom: 100px;
     left: 20px;
-    z-index: -2;
-} */
+    z-index: -5;
+}
 
 .review-box {
     border-width: 2px;

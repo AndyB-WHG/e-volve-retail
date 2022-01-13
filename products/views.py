@@ -82,6 +82,9 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = User_review.objects.all()
 
+    print("Product Detail is for : ", product)
+    print("Reviews for this product are: ", reviews)
+
     context = {
         'product': product,
         'reviews': reviews,

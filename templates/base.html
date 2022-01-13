@@ -126,13 +126,10 @@
               <a class="nav-link d-lg-none" href="{% url 'products' %}?category=fashion">Fashion<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link d-lg-none" href="{% url 'products' %}?category=home">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link d-lg-none" href="{% url 'products' %}?category=home">House<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link d-lg-none" href="{% url 'products' %}?category=health_beauty">Beauty<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link d-lg-none" href="{% url 'products' %}?category=cleaning">Cleaning<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link d-lg-none" href="{% url 'products' %}">All Products<span class="sr-only">(current)</span></a>
@@ -172,7 +169,7 @@
             </li>
             <li class="dropdown-category nav-item">
               <a href="{% url 'products' %}?category=home">
-                <i id="home-products-link" data-toggle="" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">Home</i>
+                <i id="home-products-link" data-toggle="" aria-haspopup="true" aria-expanded="false" class="d-lg-inline-block central-nav-link">House</i>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="home-products-link">
                 <a href="{% url 'products' %}?category=home&sort=price&sort_direction=desc" class="dropdown-item">By Price</a>
@@ -236,7 +233,7 @@
               <div id="desk-top-user-dropdown" class="dropdown-menu border-0 text-left" aria-labelledby="user-options-desktop">
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
-                          <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
+                          <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
                           <a href="{% url 'get_all_reviews' %}" class="dropdown-item">Reviews Admin</a>
                           <a href="{% url 'new_newsletter' %}" class="dropdown-item">Send Newsletter</a>
 
