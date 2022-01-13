@@ -117,8 +117,6 @@
                                 <p class="h5">Reviews:</p>
 
                                 <div class="review-divider"></div>
-
-                                <div class="no-reviews">Be the first to review this product...</div>
                             
                                 {% if reviews %}
                                     
@@ -144,6 +142,10 @@
                                         {% endif %}
                                         
                                     {% endfor %}
+
+                                {% else %}
+
+                                    <div class="no-reviews">Be the first to review this product...</div>
 
                                 {% endif %}
 
@@ -240,8 +242,6 @@
                     <p class="ml-3 h5">Reviews:</p>
                     <div class="review-divider"></div>
 
-                    <div class="no-reviews">Be the first to review this product...</div>
-                  
                     {% if reviews %}
                         
                         {% for review in reviews %}
@@ -266,6 +266,10 @@
                             {% endif %}
                             
                         {% endfor %}
+                    
+                    {% else %}
+
+                        <div class="no-reviews">Be the first to review this product...</div>
 
                     {% endif %}
                 </div>
