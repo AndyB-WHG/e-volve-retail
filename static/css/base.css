@@ -94,6 +94,13 @@ body {
     display: block;
 }
 
+#desk-top-user-dropdown {
+    width: 14rem;
+    left: -100px;
+}
+
+
+
 /* nav div li .shopping-bag {
     position:absolute;
     top: 50px;
@@ -118,16 +125,17 @@ body {
 
 .shopping-bag-small-screens {
     position:relative;
-    top: 25px;
+    top: 29px;
     padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 0px;
     text-decoration: none;
     color:rgb(55, 56, 56);
     transition: 0.4s;
     cursor: pointer;
     font-style: normal;
     font-size: 20px;
-    padding-left: 10px;
-    padding-right: 0px;
+    
 }
 
 .bag-total {
@@ -188,16 +196,16 @@ nav div .shopping-bag-large-screen a:hover {
 
 #user-account-dropdown {
     /* padding-left: 4rem; */
-    text-align: left;
+    text-align: right;
+    left: -70px;
 }
 
 #mobile-user-account-link .dropdown-item {
-    position: relative;
-    /* right: 58px; */
     border-left: 10px;
     text-align: left;
     padding-top: 5px;
     padding-left: 10px;
+    width: 12rem;
 }
 
 .site-logo {
