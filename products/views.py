@@ -105,30 +105,34 @@ def review_product(request, product_id):
         product_purchased = False
         users_orders = Order.objects.filter(user_profile=user)
         print("11. User orders are : ", users_orders)
-        for order in users_orders:
-            line_items = order.lineitems.all()
-            print("Line Items are : ", line_items)
-            
-            for item in line_items:
-                print("Line Item = ", item.product)
-                if item.product == product:
-                    product_purchased = True
-                    print("13. Review type is a 'POST' - User has submitted a review!")
-                    if request.user.is_authenticated:
-                        # user_orders = Order.objects.get(user_profile=user)
-                        # print("15. User Odrers are : ", user_orders)
-                        # print("20. Review User is : ", user, "(From 'products/views.py'")
-                        date = models.DateTimeField(auto_now_add=True)
-                        user_review = request.POST.get('review-text')
-                        User_review.objects.create(product=product, date=date, user=user, review_text=user_review)
-                        messages.success(request, 'Thank you for your review!')
+        if users_orders:
+            for order in users_orders:
+                line_items = order.lineitems.all()
+                print("Line Items are : ", line_items)
+                
+                for item in line_items:
+                    print("Line Item = ", item.product)
+                    if item.product == product:
+                        product_purchased = True
+                        print("13. Review type is a 'POST' - User has submitted a review!")
+                        if request.user.is_authenticated:
+                            # user_orders = Order.objects.get(user_profile=user)
+                            # print("15. User Odrers are : ", user_orders)
+                            # print("20. Review User is : ", user, "(From 'products/views.py'")
+                            date = models.DateTimeField(auto_now_add=True)
+                            user_review = request.POST.get('review-text')
+                            User_review.objects.create(product=product, date=date, user=user, review_text=user_review)
+                            messages.success(request, 'Thank you for your review!')
+                            return redirect(reverse('product_detail', args=[product_id]))
+
+                        return render(request, 'home/index.html')
+                    if product_purchased == False:
+                        messages.error(request, 'Sorry, you cannot review a product unless you have purchased it first.')
                         return redirect(reverse('product_detail', args=[product_id]))
-
-                    return render(request, 'home/index.html')
-                if product_purchased == False:
-                    messages.error(request, 'Sorry, you cannot review a product unless you have purchased it first.')
-                    return redirect(reverse('product_detail', args=[product_id]))
-
+        else: 
+            if product_purchased == False:
+                        messages.error(request, 'Sorry, you cannot review a product unless you have purchased it first.')
+                        return redirect(reverse('product_detail', args=[product_id]))
     else:
         context = {
                 'product': product,

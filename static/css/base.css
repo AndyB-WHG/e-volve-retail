@@ -635,12 +635,12 @@ input[name='q']::placeholder {
     background-color: #ffffff;
 }
 
-.no-reviews {
+/* .no-reviews {
     position: relative;
     top: 25px;
     left: 20px;
     z-index: -2;
-}
+} */
 
 .review-box {
     border-width: 2px;
