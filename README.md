@@ -9,6 +9,13 @@ The E-volve Retail store aims to be part of the solution by providing fully sust
 
 A live website can be found [here](https://e-volve-retail.herokuapp.com/).
 
+[Link to all wireframes created for this project]()
+
+**Home page **
+
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation-assets/home_page_image_1.PNG)
+
+
 ## Table of Contents
 
 ------
