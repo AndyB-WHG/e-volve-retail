@@ -582,43 +582,61 @@ Heroku was used to deploy the application.
 
 **Products Page**
 
-![Products Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/products_page.PNG)
+![Products Page](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/products_page.PNG)
 
 **Product Details Page**
 
-![User Profile](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/product_details_page.PNG)
+![User Profile](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/product_details_page.PNG)
 
 **Shopping Bag Page**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
 **Submit a Review Page**
 
-![Submit a Review](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/submit_review_page.PNG)
+![Submit a Review](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/submit_review_page.PNG)
 
-**Users Review List - View/Edit/Delete**
+**Edit a Review Page**
 
-![Users Reviews - View/Edit/Delete](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Edit a Review](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/edit_a_review_page.PNG)
 
-**Shopping Bag Page**
+**User's Review List - View/Edit/Delete**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Users Reviews - View/Edit/Delete](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/user_reviews_page.PNG)
 
-**Shopping Bag Page**
+**Checkout Page**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Checkout Page](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/checkout_page.PNG)
 
-**Shopping Bag Page**
+**Order Confirmation Page**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Order Confirmation Page](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/order_confirmation_page.PNG)
 
-**Shopping Bag Page**
+**User Profile Page**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![User Profile Page](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/user_profile.PNG)
 
-**Shopping Bag Page**
+**Subscribe to Newsletter page**
 
-![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
+![Subscribe to Newsletter page](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/subscribe_to_newsletter_page.PNG)
+
+**Create Newsletter**
+
+![Create Newsletter](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/create_newsletter_page.PNG)
+
+**Add New Product**
+
+![Add New Product](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/add_new_product_page.PNG)
+
+**Edit a Product**
+
+![Edit a Product](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/edit_a_product_page.PNG)
+
+**Reviews Admin Page - for superusers**
+
+![Reviews Admin Page - for superusers](https://github.com/AndyB-WHG/e-volve-retail/tree/blob/documentation_assets/live_screenshots/reviews_admin_page_for_superusers.PNG)
+
+
 
 
 ## Credits
