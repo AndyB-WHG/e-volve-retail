@@ -576,49 +576,47 @@ Heroku was used to deploy the application.
 
 ## Images
 
+**Home Page**
 
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/live_screenshots/home_page_image_1.PNG)
 
-** Home Page **
-
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/home_page_image_1.PNG)
-
-** Products Page **
+**Products Page**
 
 ![Products Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/products_page.PNG)
 
-** Product Details Page **
+**Product Details Page**
 
 ![User Profile](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/product_details_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Submit a Review Page **
+**Submit a Review Page**
 
 ![Submit a Review](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/submit_review_page.PNG)
 
-** Users Review List - View/Edit/Delete **
+**Users Review List - View/Edit/Delete**
 
 ![Users Reviews - View/Edit/Delete](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
-** Shopping Bag Page **
+**Shopping Bag Page**
 
 ![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page.PNG)
 
