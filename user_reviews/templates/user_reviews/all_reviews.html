@@ -2,8 +2,6 @@
 {% load static %}
 
 {% block page_header %}
-<hr class="product-details-hr">
-
     <div class="container-fluid header-container black-background d-lg-none">
         <div class="row">
             <div class="col">
@@ -19,17 +17,13 @@
 {% endblock %}
 
 
-
 {% block content %}
 
 <div class="row">
-
     <div class="col-10 offset-1">
         <h4 class="mt-5 pt-5 pl-3">All customer reviews</h4>
         <hr class="pl-4 ml-3">
-
     </div>
-
 </div>  
 
 {% for review in reviews %}
@@ -38,8 +32,7 @@
         <div class="col-5 col-sm-3 offset-1">
             <a href="{{ review.product.image.url }}" target="_blank">
                 <img class="card-img-top img-fluid pt-2 pl-3" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
-            </a>
-           
+            </a>           
         </div>
 
         <div class="col-5 review-section">
@@ -54,9 +47,9 @@
                 <a href="{% url 'edit_review' review.id %}"><button type="button" class="d-sm-inline-block btn btn-primary pl-4 pr-4 mt-3">Edit</button></a>
                 <a href="{% url 'delete_review_admin' review.id %}"><button type="button" class="d-sm-inline-block btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button></a>
             </div>  
-        </div>
-        
+        </div>    
     </div>
+
     <div class="row pl-2 review-section">
         <div class="d-sm-none col-10 offset-1 pl-4 pt-3"><u>Review Details:</u></div> 
         <div class="d-sm-none col-10 offset-1 pl-4 pt-3">{{ review.review_text }}</div>
@@ -66,8 +59,8 @@
             <a href="{% url 'delete_review_admin' review.id %}"><button type="button" class="d-sm-none btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button></a>
         </div>
     </div>
+    
     <div class="row">
-        
         <hr class="col-10 offset-1 pt-3 pb-3 w-100">
     </div>
 {% endfor %}

@@ -18,7 +18,6 @@ from .forms import ProductForm
 
 def all_products(request):
     """ A view to return all the products, including sorting and searching """
-
     products = Product.objects.all()
     query = None  # Resets the 'query' value in case of a previous search.
     category = None
@@ -98,51 +97,48 @@ def review_product(request, product_id):
     """ A view to allow users to submit reviews """
 
     product = get_object_or_404(Product, pk=product_id)
-    print("5. Product to be reviewed is : ", product)
     reviews = User_review.objects.all()
-    print("Reviews = : ", reviews)
     user = UserProfile.objects.get(user=request.user)
-    print("10. Review User is : ", user, "(From 'products/views.py'")
 
     if request.method == 'POST':
         product_purchased = False
         users_orders = Order.objects.filter(user_profile=user)
-        print("11. User orders are : ", users_orders)
         if users_orders:
             for order in users_orders:
                 line_items = order.lineitems.all()
-                print("Line Items are : ", line_items)
-                
+
                 for item in line_items:
-                    print("Line Item = ", item.product)
                     if item.product == product:
                         product_purchased = True
-                        print("13. Review type is a 'POST' - User has submitted a review!")
                         if request.user.is_authenticated:
-                            # user_orders = Order.objects.get(user_profile=user)
-                            # print("15. User Odrers are : ", user_orders)
-                            # print("20. Review User is : ", user, "(From 'products/views.py'")
                             date = models.DateTimeField(auto_now_add=True)
                             user_review = request.POST.get('review-text')
-                            User_review.objects.create(product=product, date=date, user=user, review_text=user_review)
-                            messages.success(request, 'Thank you for your review!')
-                            return redirect(reverse('product_detail', args=[product_id]))
+                            User_review.objects.create(product=product,
+                                                       date=date, user=user,
+                                                       review_text=user_review)
+                            messages.success(request,
+                                             'Thank you for your review!')
+                            return redirect(reverse('product_detail',
+                                            args=[product_id]))
 
                         return render(request, 'home/index.html')
-                    if product_purchased == False:
-                        messages.error(request, 'Sorry, you cannot review a product unless you have purchased it first.')
-                        return redirect(reverse('product_detail', args=[product_id]))
-        else: 
-            if product_purchased == False:
-                        messages.error(request, 'Sorry, you cannot review a product unless you have purchased it first.')
-                        return redirect(reverse('product_detail', args=[product_id]))
+                    if product_purchased is False:
+                        messages.error(request, 'Sorry, you cannot review\
+                             a product unless you have purchased it first.')
+                        return redirect(reverse('product_detail',
+                                        args=[product_id]))
+        else:
+            if product_purchased is False:
+                messages.error(request, 'Sorry, you cannot review a\
+                        product unless you have purchased it first.')
+                return redirect(reverse('product_detail', args=[product_id]))
     else:
         context = {
                 'product': product,
                 'reviews': reviews,
             }
-
         return render(request, 'products/product_review.html', context)
+
 
 @login_required()
 def add_product(request):
@@ -158,7 +154,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the\
+                 form is valid.')
     else:
         form = ProductForm()
 
@@ -185,7 +182,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. Please ensure\
+                 the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -195,7 +193,6 @@ def edit_product(request, product_id):
         'form': form,
         'product': product,
     }
-
     return render(request, template, context)
 
 
@@ -204,6 +201,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
+
     """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
     product.delete()

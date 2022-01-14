@@ -20,10 +20,6 @@ body, html {
     height: 100%;
 }
 
-/* header {
-    height: 95px;
-} */
-
 body {
    font-family: Lato;
    /* font-weight: 200; */
@@ -59,7 +55,6 @@ body {
 }
 
 .central-nav-link:hover {
-    /* color:#010608; */
     color: rgb(132, 135, 138);
     text-decoration: none;
 }
@@ -104,18 +99,6 @@ body header nav {
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
-
-/* nav div li .shopping-bag {
-    position:absolute;
-    top: 50px;
-    padding-bottom: 3px;
-    padding-left: 0px;
-    padding-right: 0px;
-} */
-
-/* nav div ul */
-
-
 
 .user-section-large {
     list-style-type: none;
@@ -196,12 +179,7 @@ nav div .shopping-bag-large-screen a:hover {
     color: #ffffff;
 }
 
-/* nav div li .fa-shopping-bag {
-    padding-left: 10px;
-} */
-
 #user-account-dropdown {
-    /* padding-left: 4rem; */
     text-align: right;
     left: -70px;
 }
@@ -242,11 +220,8 @@ body header nav div #desktop-search-bar {
 }
 
 .test-class {
-    /* width: 100%; */
     height: 400px;
-    /* padding-top: 50px; */
     color: chocolate;
-    /* font-size: 50px; */
     background: crimson;
 }
 
@@ -360,10 +335,7 @@ body header nav div #desktop-search-bar {
     overflow-y: auto;
 }
 
-
-
 /* ------------------------------------------------ Home Page -------------------------------------------- */
-
 
 .carousel-item {
     height: calc(100vh);
@@ -371,7 +343,7 @@ body header nav div #desktop-search-bar {
 
 .perfume-image {
     position: relative;
-    top: 90.5px;
+    top: 84px;
     object-fit: cover;
     height: 100%;
 }
@@ -432,7 +404,6 @@ div #all-products {
     bottom: 530px;
     text-align: center;
     color: rgb(55, 56, 56);
-    /* background: #e0e9ec; */
 }
 
 #carousel-caption-1 h6 {
@@ -486,29 +457,80 @@ div #all-products {
     width: 120px;
   
 }
+
+/*----------------------------------------------    Footer    ---------------------------------------------------------*/
+
+footer {
+    display: block;
+    position: relative;
+    top: 150px;
+    height: 5rem;
+    color: cornsilk;
+    width: 100%;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #b9b6b6;
+}
+
+footer li {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+footer li a {
+    text-decoration: none;
+    color: #373838;
+}
+
+footer li a:hover {
+    text-decoration: none;
+    color: #8f9494;
+}
+
+.social-media {
+    text-align: center;
+}
+
+/* ---------------------------------------------    Products Pages - General --------------------------------------------*/
+
+.products-section {
+    position: relative;
+    top: 150px;
+}
  
 /* ---------------------------------------------    Product Detail Page --------------------------------------------*/
 
-.product-details-hr {
-    position: relative;
-    display: block;
-    top: 70px;
-}
-
 .black-background {
-    position: relative;
-    top: 50px;
+    position: fixed;
+    top: 91px;
     height: 45px;
     background: black;
     color: white;
     font-size: 14px;
-    padding-top: 15px;
+    padding-top: 12px;
     border-bottom: 15px;
     padding-bottom: 15px;
+    z-index: 10;
 }
 
-.black-background .row div {
-    
+.black-background-shopping-bag {
+    position: fixed;
+    top: 91px;
+    height: 45px;
+    background: black;
+    color: white;
+    font-size: 14px;
+    padding-top: 12px;
+    border-bottom: 15px;
+    padding-bottom: 15px;
+    z-index: 10;
+}
+
+.black-background .row div, .black-background-shopping-bag .row div {
     text-align: center;
     padding-left: 0px;
     padding-right: 0px;
@@ -575,17 +597,10 @@ div #all-products {
     border-radius: 2px;
 }
 
-
-
 .size-option {
     background: #fafafa;
     color: rgb(55, 56, 56);
 }
-
-/* .size-option::selection {
-    background: #fafafa;
-    color: rgb(55, 56, 56);
-} */
 
 .write-review-btn {
     width:100%;
@@ -595,16 +610,13 @@ div #all-products {
     border: 1px solid black;
     border-radius: 2px;   
 }
-/* Products Page */
+
+/* -------------------------------------------- Products Page -----------------------------------------------*/
 
 .products-page-links {
     text-decoration: none;
     color:rgb(55, 56, 56);
-    /* transition: 0.4s; */
     cursor: pointer;
-    /* font-style: normal;
-    font-size: 18px;
-    padding-left: 13px; */
 }
 
 .products-page-links:hover {
@@ -618,6 +630,7 @@ div #all-products {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 2;
 }
 
 .btt-link,
@@ -643,7 +656,14 @@ input[name='q']::placeholder {
 
 .no-reviews {
     position: relative;
-    bottom: 100px;
+    bottom: 1px;
+    left: 20px;
+    z-index: -5;
+}
+
+.no-reviews-mobile {
+    position: relative;
+    top: 20px;
     left: 20px;
     z-index: -5;
 }
@@ -663,7 +683,6 @@ input[name='q']::placeholder {
 
 .empty-bag {
     width: 90%;
-    /* height: 3rem; */
     background: #f7f7f7;
     margin-top: 1rem;
     font-size: 17px;
@@ -672,8 +691,6 @@ input[name='q']::placeholder {
     left: 5%;
     padding-top: 6.5%;
     padding-bottom: 3.5%;
-    /* margin-top: 2%; */
-    /* border-left: 10%; */
 }
 
 .checkout-button {
@@ -694,7 +711,6 @@ input[name='q']::placeholder {
     border: #343a40;
     border-width: 2px;
     border-style: solid;
-    
 }
 
 .shopping-bag-items {
@@ -713,6 +729,13 @@ input[name='q']::placeholder {
     border: gray;
     border-style: double;
 }
+
+.qty-box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #33373a;
+}
+
 
 /* Product Detail page, text placement on mobile screen size */
 
@@ -843,7 +866,6 @@ input[name='q']::placeholder {
     background: rgb(84, 87, 78);
     font-size: 400;
     transition: 0.3s;
-    
 }
 
 #carousel-caption-2 .btn-home-mobile {
@@ -873,6 +895,7 @@ input[name='q']::placeholder {
     background: rgb(84, 87, 78);
 }
 }
+
 /* Home screen text placement on large / desktop screen size */
 
 @media screen and (min-device-width : 992px) {

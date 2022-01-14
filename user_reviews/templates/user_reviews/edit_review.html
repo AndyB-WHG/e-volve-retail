@@ -4,23 +4,12 @@
 <!-- Product Category Nav Bar -->
 
 {% block page_header %}
-    <hr class="product-details-hr">
-    
-    <!-- <div class="container-fluid header-container black-background d-none d-lg-none">
-        <div class="row">
-            <div class="fashion col-2 col-md-1 d-lg-none offset-1 offset-md-4">Fashion</div>
-            <div class="col-2 col-md-1 d-lg-none">Home</div>
-            <div class="col-4 col-md-2 d-lg-none">Health & Beauty</div>
-            <div class="col-2 col-md-1 d-lg-none">All</div>
-        </div>
-    </div> -->
-
     <div class="container-fluid header-container black-background d-lg-none">
         <div class="row">
             <div class="col">
                 <ul class="black-links">
                     <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
-                    <a href="{% url 'products' %}?category=home"><li>House</li></a>
+                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
                     <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
                     <a href="{% url 'products' %}"><li>All</li></a>
                 </ul>
@@ -33,14 +22,22 @@
 
 <!-- Main page content -->
 
-<div class="container-fluid mt-5 pt-3">
+<div class="container-fluid mt-1 pt-3 products-section">
+
+    <div class="d-lg-none mt-3 pt-3"></div>
+    <h4 class="text-center pb-1 mb-1">Edit Review</h4>
+    <div class="row">
+        <div class="col-6 offset-3 col-md-4 offset-md-4">
+            <hr class="mb-2 pb-2">
+        </div>
+    </div>
 
     <div class="pt-3 mt-3 d-md-block"></div>  <!-- Top padding on medium and larger screens to push content down away from navbar -->
 
     <!-- Image Placement - all screen sizes -->
     <div class="d-block">
         <div class="row">
-            <div class="col-10 d-block col-md-6 col-lg-4 col-xl-3 offset-1 offset-md-0 offset-lg-2">
+            <div class="col-10 d-block col-md-6 col-lg-4 col-xl-3 offset-1 offset-md-0 offset-lg-2 mt-1">
                 {% if product.image %}
                     <a href="{{ review.product.image }}" target="_blank">
                         <img class="card-img-top img-fluid pt-2 pl-3" src="{{ review.product.image }}" alt="{{ review.product.name }}">
@@ -50,43 +47,33 @@
                         <img class="card-img-top img-fluid" src="{% static 'images/noimage.png' %}" alt="{{ review.product.name }}">
                     </a>
                 {% endif %}
-                    <div class="d-md-none card-body pb-0">
-                        <p class="mb-0">{{ review.product.name }}</p>
-                    </div>
+                <div class="d-md-none card-body pb-0">
+                    <p class="mb-0">{{ review.product.name }}</p>
+                </div>
 
-                    <!-- Mobile screens - Product Name / Price / Description / Reviews Placement -->
-                    <div class="col d-md-none">
-                        <p class="lead mb-0 text-left ml-1 font-weight-bold">£{{ review.product.price }}</p>
-                        <a class="products-page-links" href="{% url 'products' %}?category={{review.product.category.name}}&sort=price&sort_direction=desc">
-                            <p class="mt-3 pl-0"><i class="fas fa-tag pr-1"></i>{{ review.product.category.friendly_name }}</p>
-                        </a>
-                        <hr class="my-3">
-                        <p>{{ review.product.description }}</p>
-                        <hr class="my-3">
+                <!-- Mobile screens - Product Name / Price / Description / Reviews Placement -->
+                <div class="col d-md-none">
+                    <p class="lead mb-0 text-left ml-1 font-weight-bold">£{{ review.product.price }}</p>
+                    <a class="products-page-links" href="{% url 'products' %}?category={{review.product.category.name}}&sort=price&sort_direction=desc">
+                        <p class="mt-3 pl-0"><i class="fas fa-tag pr-1"></i>{{ review.product.category.friendly_name }}</p>
+                    </a>
+                    <hr class="my-3">
+                    <p>{{ review.product.description }}</p>
+                    <hr class="my-3">
+                
+                    <!-- Add to bag / review section  -  mobile devices -->
                     
-
-                        <!-- Add to bag / review section  -  mobile devices -->
-
-                        
-                        <form method="POST" action="{% url 'edit_review' review.id %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
-                                <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
-                            </div>
-                            <input type="submit" value="Submit">
-                            <input type="reset">
-                            <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
-                        </form>
-
-                        
-
-                        <!-- <hr class="my-3"> -->
-
-                        <!-- <p class="h5">Reviews:</p> -->
-
-                          
-                    </div>
+                    <form method="POST" action="{% url 'edit_review' review.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
+                            <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-success pl-3 pr-3 ml-3 mt-3">
+                    </form>
+                    
+                    <div class="mt-3 pt-3"></div>
+                </div>
             </div>
 
             <!-- Tablet and larger screens - Product Name / Price / Description Placement -->
@@ -101,42 +88,38 @@
                     <p>{{ review.product.description }}</p>
                     <hr class="my-3">
                     
-                   
-                       
-                        <!-- <div>
-                            <h4>Add A Review</h4>
-                        </div> -->
-                        <!-- <label for="review">Please write your review in the box below...</label>
-                       
-                            <form action="/action_page.php">
-                                <div class="review-box">
-                                <input type="text" minlength="10" maxlength="1028" id="review" name="review">
-                                </div>
-                                <br><br>
-                                <input type="submit" value="Submit">
-                                <input type="reset">
-                            </form> -->
-                            <form method="POST" action="{% url 'edit_review' review.id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
-                                    <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
-                                </div>
-                                <input type="submit" value="Submit">
-                                <input type="reset">
-                                <!-- <input type="hidden" name="redirect_url" value="{{ request.path }}"> -->
-                            </form>
+                    <form method="POST" action="{% url 'edit_review' review.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
+                            <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-success pl-3 pr-3 ml-3 mt-3">
+                    </form>
+                    
+                    <div class="mt-3 pt-3"></div>
                 </div>
             </div>
-        
-            
         </div>
     </div>
+</div>    
+{% endblock %}
 
-
+{% block footer %}
+<div class="">
+    <footer class="">
+        <ul class="social-media">
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Facebook page (opens in separate tab)"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="https://twitter.com/?lang=en-gb" target="_blank" rel="noreferrer"
+                aria-label="Go to our Twitter page (opens in separate tab)"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Youtube page (opens in separate tab)"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Instagram page (opens in separate tab)"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </footer>
 </div>
-
-    
 {% endblock %}
 
 {% block postloadjs %}

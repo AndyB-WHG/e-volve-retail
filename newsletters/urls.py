@@ -1,3 +1,5 @@
+""" Url patterns for Newsletters and Subscribers """
+
 from django.urls import path
 from . import views
 

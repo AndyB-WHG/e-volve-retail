@@ -4,6 +4,7 @@ from django.db import models
 from products.models import Product
 from profiles.models import UserProfile
 
+
 class User_review(models.Model):
     """ Model to define Review Fields """
     product = models.ForeignKey(Product, null=True, blank=True,

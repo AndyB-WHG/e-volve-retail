@@ -13,7 +13,7 @@ from . forms import NewsletterForm, SubscriberForm
 def new_newsletter(request):
     if request.user.is_superuser:
         if request.method == 'POST':
-            
+
             author = request.user
             print("Author (POST) is : ", author)
             date = models.DateTimeField(auto_now_add=True)
@@ -68,7 +68,7 @@ def new_subscriber(request):
         }
         form = SubscriberForm(form_data)
         print("Form = ", form)
-       
+
         if form.is_valid():
             email = request.POST['email']
             already_subscribed = Subscribers.objects.filter(email=email)
@@ -76,7 +76,7 @@ def new_subscriber(request):
             print("Already Subscribed? : ", already_subscribed)
             if not already_subscribed:
                 form.save()
-                
+
                 print("Email = ", email)
                 send_mail(
                     'E-volve Retail Newsletter Subscription',
@@ -88,11 +88,13 @@ def new_subscriber(request):
                 messages.success(request, "Subscription was successful!")
                 return redirect('/products')
             else:
-                messages.error(request, "You already subscribed with that email address.")
+                messages.error(request, "You already subscribed with \
+                    that email address.")
                 return redirect('new_subscriber')
     else:
         form = SubscriberForm()
         context = {
             'form': form,
         }
-        return render(request, 'newsletters/subscribe_to_newsletter.html', context)  
+        return render(request, 'newsletters/subscribe_to_newsletter.html',
+                      context)

@@ -3,7 +3,8 @@ from . models import Newsletters, Subscribers
 
 
 class NewsletterAdmin(admin.ModelAdmin):
-    """ Defines layout of 'Newsletters' submenu within 'NEWSLETTERS' Admin section """
+    """ Defines layout of 'Newsletters' submenu
+    within 'NEWSLETTERS' Admin section """
     list_display = (
         'title',
         'body',
@@ -16,7 +17,8 @@ class NewsletterAdmin(admin.ModelAdmin):
 
 
 class SubscriberAdmin(admin.ModelAdmin):
-    """ Defines layout of 'Subscribers' submenu within 'NEWSLETTERS' Admin section  """
+    """ Defines layout of 'Subscribers' submenu
+    within 'NEWSLETTERS' Admin section  """
     list_display = (
         'email',
         'firstName',
@@ -26,6 +28,7 @@ class SubscriberAdmin(admin.ModelAdmin):
     )
 
     ordering = ('date',)
+
 
 admin.site.register(Newsletters, NewsletterAdmin)
 admin.site.register(Subscribers, SubscriberAdmin)

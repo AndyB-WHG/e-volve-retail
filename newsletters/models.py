@@ -5,9 +5,10 @@ from profiles.models import UserProfile
 
 class Newsletters(models.Model):
     class Meta:
-        """ Changes the 'Admin section name from Newsletterss to Newsletters """
+        """ Changes the 'Admin section name from
+        Newsletterss to Newsletters """
         verbose_name_plural = 'Newsletters'
-        
+
     title = models.CharField(max_length=75, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -20,7 +21,8 @@ class Newsletters(models.Model):
 
 class Subscribers(models.Model):
     class Meta:
-        """ Changes the 'Admin section name from Subscriberss to Subscribers """
+        """ Changes the 'Admin section name from Subscriberss
+        to Subscribers """
         verbose_name_plural = 'Subscribers'
 
     firstName = models.CharField(max_length=25, null=True, blank=True)

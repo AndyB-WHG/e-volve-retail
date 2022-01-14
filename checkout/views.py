@@ -125,8 +125,6 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # client_secret = intent.client_secret     #  Line added by Marcel
-
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -154,9 +152,6 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        # 'client_secret': client_secret,
-        # Commented out Line above 'amended' by mentor Marcel Mulders to
-        # replace the line below.
         'client_secret': intent.client_secret,
     }
 

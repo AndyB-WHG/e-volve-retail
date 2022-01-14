@@ -2,17 +2,6 @@
 {% load static %}
 
 {% block page_header %}
-    <hr class="product-details-hr">
-    
-    <!-- <div class="container-fluid header-container black-background d-none d-lg-none">
-        <div class="row">
-            <div class="fashion col-2 col-md-1 d-lg-none offset-1 offset-md-4">Fashion</div>
-            <div class="col-2 col-md-1 d-lg-none">Home</div>
-            <div class="col-4 col-md-2 d-lg-none">Health & Beauty</div>
-            <div class="col-2 col-md-1 d-lg-none">All</div>
-        </div>
-    </div> -->
-
     <div class="container-fluid header-container black-background d-lg-none">
         <div class="row">
             <div class="col">
@@ -29,12 +18,12 @@
 
 {% block content %}
     <div>
-        <div class="container-fluid">
+        <div class="container-fluid products-section">
 
             <!-- Page Title Row -->
             <div class="row">
                 <div class="col text-center mt-3">
-                    <hr class="mt-5 mb-5">
+                    
                     <h4 class="pt-4">PRODUCTS</h4>
                     <hr class="w-50 mx-auto mb-1 d-none d-md-block">
                 </div>
@@ -138,11 +127,29 @@
         </div>
     </div>
 
+    <!-- Back to top button -->
     <div class="btt-button shadow-sm rounded-0 border border-black">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	
     </div>
+{% endblock %}
+
+{% block footer %}
+<div>
+    <footer>
+        <ul class="social-media">
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Facebook page (opens in separate tab)"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="https://twitter.com/?lang=en-gb" target="_blank" rel="noreferrer"
+                aria-label="Go to our Twitter page (opens in separate tab)"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Youtube page (opens in separate tab)"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"
+                aria-label="Go to our Instagram page (opens in separate tab)"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </footer>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
