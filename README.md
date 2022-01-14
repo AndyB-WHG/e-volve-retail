@@ -552,10 +552,6 @@ Sign Out page | 56 | Sign out button on Sign Out page | Button functions as expe
 Sign Out page | 57 | Cancel Sign Out button  | Works as expected and the user remains logged in.  Success message also confirms user is logged in. | Pass |
 Product Management Page | 58 | Awaiting testing | Correction required as is currently linked to Sign Out page. | Fail |
 
-## Images
-
-
-
 ## Deployment
 
 The application has been deployed using Heroku by following these steps:
@@ -580,22 +576,51 @@ Heroku was used to deploy the application.
 
 ## Images
 
+
+
 ** Home Page **
 
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/home_page_image_1)
 
 ** Products Page **
 
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+![Products Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/products_page)
 
 ** Product Details Page **
 
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+![User Profile](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/product_details_page)
 
-** Shopping Basket Page **
+** Shopping Bag Page **
 
-![Home Page](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots_)
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
 
+** Submit a Review Page **
+
+![Submit a Review](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/submit_review_page)
+
+** Users Review List - View/Edit/Delete **
+
+![Users Reviews - View/Edit/Delete](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
+
+** Shopping Bag Page **
+
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
+
+** Shopping Bag Page **
+
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
+
+** Shopping Bag Page **
+
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
+
+** Shopping Bag Page **
+
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
+
+** Shopping Bag Page **
+
+![Shopping Bag](https://github.com/AndyB-WHG/e-volve-retail/tree/main/documentation_assets/live_screenshots/shopping_bag_page)
 
 
 ## Credits
