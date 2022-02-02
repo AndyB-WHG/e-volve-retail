@@ -72,13 +72,13 @@
                                     {% if size %}
                                         <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}">
                                                     <option value="" disabled selected>Choose Size</option>
-                                                    <option class="size-option" name="size" value="6">6</option>
-                                                    <option class="size-option" name="size" value="8">8</option>
-                                                    <option class="size-option" name="size" value="10">10</option>
-                                                    <option class="size-option" name="size" value="12">14</option>
-                                                    <option class="size-option" name="size" value="12">16</option>
-                                                    <option class="size-option" name="size" value="12">18</option>
-                                                    <option class="size-option" name="size" value="12">20</option>
+                                                    <option class="size-option" id="size" value="6">6</option>
+                                                    <option class="size-option" id="size" value="8">8</option>
+                                                    <option class="size-option" id="size" value="10">10</option>
+                                                    <option class="size-option" id="size" value="12">14</option>
+                                                    <option class="size-option" id="size" value="14">16</option>
+                                                    <option class="size-option" id="size" value="16">18</option>
+                                                    <option class="size-option" id="size" value="18">20</option>
                                         </select>
                                     {% endif %}
                                 {% endwith %} 
@@ -96,7 +96,9 @@
                             <div class="row">
                                 <div class="col-12 pt-3 text-center">
                                     <a href="{% url 'review_product' product.id %}">
-                                        <span class="write-review-btn">WRITE A REVIEW</span>
+                                        <div class="write-review-btn">
+                                            WRITE A REVIEW
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -156,16 +158,15 @@
                                     {% with product.has_sizes as size %}
                                         {% if size %}
                                             <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}">
-                                                        <option value="" disabled selected hidden>Choose Size</option>
-                                                        <option class="size-option" name="size" value="6">6</option>
-                                                        <option class="size-option" name="size" value="8">8</option>
-                                                        <option class="size-option" name="size" value="10">10</option>
-                                                        <option class="size-option" name="size" value="12">12</option>
-                                                        <option class="size-option" name="size" value="12">14</option>
-                                                        <option class="size-option" name="size" value="12">16</option>
-                                                        <option class="size-option" name="size" value="12">18</option>
-                                                        <option class="size-option" name="size" value="12">20</option>
-                                                        
+                                                <option value="" disabled selected hidden>Choose Size</option>
+                                                <option class="size-option" id="size" value="6">6</option>
+                                                <option class="size-option" id="size" value="8">8</option>
+                                                <option class="size-option" id="size" value="10">10</option>
+                                                <option class="size-option" id="size" value="12">12</option>
+                                                <option class="size-option" id="size" value="14">14</option>
+                                                <option class="size-option" id="size" value="16">16</option>
+                                                <option class="size-option" id="size" value="18">18</option>
+                                                <option class="size-option" id="size" value="20">20</option>
                                             </select>
                                         {% endif %}
                                     {% endwith %} 
@@ -184,8 +185,10 @@
                             <div class="row">
                                 <div class="col-12 py-3 text-center">
                                     <a href="{% url 'review_product' product.id %}">
-                                        <span class="write-review-btn">WRITE A REVIEW</span>
-                                    </a>  
+                                        <div class="write-review-btn">
+                                            WRITE A REVIEW
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                            
