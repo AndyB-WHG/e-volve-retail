@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col">
                 <ul class="black-links">
-                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
-                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
-                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
-                    <a href="{% url 'products' %}"><li>All</li></a>
+                    <li><a href="{% url 'products' %}?category=fashion">Fashion</a></li>
+                    <li><a href="{% url 'products' %}?category=home">Home</a></li>
+                    <li><a href="{% url 'products' %}?category=health">Health & Beauty</a></li>
+                    <li><a href="{% url 'products' %}">All</a></li>
                 </ul>
             </div>
         </div>
@@ -70,7 +70,7 @@
                             
                                 {% with product.has_sizes as size %}
                                     {% if size %}
-                                        <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}" placeholder="Choose Size">
+                                        <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}">
                                                     <option value="" disabled selected>Choose Size</option>
                                                     <option class="size-option" name="size" value="6">6</option>
                                                     <option class="size-option" name="size" value="8">8</option>
@@ -96,7 +96,7 @@
                             <div class="row">
                                 <div class="col-12 pt-3 text-center">
                                     <a href="{% url 'review_product' product.id %}">
-                                        <button class="write-review-btn">WRITE A REVIEW</button>
+                                        <span class="write-review-btn">WRITE A REVIEW</span>
                                     </a>
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
 
                                     {% with product.has_sizes as size %}
                                         {% if size %}
-                                            <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}" placeholder="Choose Size">
+                                            <select class="form-control size-selector-btn dropdown-toggle w-100 text-left" name="size" data-item_id="{{ product.id }}" id="id_size_{{ product.id }}">
                                                         <option value="" disabled selected hidden>Choose Size</option>
                                                         <option class="size-option" name="size" value="6">6</option>
                                                         <option class="size-option" name="size" value="8">8</option>
@@ -184,7 +184,7 @@
                             <div class="row">
                                 <div class="col-12 py-3 text-center">
                                     <a href="{% url 'review_product' product.id %}">
-                                        <button class="write-review-btn">WRITE A REVIEW</button>
+                                        <span class="write-review-btn">WRITE A REVIEW</span>
                                     </a>  
                                 </div>
                             </div>
