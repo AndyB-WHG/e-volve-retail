@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block page_header %}
-<    <div class="container-fluid header-container black-background-shopping-bag d-lg-none">
+   <div class="container-fluid header-container black-background-shopping-bag d-lg-none">
         <div class="row">
             <div class="col">
                 <ul class="black-links">
-                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
-                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
-                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
-                    <a href="{% url 'products' %}"><li>All</li></a>
+                    <li><a href="{% url 'products' %}?category=fashion">Fashion</a></li>
+                    <li><a href="{% url 'products' %}?category=home">Home</a></li>
+                    <li><a href="{% url 'products' %}?category=health">Health & Beauty</a></li>
+                    <li><a href="{% url 'products' %}">All</a></li>
                 </ul>
             </div>
         </div>
@@ -130,10 +130,10 @@
             <p class="">Your Shopping Bag is empty</p>
         </div>
 
-        <a href="{% url 'products' %}" class=>
+        <a href="{% url 'products' %}" class="">
             <div class="row">
                 <div class="col ml-2 mr-2 pt-4 text-center">
-                    <button class="btn checkout-button font-large">KEEP SHOPPING</button>
+                    <div class="btn checkout-button font-large">KEEP SHOPPING</div>
                 </div>
             </div>
         </a>
@@ -275,10 +275,10 @@
             <p class="">Your Shopping Bag is empty</p>
         </div>
 
-        <a href="{% url 'products' %}" class=>
+        <a href="{% url 'products' %}" class="">
             <div class="row">
                 <div class="col ml-2 mr-2 pt-4 text-center">
-                    <button class="btn btn-success checkout-button font-large">KEEP SHOPPING</button>
+                    <div class="btn btn-success checkout-button font-large">KEEP SHOPPING</div>
                 </div>
             </div>
         </a>
@@ -299,7 +299,7 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<script type="text/javascript">
+<script>
     $('.remove-item').click(function(e) {
         console.log("JS - Remove Item function started")
         var csrfToken = "{{ csrf_token }}";
