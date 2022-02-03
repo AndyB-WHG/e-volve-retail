@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col">
                 <ul class="black-links">
-                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
-                    <a href="{% url 'products' %}?category=home"><li>House</li></a>
-                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
-                    <a href="{% url 'products' %}"><li>All</li></a>
+                    <li><a href="{% url 'products' %}?category=fashion">Fashion</a></li>
+                    <li><a href="{% url 'products' %}?category=home">Home</a></li>
+                    <li><a href="{% url 'products' %}?category=health">Health & Beauty</a></li>
+                    <li><a href="{% url 'products' %}">All</a></li>
                 </ul>
             </div>
         </div>
@@ -48,8 +48,8 @@
             <div class="d-none d-sm-block">{{ review.review_text }}</div>
             <div class="d-none d-sm-block pt-3">{{ review.date }}</div>
             <div class="d-none d-sm-block pt-3">
-               <a href="{% url 'edit_review' review.id %}"><button type="button" class="d-sm-inline-block btn btn-primary pl-4 pr-4 mt-3">Edit</button></a>
-               <a href="{% url 'delete_review_user' review.id %}"><button type="button" class="d-sm-inline-block btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button></a>
+               <a href="{% url 'edit_review' review.id %}"><div class="d-sm-inline-block btn btn-primary pl-4 pr-4 mt-3">Edit</div></a>
+               <a href="{% url 'delete_review_user' review.id %}"><div class="d-sm-inline-block btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</div></a>
             </div> 
         </div>
     </div>
@@ -62,8 +62,8 @@
     </div>
 
     <div class="d-sm-none col-10 offset-1 pl-4 pt-3">
-        <a href="{% url 'edit_review' review.id %}"><button type="button" class="d-sm-none btn btn-primary pl-4 pr-4 mt-3">Edit</button></a>
-        <a href="{% url 'delete_review_user' review.id %}"><button type="button" class="d-sm-none btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</button></a>
+        <a href="{% url 'edit_review' review.id %}"><div class="d-sm-none btn btn-primary pl-4 pr-4 mt-3">Edit</div></a>
+        <a href="{% url 'delete_review_user' review.id %}"><div class="d-sm-none btn btn-danger pl-3 pr-3 ml-3 mt-3">Delete</div></a>
     </div>
 
     <div class="row">

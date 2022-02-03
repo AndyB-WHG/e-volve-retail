@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col">
                 <ul class="black-links">
-                    <a href="{% url 'products' %}?category=fashion"><li>Fashion</li></a>
-                    <a href="{% url 'products' %}?category=home"><li>Home</li></a>
-                    <a href="{% url 'products' %}?category=health"><li>Health & Beauty</li></a>
-                    <a href="{% url 'products' %}"><li>All</li></a>
+                    <li><a href="{% url 'products' %}?category=fashion">Fashion</a></li>
+                    <li><a href="{% url 'products' %}?category=home">Home</a></li>
+                    <li><a href="{% url 'products' %}?category=health">Health & Beauty</a></li>
+                    <li><a href="{% url 'products' %}">All</a></li>
                 </ul>
             </div>
         </div>
@@ -67,7 +67,7 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
-                            <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
+                            <textarea class="form-control" id="review-text" name="review-text" rows="8">{{ review.review_text }}</textarea>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-success pl-3 pr-3 ml-3 mt-3">
                     </form>
@@ -92,7 +92,7 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="review-text"><strong>Please edit your review in the box below...</strong></label>
-                            <textarea class="form-control" id="review-text" name="review-text" rows="8" value="{{ review.review_text }}">{{ review.review_text }}</textarea>
+                            <textarea class="form-control" id="review-text" name="review-text" rows="8">{{ review.review_text }}</textarea>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-success pl-3 pr-3 ml-3 mt-3">
                     </form>
