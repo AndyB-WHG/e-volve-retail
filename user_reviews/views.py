@@ -9,7 +9,7 @@ from . models import User_review
 
 @login_required
 def get_all_reviews(request):
-    # creates a view to allow Admin Rights users to view all reviews.
+    """ Creates a view to allow Admin Rights users to view all reviews. """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -23,8 +23,9 @@ def get_all_reviews(request):
 
 @login_required
 def users_reviews(request):
+    """ creates a view to allow users to see only their own reviews. """
     user = UserProfile.objects.get(user=request.user)
-    # creates a view to allow users to see only their own reviews.
+
     my_reviews = User_review.objects.filter(user=user)
     context = {
         'my_reviews': my_reviews
@@ -34,6 +35,7 @@ def users_reviews(request):
 
 @login_required
 def edit_review(request, review_id):
+    """ Creates a view to allow users to edit one of their previous reviews."""
     print("Review id is :", review_id)
     user = UserProfile.objects.get(user=request.user)
     review = User_review.objects.get(id=review_id)
@@ -58,6 +60,7 @@ def edit_review(request, review_id):
 
 @login_required
 def delete_review_user(request, review_id):
+    """ View to allow users to delete reviews """
     print("Review id to delete is :", review_id)
     user = UserProfile.objects.get(user=request.user)
     review = User_review.objects.get(id=review_id)
@@ -73,8 +76,9 @@ def delete_review_user(request, review_id):
 
 @login_required
 def delete_review_admin(request, review_id):
+    """ View to allow superusers to delete reviews """
     print("Review id to delete is :", review_id)
-    user = UserProfile.objects.get(user=request.user)
+    # user = UserProfile.objects.get(user=request.user)
     review = User_review.objects.get(id=review_id)
     if request.user.is_superuser:
         if request.user.is_authenticated:

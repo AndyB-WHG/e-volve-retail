@@ -109,6 +109,9 @@ def checkout(request):
 
     else:
         print("Request Method is 'GET' ???")
+        print("user is : ", request.user)
+        userProfile = UserProfile.objects.get(user=request.user)
+        print("userProfile = : ", userProfile)
         shopping_bag_session = request.session.get('shopping_bag_session', {})
         if not shopping_bag_session:
             messages.error(request, "There's nothing in your \
@@ -170,6 +173,7 @@ def checkout_success(request, order_number):
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = profile
+
         order.save()
 
         # Save the user's info

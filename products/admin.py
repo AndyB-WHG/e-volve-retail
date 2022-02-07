@@ -9,6 +9,8 @@ from .models import Product, Category
 class ProductAdmin(admin.ModelAdmin):
     """ Generates 'Products' submenu within 'PRODUCTS' Admin section """
     list_display = (
+        'pk',
+        'id',
         'sku',
         'name',
         'category',
@@ -22,6 +24,8 @@ class ProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     """ Generates 'Categories' submenu within 'PRODUCTS' Admin section """
     list_display = (
+        'pk',
+        'id',
         'friendly_name',
         'name'
     )

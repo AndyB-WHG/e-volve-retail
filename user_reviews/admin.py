@@ -5,11 +5,11 @@ from .models import User_review
 class ReviewAdmin(admin.ModelAdmin):
     """ Defines layout of 'Reviews' submenu within 'REVIEWS' Admin section """
     list_display = (
+        'id',
         'user',
         'product',
         'date',
         'review_text',
-        'id',
     )
 
     ordering = ('user',)

@@ -6,6 +6,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     """ Defines layout of 'Newsletters' submenu
     within 'NEWSLETTERS' Admin section """
     list_display = (
+        'id',
         'title',
         'body',
         'date',
@@ -20,6 +21,7 @@ class SubscriberAdmin(admin.ModelAdmin):
     """ Defines layout of 'Subscribers' submenu
     within 'NEWSLETTERS' Admin section  """
     list_display = (
+        'id',
         'email',
         'firstName',
         'lastName',

@@ -4,6 +4,7 @@ from profiles.models import UserProfile
 
 
 class Newsletters(models.Model):
+    """ Model to create Newsletters """
     class Meta:
         """ Changes the 'Admin section name from
         Newsletterss to Newsletters """
@@ -13,13 +14,14 @@ class Newsletters(models.Model):
     body = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(UserProfile, null=True, blank=True,
-                             on_delete=models.SET_NULL)
+                               on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
 
 
 class Subscribers(models.Model):
+    """ Model to add subscribers to the Newsletter list """
     class Meta:
         """ Changes the 'Admin section name from Subscriberss
         to Subscribers """

@@ -103,11 +103,15 @@ def review_product(request, product_id):
     if request.method == 'POST':
         product_purchased = False
         users_orders = Order.objects.filter(user_profile=user)
+        print("users_orders = : ", users_orders)
+        print("product = :", product)
         if users_orders:
             for order in users_orders:
                 line_items = order.lineitems.all()
 
                 for item in line_items:
+                    print("order number : ", order)
+                    print("item.product in line_items = :", item.product)
                     if item.product == product:
                         product_purchased = True
                         if request.user.is_authenticated:
@@ -122,11 +126,13 @@ def review_product(request, product_id):
                                             args=[product_id]))
 
                         return render(request, 'home/index.html')
-                    if product_purchased is False:
-                        messages.error(request, 'Sorry, you cannot review\
-                             a product unless you have purchased it first.')
-                        return redirect(reverse('product_detail',
-                                        args=[product_id]))
+
+            if product_purchased is False:
+                messages.error(request, 'Sorry, you cannot review\
+                        a product unless you have purchased it first.')
+                return redirect(reverse('product_detail',
+                                args=[product_id]))
+                                
         else:
             if product_purchased is False:
                 messages.error(request, 'Sorry, you cannot review a\
