@@ -105,110 +105,9 @@ Here are the colors being used :
 
 ### Data Models
 
-* Category Model
+![Database Schema](https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/database_schema/Database%20Schema.png)
 
-    - name = models.CharField(max_length=254) 
-    - friendly_name = models.CharField(max_length=254, null=True, blank=True)
-
-* Product Model
-    - category = models.ForeignKey('Category', null=True, blank=True,
-                                 on_delete=models.SET_NULL)
-    - sku = models.CharField(max_length=254, null=True, blank=True)
-    - name = models.CharField(max_length=254)
-    - description = models.TextField()
-    - has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    - price = models.DecimalField(max_digits=6, decimal_places=2)
-    - image_url = models.URLField(max_length=1024, null=True, blank=True)
-    - image = models.ImageField(null=True, blank=True)
-
-* Order Model
-    - order_number = models.CharField(max_length=32, null=False, editable=False)
-    - user_profiles = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                      null=True, blank=True, related_name='orders')
-    - full_name = models.CharField(max_length=50, null=False, blank=False)
-    - email = models.EmailField(max_length=254, null=False, blank=False)
-    - phone_number = models.CharField(max_length=20, null=False, blank=False)
-    - country = CountryField(blank_label='Country *', null=False, blank=False)
-    - postcode = models.CharField(max_length=20, null=True, blank=True)
-    - town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    - street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    - street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    - county = models.CharField(max_length=80, null=True, blank=True)
-    - date = models.DateTimeField(auto_now_add=True)
-    - delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
-                                        null=False, default=0)
-    - order_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
-    - grand_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
-    - original_shopping_bag = models.TextField(null=False, blank=False, default='')
-    - stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
-* Order Line-Item Model (used to create an order line for each item in a given order)
-
-    - order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE,
-                              related_name='lineitems')
-    - product = models.ForeignKey(Product, null=False, blank=False,
-                                on_delete=models.CASCADE)
-    - product_size = models.CharField(max_length=2,
-                                    choices=SIZE_CHOICES, null=True,
-                                    blank=True)  `'SIZE_CHOICES'` variable derived from `'SIZE_CHOICES'` selection listed below.
-    - quantity = models.IntegerField(null=False, blank=False, default=0)
-    - lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
-
-    - `SIZE_CHOICES`= [
-        (SIZE_6, 'Size 6'),
-        (SIZE_8, 'Size 8'),
-        (SIZE_10, 'Size 10'),
-        (SIZE_12, 'Size 12'),
-        (SIZE_14, 'Size 14'),
-        (SIZE_16, 'Size 16'),
-        (SIZE_18, 'Size 18'),
-        (SIZE_20, 'Size 20'),
-    ]   `'SIZE'` variable derived from the `'SIZE'` selection listed below.
-
-    - SIZE_6 = "6"
-    SIZE_8 = "8"
-    SIZE_10 = "10"
-    SIZE_12 = "12"
-    SIZE_14 = "14"
-    SIZE_16 = "16"
-    SIZE_18 = "18"
-    SIZE_20 = "20"
-
-* User Profile Model
-    - user = models.OneToOneField(User, on_delete=models.CASCADE)
-    - default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    - default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    - default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    - default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    - default_county = models.CharField(max_length=80, null=True, blank=True)
-    - default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    - default_country = CountryField(blank_label='Country', null=True, blank=True)
-
-* Product Review Model
-    - product = models.ForeignKey(Product, null=True, blank=True,
-                                on_delete=models.SET_NULL)
-    - user = models.ForeignKey(UserProfile, null=True, blank=True,
-                             on_delete=models.SET_NULL)
-    - date = models.DateTimeField(auto_now_add=True)
-    - review_text = models.CharField(max_length=1028, null=False,
-                                   blank=False)
-
-* Newsletter Model
-    - title = models.CharField(max_length=75, null=True, blank=True)
-    - body = models.TextField(null=True, blank=True)
-    - date = models.DateTimeField(auto_now_add=True)
-    - author = models.ForeignKey(UserProfile, null=True, blank=True,
-                             on_delete=models.SET_NULL)
-
-* Newsletter Subscriber Model
-    - firstName = models.CharField(max_length=25, null=True, blank=True)
-    - lastName = models.CharField(max_length=25, null=True, blank=True)
-    - email = models.EmailField(null=True, blank=True)
-    - date = models.DateTimeField(auto_now_add=True)
+https://github.com/AndyB-WHG/e-volve-retail/blob/main/documentation_assets/database_schema/Database%20Schema.png
 
 
 ## 2. Features
@@ -560,7 +459,7 @@ Reviews Admin Page | 67 | Delete Button | Allows superusers to delete any review
 My Reviews Page | 68 | Edit Button | Allows users to edit any of their own reviews via the Edit Review Page | Pass |
 My Reviews Page | 69 | Delete Button | Allows users to delete any of their own reviews. | Pass |
 Send Newsletter Page | 70 | Send Newletter button | Works as expected and sends email to subscribed users as expected. | Pass |
-Sunbscribe to Newsletter Page | 71 | Subscribe button  | Adds the user to the Newsletter Subscription database and send a confirmation email as expected. | Pass |
+Subscribe to Newsletter Page | 71 | Subscribe button  | Adds the user to the Newsletter Subscription database and send a confirmation email as expected. | Pass |
 
 
 Due to time constraints, full HTML and CSS validation is to be completed at a later date.
