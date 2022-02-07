@@ -472,8 +472,8 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 **Current Known Issues**
 
 - Confirmation emails following purchases are not currently being sent to the user.  This may be to do with 'webhook' issues to the Stripe payment platform although this is yet to be confirmed/investigated.
-
-- When editing reviews, the product image does not display on screen. Instead the placeholder image is displayed instead.
+ 
+- When editing reviews, the product image does not display on screen. Instead, the placeholder image is displayed.
 
 - The 'footer' section merges into the bottom of the 'Product Details' and 'Product Review' pages.
 
@@ -483,9 +483,31 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 
 ## Deployment
 
-The application has been deployed using Heroku and Amazon AWS.
+The application has been deployed using Heroku and Amazon AWS and can be replicated via the following process:
 
-Due to time constraints it has not possible to add a detailed summary of the steps required to deploy the project at this time.  This to be provided at a later date.
+1. Log in to the Heroku website (or create a new account if required).
+2. From the main 'Dashboard' click 'New', then 'Create New App'.
+3. Give the app a name and select the nearest region to yourself.
+4. Click 'Create App'
+5. Click the 'Resources' tab
+6. In the 'Add-ons' search bar type 'postgres' and click on the 'Heroku Postgres' option in order to provision a new Postgres database in which to store your models and databases.
+7. Select the 'Hobby Dev - Free' plan if you don't have a plan already.
+8. Click 'Provision'.
+9. In your IDE (GitPod was used by this author) install 'dj_database_url' using the following command:
+
+    pip3 install dj_database_url
+10. From your CLI also install 'psycopg2-binary' using the following command:
+
+    pip3 install psycopg2-binary
+11. Save the apps to the 'requirements.txt' file using the following command:
+
+    pip3 freeze > requirements.txt
+12. In the 'e_volve_retail' app within GitPod/your IDE, click on the 'settings.py' file.
+13. Within the 'settings.py' file, at the top of the file, import dj_database_url using the following code:
+
+    import dj_database_url  (note: if in doubt, place the code below the 'import os' line)
+14. 
+
 
 ## Images
 
