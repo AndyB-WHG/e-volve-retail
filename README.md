@@ -506,7 +506,89 @@ The application has been deployed using Heroku and Amazon AWS and can be replica
 13. Within the 'settings.py' file, at the top of the file, import dj_database_url using the following code:
 
     import dj_database_url  (note: if in doubt, place the code below the 'import os' line)
-14. 
+14. Comment out the default 'DATABASES' section which is linked to SQLite3 and add the following: 
+
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+15. Run migrations in order to migrate the data the new 'Postgres' database:
+    python3 manage.py migrate
+16. Import the 'categories.json' and 'products.json' data files to Postgres.
+    
+    It is important to do them in this order as the products rely on the categories being in place first:
+
+    python3 manage.py loaddata categories
+
+    python3 manage.py loaddata products
+
+17. Create 'superuser' for the Postgres database:
+
+    python3 manage.py createsuperuser
+    
+    provide:
+
+    Username, email and password
+
+18. Install gunicorn to act as a webserver:
+
+    pip3 install gunicorn
+
+    pip3 freeze > requirements.txt
+
+19. Create a 'Procfile' at the same level at the same file level as the manage.py file, to tell Heroku to create a web dyno which will run gunicorn and serve the Django app:
+
+    In the Profile type the following on line 1:
+
+    web: gunicorn e_volve_retail.wsgi:application
+
+21. Login to Heroku via the CLI:
+
+    heroku login -i
+
+    enter your Heroku email and password login details
+
+22. Temporarily disable 'COLLECTSTATIC' files so that Heroku won't try to collect static files upon deployment:
+
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app e-volve-retail
+
+23. Add the 'Host Name' of the Heroku app the the 'Allowed Hosts' section of the 'settings.py' file:
+
+    ALLOWED_HOSTS = ['e-volve-retail.herokuapp.com', 'localhost']
+
+    (note: the 'localhost' setting also allows the app to be run from GitPod or other CLI)
+
+24. Add, commit and push changes to Github.
+
+25. On the Heroku website, login and select the app.
+
+26. Click the 'Deploy' tab and in the 'Deploment Method' section select 'Connect to Github'.
+
+27. Search the repository and, once found, click connect.
+
+28. In the 'Manual Deploy' section click 'Deploy Branch'.
+
+29. Once the app has successfully deployed, click 'Enable Automatic Deploys' to allow future changes to the repository to automatically flow through to the Heroku deployment.
+
+30. Click the 'Settings' tab and add a 'SECRET_KEY' varibale to the 'Config Vars' section:
+
+    KEY = SECRET_KEY
+    VALUE = (add a password or secret key of your choice.  A 'Django secret key' can be generated online for you if requried. Search 'Django secret key generator' in google).
+
+31. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 ## Images
