@@ -483,37 +483,32 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 
 ## Deployment
 
-The application has been deployed using Heroku and Amazon AWS and can be replicated via the following process:
+The application has been deployed using Github, Heroku and Amazon AWS and can be replicated via the following process:
 
-1. Log in to the Heroku website (or create a new account if required).
-2. From the main 'Dashboard' click 'New', then 'Create New App'.
-3. Give the app a name and select the nearest region to yourself.
-4. Click 'Create App'
-5. Click the 'Resources' tab
-6. In the 'Add-ons' search bar type 'postgres' and click on the 'Heroku Postgres' option in order to provision a new Postgres database in which to store your models and databases.
-7. Select the 'Hobby Dev - Free' plan if you don't have a plan already.
-8. Click 'Provision'.
-9. In your IDE (GitPod was used by this author) install 'dj_database_url' using the following command:
+### Part 1.  Github & Heroku
 
-    pip3 install dj_database_url
-10. From your CLI also install 'psycopg2-binary' using the following command:
+1. Log in to Github and clone the e-volve-retail repository to your local machine. Instructions can be found here: 
 
-    pip3 install psycopg2-binary
-11. Save the apps to the 'requirements.txt' file using the following command:
+    https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
-    pip3 freeze > requirements.txt
-12. In the 'e_volve_retail' app within GitPod/your IDE, click on the 'settings.py' file.
-13. Within the 'settings.py' file, at the top of the file, import dj_database_url using the following code:
 
-    import dj_database_url  (note: if in doubt, place the code below the 'import os' line)
-14. Comment out the default 'DATABASES' section which is linked to SQLite3 and add the following: 
+2. Install the packages listed in the 'requirements.txt' file using the following command. Ensure you are on the same directory level as the 'requirements.txt' file before commencing:
 
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-15. Run migrations in order to migrate the data the new 'Postgres' database:
+    pip3 install -r requirements.txt
+
+3. Log in to the Heroku website (or create a new account if required).
+4. From the main 'Dashboard' click 'New', then 'Create New App'.
+5. Give the app a name (in this case 'e-volve-retail') and select the nearest region.
+6. Click 'Create App'
+7. Click the 'Resources' tab
+8. In the 'Add-ons' search bar type 'postgres' and click on the 'Heroku Postgres' option in order to provision a new Postgres database in which to store your models and databases.
+9. Select the 'Hobby Dev - Free' plan if you don't have a plan already.
+10. Click 'Provision'.
+
+11. Run migrations in order to migrate the data to the new 'Postgres' database:
     python3 manage.py migrate
-16. Import the 'categories.json' and 'products.json' data files to Postgres.
+
+12. Import the 'categories.json' and 'products.json' data files to Postgres.
     
     It is important to do them in this order as the products rely on the categories being in place first:
 
@@ -521,7 +516,7 @@ The application has been deployed using Heroku and Amazon AWS and can be replica
 
     python3 manage.py loaddata products
 
-17. Create 'superuser' for the Postgres database:
+13. Create 'superuser' for the Postgres database:
 
     python3 manage.py createsuperuser
     
@@ -529,53 +524,116 @@ The application has been deployed using Heroku and Amazon AWS and can be replica
 
     Username, email and password
 
-18. Install gunicorn to act as a webserver:
-
-    pip3 install gunicorn
-
-    pip3 freeze > requirements.txt
-
-19. Create a 'Procfile' at the same level at the same file level as the manage.py file, to tell Heroku to create a web dyno which will run gunicorn and serve the Django app:
-
-    In the Profile type the following on line 1:
-
-    web: gunicorn e_volve_retail.wsgi:application
-
-21. Login to Heroku via the CLI:
+14. Login to Heroku via the CLI:
 
     heroku login -i
 
     enter your Heroku email and password login details
 
-22. Temporarily disable 'COLLECTSTATIC' files so that Heroku won't try to collect static files upon deployment:
+15. Temporarily disable 'COLLECTSTATIC' files so that Heroku won't try to collect static files upon deployment:
 
     heroku config:set DISABLE_COLLECTSTATIC=1 --app e-volve-retail
 
-23. Add the 'Host Name' of the Heroku app the the 'Allowed Hosts' section of the 'settings.py' file:
+16. Add the 'Host Name' of the Heroku app to the 'Allowed Hosts' section of the 'settings.py' file:
 
     ALLOWED_HOSTS = ['e-volve-retail.herokuapp.com', 'localhost']
 
     (note: the 'localhost' setting also allows the app to be run from GitPod or other CLI)
 
-24. Add, commit and push changes to Github.
+17. Add, commit and push changes to a fork in the original Github repository, or alternatively create a new repository and push it there.
 
-25. On the Heroku website, login and select the app.
+18. On the Heroku website, login and select the app.
 
-26. Click the 'Deploy' tab and in the 'Deploment Method' section select 'Connect to Github'.
+19. 23. Click the 'Settings' tab and add a 'SECRET_KEY' variable to the 'Config Vars' section:
 
-27. Search the repository and, once found, click connect.
+    KEY = "SECRET_KEY"
 
-28. In the 'Manual Deploy' section click 'Deploy Branch'.
+    VALUE = any password or secret key of your choice.  
+    
+    (Note: A 'Django secret key' can be generated online for you if required. Search 'Django secret key generator' in google).
 
-29. Once the app has successfully deployed, click 'Enable Automatic Deploys' to allow future changes to the repository to automatically flow through to the Heroku deployment.
+20. Click the 'Deploy' tab and in the 'Deployment Method' section select 'Connect to Github'.
 
-30. Click the 'Settings' tab and add a 'SECRET_KEY' varibale to the 'Config Vars' section:
+21. Search for the repository and, once found, click connect.
 
-    KEY = SECRET_KEY
-    VALUE = (add a password or secret key of your choice.  A 'Django secret key' can be generated online for you if requried. Search 'Django secret key generator' in google).
+22. In the 'Manual Deploy' section click 'Deploy Branch'.
 
-31. 
+23. Once the app has successfully deployed, click 'Enable Automatic Deploys' to allow future changes to the repository to automatically flow through to the Heroku deployment.
 
+24. Click the settings tab again, and scroll down to the 'Domains' section. Here you will find a url for the deployed website, which can be copied and pasted into your browser address bar.
+
+### Part 2: Amazon AWS S3  -  File storage
+
+25.  Navigate to aws.amazon.com.
+
+26.  Login or create an AWS account as necessary.
+
+27. Once logged in click 'My Account', then 'AWS Management Console'.
+
+28. Search for 'S3' in the search bar at the top of the page.
+
+29. Create a new bucket to store the sites image files.
+
+30. Give the bucket a name (ideally, the same as the Heroku app name).
+
+31. Select the region closest to you.
+
+32. Unselect 'Block all public access'.  This needs to be public to allow public access to the sites static files.
+
+33. Click 'Create Bucket'.  The bucket will now be created and listed on the 'Buckets' page.
+
+34. Click the bucket.
+
+35. Click the 'Properties' tab and copy the 'Amazon Resource Name' (ARN) and save it to a notepad document or something similar as it will be needed later. It will look something like this:
+
+    arn:aws:s3:::e-volve-retail
+
+36. Scroll down to 'Static Website Hosting' and click the 'Edit' button, then click 'Enable', then 'Save Changes'.
+
+37. Next, click the 'Permissions' tab.
+
+38. Scroll to the CORS section (bottom of the page at the time of writing) and click edit.  Now paste in the following code:
+
+    [
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+
+39. Click save.
+
+40. Scroll up to the 'Bucket Policy' section and click 'Edit'.
+
+41. Click 'Policy Generator', and choose the following:
+
+    Policy Type:  S3 Bucket Policy
+
+    Effect:  Allow
+
+    Principal:  *  (ie. type a star in the box:  shift + 8)
+
+    Actions:  Get object
+
+42. Now paste the 'Amazon Resource Name' (ARN) you saved earlier into the Amazon Resource Name (ARN) box.
+
+43. Click 'Add Statement'
+
+44. Click 'Generate Policy'
+
+45. Copy the 'Policy JSON Document' code.
+
+46. Go back to the Sessions Tab and Edit the 'Bucket Policy' section.
+
+47. Delete any code and paste in the 'Policy JSON Document' code.
 
 
 
