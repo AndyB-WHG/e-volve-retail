@@ -623,7 +623,7 @@ The application has been deployed using Github, Heroku and Amazon AWS and can be
 
     Actions:  Get object
 
-42. Now paste the 'Amazon Resource Name' (ARN) you saved earlier into the Amazon Resource Name (ARN) box.
+42. Now paste the 'Amazon Resource Name' (ARN) you saved earlier into the Amazon Resource Name (ARN) box.  Keep the number handy as it will be required again later.
 
 43. Click 'Add Statement'
 
@@ -633,18 +633,90 @@ The application has been deployed using Github, Heroku and Amazon AWS and can be
 
 46. Go back to the Sessions Tab and Edit the 'Bucket Policy' section.
 
-47. Delete any code and paste in the 'Policy JSON Document' code.
+47. Delete any existing code and paste in the 'Policy JSON Document' code.
 
+48. On the line which starts "Resource": "arn:aws:s3:::" add a "/*" to the end of the line. Eg:
 
+    "Resource": "arn:aws:s3:::e-volve-retail/*",
 
+49. Click Save 
 
+50. Remain in the 'Permission's tab and up to the 'Block Public Access (Bucket Settings)' section.  Ensure this is off (click edit and ensure all the boxes are unchecked).
 
+### Create a 'User' and 'Policy' in the 'IAM' section
 
+51. In the search bar at the top of the Amazon AWS page, search for 'IAM' (Identity and Access Management).
 
+52. Click on the IAM link.  You will be taken to the main IAM Dashboard.
 
+53. In the left hand menu click 'User Groups'.
 
+54. Click 'Create Group'.
 
+55. Give the group a name eg. manage-evolve-retail.
 
+56. Scroll down a click 'Create Group'.
+
+57. Create a policy to control access to the group by clicking 'Policies' in the left-hand menu, then click 'Create Policy'.
+
+58. Click 'JSON' tab and select 'Import managed policy'.
+
+59. Search for 'S3'.
+
+60. Select and import the 'AmazonS3FullAccess' policy.
+
+61. Copy the 'ARN' number you saved earlier and paste it in to the 'Resource' section of the 'JSON' text. Eg:
+
+    "Resource": [
+        "arn:aws:s3:::e-volve-retail",
+        "arn:aws:s3:::e-volve-retail/*"
+    ]
+
+    (Note: the first line gives access to the bucket. The 2nd gives access to the contents within the bucket.)
+
+62. Click 'Review Policy'.
+
+63. Click 'Next', then click 'Next' again.
+
+63. Give it a name. Eg:  e-volve-retail-policy.
+
+64. Add a description. Eg. "Access to S3 bucket for e-volve-retail static files."
+
+65. Click 'Create Policy'.  You will be returned to the 'Policies' page where the new policy will be listed at the top.
+
+67. Click 'User Groups' again in the left hand menu.
+
+68. Click the group you created earlier. Eg. manage-evolve-retail.
+
+69. Click 'Permissions'.
+
+70. Click 'Add Permissions', then 'Attach Policies'.
+
+71. Click the 'checkbox' to the left of the policy you just created (should be top of the list, but if not, search for the policy using the search bar.)
+
+72. Scroll down and click 'Add Permissions'.  You will be returned to the 'user group' with a confirmation that the policy was added.
+
+### Create a User 
+
+73. Click 'User' in the left-hand menu.
+
+74. Click 'Add Users'
+
+75. Give the user a name. Eg. e-volve-retail-static-files-user.
+
+76. Select 'Access key - Programmatic access', then click 'Next: Permissions'.
+
+77. Click the 'Add User to Group' box then click the check-box next to the group you just created Eg. manage-evolve-retail.
+
+78. Click 'Next: Tags', then 'Next: Review', then 'Create User'.
+
+79. Click to download the csv (this contains the user's 'Access Key' and 'Secret Access Key')  and save it immediately.
+
+    Important:  save the downloaded file as it cannot be downloaded again.
+
+### Connect Django to the AWS S3 Bucket
+
+80. 
 
     
 
