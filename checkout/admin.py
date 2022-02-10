@@ -28,10 +28,9 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'id',
-        'order_number', 
-        'date', 
+        'order_number',
         'full_name',
-        'order_total', 
+        'order_total',
         'delivery_cost',
         'grand_total',
     )

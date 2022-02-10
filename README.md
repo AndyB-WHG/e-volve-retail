@@ -462,7 +462,9 @@ Send Newsletter Page | 70 | Send Newletter button | Works as expected and sends 
 Subscribe to Newsletter Page | 71 | Subscribe button  | Adds the user to the Newsletter Subscription database and send a confirmation email as expected. | Pass |
 
 
-All HTML and CSS files were tested using the [W3 HTML Validator website](https://validator.w3.org/) and the [W3 Jigsaw CSS Validator website](https://jigsaw.w3.org/css-validator/).  All code passed the correctly through the validator except where 
+All HTML and CSS files were tested using the [W3 HTML Validator website](https://validator.w3.org/) and the [W3 Jigsaw CSS Validator website](https://jigsaw.w3.org/css-validator/).  
+
+All code passes correctly through the validator except where HTML pages include 'Jinja Template Language' code for interaction with Django/Python variables and logic.  This is normal and to be expected.
 
 A number of issues highlighted by the 'Pylint' system in Gitpod also require investigation.
 

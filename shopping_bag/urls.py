@@ -1,4 +1,4 @@
-""" Url's for 'Shoppng Bag' pages """
+""" Url's for 'Shopping Bag' pages """
 
 from django.urls import path
 from . import views

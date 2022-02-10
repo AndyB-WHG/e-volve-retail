@@ -132,7 +132,7 @@ def review_product(request, product_id):
                         a product unless you have purchased it first.')
                 return redirect(reverse('product_detail',
                                 args=[product_id]))
-                                
+
         else:
             if product_purchased is False:
                 messages.error(request, 'Sorry, you cannot review a\
@@ -204,11 +204,11 @@ def edit_product(request, product_id):
 
 @login_required()
 def delete_product(request, product_id):
+    """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    """ Delete a product from the store """
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')

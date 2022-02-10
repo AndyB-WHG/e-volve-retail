@@ -1,3 +1,5 @@
+""" Views to create Newsletter and New Subscriber pages """
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -11,6 +13,7 @@ from . forms import NewsletterForm, SubscriberForm
 
 @login_required
 def new_newsletter(request):
+    """ View to create the New Newsletter page """
     if request.user.is_superuser:
         if request.method == 'POST':
 
@@ -46,7 +49,8 @@ def new_newsletter(request):
                     subscriber_emails,
                     fail_silently=False,
                 )
-                messages.success(request, "The newsletter was sent successfully!")
+                messages.success(request, "The newsletter was sent \
+                                 successfully!")
                 return redirect('/newsletters/')
         else:
             form = NewsletterForm()
@@ -60,6 +64,7 @@ def new_newsletter(request):
 
 @login_required()
 def new_subscriber(request):
+    """ View to create the New Subscriber page """
     if request.method == "POST":
         form_data = {
             'firstName': request.POST['firstName'],

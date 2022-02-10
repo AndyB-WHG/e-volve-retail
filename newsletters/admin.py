@@ -1,3 +1,5 @@
+""" Classes to optimise the 'Newsletters' Admin screen """
+
 from django.contrib import admin
 from . models import Newsletters, Subscribers
 
