@@ -462,7 +462,7 @@ Send Newsletter Page | 70 | Send Newletter button | Works as expected and sends 
 Subscribe to Newsletter Page | 71 | Subscribe button  | Adds the user to the Newsletter Subscription database and send a confirmation email as expected. | Pass |
 
 
-Due to time constraints, full HTML and CSS validation is to be completed at a later date.
+All HTML and CSS files were tested using the [W3 HTML Validator website](https://validator.w3.org/) and the [W3 Jigsaw CSS Validator website](https://jigsaw.w3.org/css-validator/).  All code passed the correctly through the validator except where 
 
 A number of issues highlighted by the 'Pylint' system in Gitpod also require investigation.
 
@@ -478,6 +478,10 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 - The 'footer' section merges into the bottom of the 'Product Details' and 'Product Review' pages.
 
 - The 'shopping-bag' icon in the Navbar on Tablet and Mobile screens appears out of line when deployed via Heroku, but is inline when deployed via Github in Development mode.  Requires investigation.
+
+- When adjusting the quantity of an item in the shopping bag, where the the item has a 'size' option, the size is not saved after the amendment and instead displays as blank (ie. 'Size   ').
+
+Due to time constraints it has not been possible investigate/correct these issues at the present time so are to be corrected at a later date.
 
 
 
@@ -778,8 +782,6 @@ The application has been deployed using Github, Heroku, Amazon AWS and Stripe an
 100. Success!  The application is now ready and fully deployed.
 
 
-
-
 ## Images
 
 **Home Page**
@@ -847,7 +849,7 @@ The application has been deployed using Github, Heroku, Amazon AWS and Stripe an
 
 ## Credits
 
-* KenBroTech on Youtube provided inspiration and guidance in building the Newsletter and Newsletter Subscription Models and functionality.
+* [KenBroTech](https://www.youtube.com/watch?v=hWtlskOaFNI&t=3407s) on Youtube provided inspiration and guidance in building the Newsletter and Newsletter Subscription Models and functionality.
 
 * Marcel Mulders (Mentor) provided some assistance dealing with an issue with Stripe.
 
