@@ -483,7 +483,7 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 
 ## Deployment
 
-The application has been deployed using Github, Heroku and Amazon AWS and can be replicated via the following process:
+The application has been deployed using Github, Heroku, Amazon AWS and Stripe and can be replicated via the following process:
 
 ### Part 1.  Github & Heroku
 
@@ -748,16 +748,34 @@ The application has been deployed using Github, Heroku and Amazon AWS and can be
 
 89. Add '/admin' to the end of the url to access the Admin login screen, then login user the superuser details you provided earlier via the CLI.
 
-90. Click the 'Email addresses' link at the top of the left-hand menu.
+90. Click the 'Email addresses' link at the top of the left-hand menu, then click your email address and tick/check 'Verified' and 'Primary'.
 
+91. Click 'Save'.
 
+### Add Stripe Keys
 
+92. Log in to your Stripe account and retrieve the 'Publishable Key' and 'Secret Key'.
 
+93. Add both keys to the Config Vars section in the Heroku settings tab:
 
-86. 
+    KEY:  STRIPE_PUBLIC_KEY,  VALUE:  Your 'Publishable Key'
+    KEY:  STRIPE_SECRET_KEY,  VALUE:  Your 'Secret Key'
 
+94. Back in Stripe, click 'Developers', then 'Webhooks', then click 'Add Endpoint'. 
 
+95. In the endpoint url box, add the Heroku website url and add '/checkout/wh/' to the end of the url.
 
+96. Click 'Select Events' and choose 'Select All Events', then click 'Add Events'.
+
+97. Scroll to the bottom and click 'Add Endpoint'.
+
+98. Click 'Reveal' under the 'Signing Secret' heading and copy the secret key.
+
+99. Add the 'Signing Secret' to the config vars in Heroku:
+
+    KEY:  STRIPE_WH_SECRET,   VALUE:  Your 'Signing Secret'
+
+100. Success!  The application is now ready and fully deployed.
 
 
 
