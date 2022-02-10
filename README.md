@@ -716,9 +716,50 @@ The application has been deployed using Github, Heroku and Amazon AWS and can be
 
 ### Connect Django to the AWS S3 Bucket
 
-80. 
+80. Back in your IDE, select the 'settings.py' file and change the name of the bucket to the newly created bucket, and the region to your chosen region: Eg.
 
-    
+    AWS_STORAGE_BUCKET_NAME = 'e-volve-retail'
+    AWS_S3_REGION_NAME = 'eu-west-2
+
+81. In Heroku, click 'settings' and add the 'Access Key' and 'Secret Access Key' downloaded earlier into the config vars section:
+
+    Key: AWS_ACCESS_KEY_ID,  Value:  Your 'access key'
+    Key: AWS_SECRET_ACCESS_KEY,  Value:  Your 'secret access key'
+
+82. Add, commit and push your changes to Github.
+
+### Add media files to AWS S3
+
+83. In AWS S3, select your bucket, and in the 'Objects' tab click 'Create Folder'.
+
+84. Name the folder 'media', select 'Disable, and click 'Create Folder'.
+
+85. The folder will appear in the list. Click and select 'Upload' and either drag and drop the product image files from a windows/mac os folder or select 'Add Files' and select the folder from there. 
+
+    Note: you will need to download the image files from Github into a folder of your choice first.
+
+86. Scroll down to the 'Permissions' section and select 'Grant public-read access'.
+
+87. Click 'Upload'.  The images will now be stored in your AWS S3 bucket.
+
+### Verify Superuser email address
+
+88. Naviate to the Heroku deployed website using the url provided in the 'Settings' tab in Heroku.
+
+89. Add '/admin' to the end of the url to access the Admin login screen, then login user the superuser details you provided earlier via the CLI.
+
+90. Click the 'Email addresses' link at the top of the left-hand menu.
+
+
+
+
+
+86. 
+
+
+
+
+
 
 
 ## Images
