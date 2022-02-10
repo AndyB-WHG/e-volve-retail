@@ -612,6 +612,10 @@ footer li a:hover {
     margin-top: 10px;
 }
 
+.write-review:hover {
+    text-decoration: none;
+}
+
 /* -------------------------------------------- Products Page -----------------------------------------------*/
 
 .products-page-links {
