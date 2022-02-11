@@ -781,7 +781,38 @@ The application has been deployed using Github, Heroku, Amazon AWS and Stripe an
 
     KEY:  STRIPE_WH_SECRET,   VALUE:  Your 'Signing Secret'
 
-100. Success!  The application is now ready and fully deployed.
+### Emails
+
+100. In the config vars in Heroku add the following Key / Value variables to link up your email to Django:
+
+    KEY: EMAIL_HOST_USER,  VALUE: your email address
+    
+    KEY:  EMAIL_HOST_PASS,   VALUE:  (a security key from your email provider - instructions for Gmail included below)
+
+101. To obtain the security key for a gmail account, log in and click:
+    
+    Settings, 
+    Accounts and Import,
+    Other Google Account Settings,
+    Security,
+    Turn on 2-Step Verification,
+    Get Started,
+    Select Verification Method,
+    Turn on 2-Step Verification,
+    Select 'App Passwords' under the 'Signing in to Google' heading,
+    Enter password if required,
+    Select 'mail' for the app, and 'other' for the device type, then type Django.
+    Click 'Generate'.
+    Pate the 16 digit code into EMAIL_HOST_PASS value box in Heroku.
+
+102. In the 'settings.py' file, update the 'EMAIL_PORT' and 'EMAIL_HOST' settings as appropriate for your email provider. For Gmail they are currently as follows:
+
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+
+103. The deployment is now complete.
+
+
 
 
 ## Images
