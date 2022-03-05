@@ -42,11 +42,12 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th><u>Order Number</u></th>
+                                <th><u>Date</u></th>
+                                <th><u>Items</u></th>
+                                <th><u>Order Total</u></th>
                             </tr>
+                            
                         </thead>
                         <tbody>
                             {% for order in orders %}
@@ -63,7 +64,7 @@
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
                                                    
-                                                    {{ item.product.name }} 
+                                                    <strong>{{ item.product.name }}</strong>
                                                     <div>
                                                     <p>{% if item.product.has_sizes %}
                                                         Size {{ item.product_size|upper }}
