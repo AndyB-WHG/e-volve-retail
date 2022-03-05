@@ -17,6 +17,8 @@ def add_to_shopping_bag(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
     size = None
+    size = request.POST.get('size')
+    print("Size = ", size)
     if 'size' in request.POST:
         size = request.POST.get('size')
     quantity = int(request.POST.get('quantity'))
@@ -73,6 +75,8 @@ def adjust_shopping_bag(request, item_id):
     print("starting the 'Adjust Shopping Bag' function")
     product = get_object_or_404(Product, pk=item_id)
     size = None
+    size_check = request.POST.get('product_size')
+    print("Size check when adjusting Shopping Bag quantity. Size = ", size_check)
     if 'product_size' in request.POST:
         size = request.POST.get('product_size')
     quantity = int(request.POST.get('quantity'))
@@ -81,16 +85,18 @@ def adjust_shopping_bag(request, item_id):
     # a session doesn't exist, create an empty dictionary instead.
     shopping_bag_session = request.session.get('shopping_bag_session', {})
 
-    print("Adjust Quantity shopping bag session: ", shopping_bag_session)
-    print("New Quantity : ", quantity)
-    print("Item ID being updated : ", item_id)
+    print("1.  'Adjust Quantity' shopping bag session: ", shopping_bag_session)
+    print("2.  New Quantity : ", quantity)
+    print("3.  Item ID being updated : ", item_id)
+    print("4.   'Size' pulled from 'Shopping Bag' page: ", size)
 
     if size:
         if quantity > 0:
             shopping_bag_session[item_id]['items_by_size'][size] = quantity
             messages.success(request, f'Updated size {size.upper()} \
-                {product.name} quantity to \
-                    {shopping_bag_session[item_id]["items_by_size"]}')
+                {product.name} quantity to {quantity}')
+
+                    # {shopping_bag_session[item_id]["items_by_size"]}')
         else:
             del shopping_bag_session[item_id]['items_by_size'][size]
             if not shopping_bag_session[item_id]['items_by_size']:

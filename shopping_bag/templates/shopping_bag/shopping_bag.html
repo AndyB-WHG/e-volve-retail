@@ -90,6 +90,7 @@
                 </div>
                 <div class="row">
                     {% if item.size %}
+                        The Size is going here
                         Size: {{ item.size }}
                     {% endif %}
                 </div>
@@ -106,8 +107,9 @@
                             </a>
                             
                         </div>
-                        {% if item.product.has_sizes %}
-                            <input type="hidden" name="product_size" value="{{ item.size }}">
+                        {% if item.size %}
+                            The hidden 'size' variable is hidden here
+                            <input type="hidden" name="product_size" value="{{ item.size }}" data-product_size="{{ item.size }}">
                         {% endif %}
                     </form>
                     <a class="remove-item text-danger small d-block d-sm-none" id="remove_{{ item.item_id }}" data-product_size="{{item.size}}">
@@ -251,6 +253,10 @@
                                 <a class="remove-item text-danger d-inline-block small" id="remove_{{ item.item_id }}" data-product_size="{{item.size}}">
                                     Remove Item
                                 </a>
+                                {% if item.size %}
+                                    The hidden 'size' variable is hidden here
+                                    <input type="hidden" name="product_size" value="{{ item.size }}" data-product_size="{{ item.size }}">
+                                {% endif %}
                             </h4>
                         </form>
                         

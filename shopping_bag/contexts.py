@@ -21,6 +21,8 @@ def shopping_bag_contents(request):
     for item_id, item_data in shopping_bag_session.items():
         if isinstance(item_data, int):  # if the item_data is just a quantity
             product = get_object_or_404(Product, pk=item_id)
+            print("Is the 'item_data' variable just a 'quantity' integer?  Item_data = ", item_data)
+            print("Shopping Bag Session (from context processor). No 'size' in shopping bag - just a quantity = ", shopping_bag_session)
             print("Product (from context processor) = ", product)
             print("item_id (from context processor) = ", item_id)
             total_order_value += item_data * product.price
@@ -35,6 +37,8 @@ def shopping_bag_contents(request):
         else:  # If the item_data is both 'quantity' AND 'size'
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
+                print("(From context preocessor) Is the 'item_data' variable a 'size' and a 'quantity' ?  Answer = ", item_data)
+                print("Shopping Bag Session (from context processor) : ", shopping_bag_session)
                 total_order_value += quantity * product.price
                 shopping_bag_count += quantity
                 shopping_bag_items.append({
