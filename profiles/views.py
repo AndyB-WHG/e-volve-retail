@@ -41,6 +41,8 @@ def profile(request):
 def order_history(request, order_number):
     """ View to display a previous Order Confirmation """
     order = get_object_or_404(Order, order_number=order_number)
+    print("Order: ", order)
+    print("Order Qty: ", order)
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
