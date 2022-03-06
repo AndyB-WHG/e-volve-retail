@@ -140,6 +140,24 @@ body header nav {
     font-size: 20px;
 }
 
+.shopping-bag-small-screens-zero-value:hover {
+    position:relative;
+    top: 30px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 0px;
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+    transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.shopping-bag-small-screens-zero-value a:hover {
+    text-decoration: none;
+}
+
 .bag-total {
     position:relative;
     top: 5px;

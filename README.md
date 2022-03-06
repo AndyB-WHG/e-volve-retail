@@ -479,8 +479,6 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 
 - The 'footer' section merges into the bottom of the 'Product Details' and 'Product Review' pages.
 
-- The 'shopping-bag' icon in the Navbar on Tablet and Mobile screens appears out of line when deployed via Heroku, but is inline when deployed via Github in Development mode.  Requires investigation.
-
 **Resolved Issues**
 
 - When adjusting the quantity of an item in the shopping bag, where the the item has a 'size' option, the size was not being retained/displayed after the amendment.  This is now fixed and was due to an incorrect variable being queried to display the product size. 
@@ -488,6 +486,8 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 - On the 'My Profile' page, within the 'Order History' section, the quantity again was not appearing. Again, the error related to an incorrect variable call. This is now resolved.
 
 - When attempting to make an 'anonymous/guest' purchase, this resulted in an internal server error, due to incorrect code indention within the 'checkout page' view. Now resolved.
+
+- The 'shopping-bag' icon in the Navbar on Tablet and Mobile screens was out of line when the Shopping Bag had a value of £0.00 (zero).  This was resolved using a Jinja 'if statement' within the template to select between two different positions dependent upon whether the Shopping Bag had a zero value or a positive value.
 
 ## Deployment
 
