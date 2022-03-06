@@ -481,11 +481,13 @@ A number of issues highlighted by the 'Pylint' system in Gitpod also require inv
 
 - The 'shopping-bag' icon in the Navbar on Tablet and Mobile screens appears out of line when deployed via Heroku, but is inline when deployed via Github in Development mode.  Requires investigation.
 
-- When adjusting the quantity of an item in the shopping bag, where the the item has a 'size' option, the size is not saved after the amendment and instead displays as blank (ie. 'Size   ').
+**Resolved Issues**
 
-Due to time constraints it has not been possible investigate/correct these issues at the present time so are to be corrected at a later date.
+- When adjusting the quantity of an item in the shopping bag, where the the item has a 'size' option, the size was not being retained/displayed after the amendment.  This is now fixed and was due to an incorrect variable being queried to display the product size. 
 
+- On the 'My Profile' page, within the 'Order History' section, the quantity again was not appearing. Again, the error related to an incorrect variable call. This is now resolved.
 
+- When attempting to make an 'anonymous/guest' purchase, this resulted in an internal server error, due to incorrect code indention within the 'checkout page' view. Now resolved.
 
 ## Deployment
 

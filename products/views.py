@@ -1,8 +1,4 @@
 """ Views to display 'All Products' and individual Product Details """
-from tkinter import *
-from PIL import ImageTk, Image
-from tkinter import messagebox
-
 from django.db import models
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
@@ -14,7 +10,6 @@ from django.db.models.functions import Lower
 from user_reviews.models import User_review
 from profiles.models import UserProfile
 from checkout.models import Order
-
 
 from .models import Product, Category
 from .forms import ProductForm
