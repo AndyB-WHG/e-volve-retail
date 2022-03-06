@@ -257,7 +257,7 @@
                 <i class="fas fa-shopping-bag d-lg-inline-flex text-center central-nav-link"></i>
                 <div class="text-center">
                   {% if total_including_delivery %}
-                    <p class="bag-total">£{{ total_including_delivery|floatformat:2 }}</p>
+                    <p class="bag-total-large">£{{ total_including_delivery|floatformat:2 }}</p>
                   {% else %}
                     <p class="zero-value">£0.00</p>
                   {% endif %}

@@ -146,6 +146,25 @@ body header nav {
     text-decoration: none;
 }
 
+.bag-total-large {
+    /* position:relative;
+    top: 5px;
+    right: 30px;
+    padding-bottom: 3px; */
+    text-decoration: none;
+    color:rgb(22, 141, 42);
+    /* transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 15px;
+    padding-left: 0px;
+    padding-right: 0px; */
+}
+
+.bag-total-large:hover {
+    text-decoration: none;
+}
+
 .fa-shopping-bag {
 color:rgb(55, 56, 56);
 }
@@ -176,6 +195,8 @@ nav div .shopping-bag-large-screen a:hover {
 }
 
 .zero-value {
+    position: relative;
+    top: 10px;
     color: #ffffff;
 }
 
