@@ -103,19 +103,29 @@
               </div>
             </li>
 
+            {% if total_including_delivery %}
             <li class="list-inline-item d-lg-none shopping-bag-small-screens">
               <a href="{% url 'shopping_bag' %}">
                 <i class="fas fa-shopping-bag d-lg-inline-flex text-center"></i>
                 <div class="text-center">
-                  {% if total_including_delivery %}
+                  
                     <p class="bag-total">£{{ total_including_delivery|floatformat:2 }}</p>
-                  {% else %}
-                    <p class="zero-value">£0.00</p>
-                  {% endif %}
+                  
                 </div>
               </a>
             </li>
-
+            {% else %}
+            <li class="list-inline-item d-lg-none shopping-bag-small-screens zero-value">
+              <a href="{% url 'shopping_bag' %}">
+                <i class="fas fa-shopping-bag d-lg-inline-flex text-center"></i>
+                <div class="text-center">
+                  
+                <p class="zero-value">£0.00</p>
+                  
+                </div>
+              </a>
+            </li>
+            {% endif %}
           </div>
         </ul>
 

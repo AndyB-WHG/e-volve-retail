@@ -114,6 +114,20 @@ body header nav {
 
 .shopping-bag-small-screens {
     position:relative;
+    top: 24px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 0px;
+    text-decoration: none;
+    color:rgb(55, 56, 56);
+    transition: 0.4s;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.shopping-bag-small-screens-zero-value {
+    position:relative;
     top: 30px;
     padding-bottom: 3px;
     padding-left: 10px;
@@ -124,7 +138,6 @@ body header nav {
     cursor: pointer;
     font-style: normal;
     font-size: 20px;
-    
 }
 
 .bag-total {
@@ -196,7 +209,7 @@ nav div .shopping-bag-large-screen a:hover {
 
 .zero-value {
     position: relative;
-    top: 10px;
+    /* top: 10px; */
     color: #ffffff;
 }
 
